@@ -1,0 +1,214 @@
+{
+    "archdesc[@level='collection']/did/abstract": {
+        "solrFields": [
+            "abstract_teim",
+            "abstract_dtim",
+            "abstract_iim",
+            "abstract_ssm"
+        ]
+    },
+    "archdesc[@level='collection']/acqinfo/p": {
+        "solrFields": [
+            "acqinfo_teim",
+            "acqinfo_dtim",
+            "acqinfo_iim"
+        ]
+    },
+    "archdesc[@level='collection']/appraisal/p": {
+        "solrFields": [
+            "appraisal_teim",
+            "appraisal_dtim",
+            "appraisal_iim"
+        ]
+    },
+    "filedesc/titlestmt/author": {
+        "solrFields": [
+            "author_teim",
+            "author_dtim",
+            "author_iim",
+            "author_ssm"
+        ]
+    },
+    "archdesc[@level='collection']/bioghist/p": {
+        "solrFields": [
+            "bioghist_teim",
+            "bioghist_dtim",
+            "bioghist_iim"
+        ]
+    },
+    "archdesc[@level='collection']/*[name() != 'dsc']//chronlist/chronitem//text()": {
+        "solrFields": [
+            "chronlist_teim",
+            "chronlist_dtim",
+            "chronlist_iim"
+        ]
+    },
+    "archdesc[@level='collection']/did/unittitle": {
+        "solrFields": [
+            "collection_sim",
+            "collection_ssm",
+            "collection_teim",
+            "collection_dtim",
+            "collection_iim",
+            "unittitle_teim",
+            "unittitle_dtim",
+            "unittitle_iim",
+            "unittitle_ssm"
+        ]
+    },
+    "archdesc[@level='collection']/*[name() != 'dsc']//corpname": {
+        "solrFields": [
+            "corpname_teim",
+            "corpname_dtim",
+            "corpname_iim",
+            "corpname_ssm"
+        ]
+    },
+    "archdesc[@level='collection']/did/origination[@label='creator']/*[#{creator_fields_to_xpath}]": {
+        "solrFields": [
+            "creator_teim",
+            "creator_dtim",
+            "creator_iim",
+            "creator_ssm"
+        ]
+    },
+    "archdesc[@level='collection']/custodhist/p": {
+        "solrFields": [
+            "custodhist_teim",
+            "custodhist_dtim",
+            "custodhist_iim"
+        ]
+    },
+    "archdesc[@level='collection']/*[name() != 'dsc']//famname": {
+        "solrFields": [
+            "famname_teim",
+            "famname_dtim",
+            "famname_iim",
+            "famname_ssm"
+        ]
+    },
+    "archdesc[@level='collection']/*[name() != 'dsc']//function": {
+        "solrFields": [
+            "function_teim",
+            "function_dtim",
+            "function_iim",
+            "function_ssm"
+        ]
+    },
+    "archdesc[@level='collection']/*[name() != 'dsc']//genreform": {
+        "solrFields": [
+            "genreform_teim",
+            "genreform_dtim",
+            "genreform_iim",
+            "genreform_ssm"
+        ]
+    },
+    "archdesc[@level='collection']/*[name() != 'dsc']//geogname": {
+        "solrFields": [
+            "geogname_teim",
+            "geogname_dtim",
+            "geogname_iim",
+            "geogname_ssm"
+        ]
+    },
+    "archdesc[@level='collection']/*[name() != 'dsc']//name": {
+        "solrFields": [
+            "name_teim",
+            "name_dtim",
+            "name_iim",
+            "name_ssm"
+        ]
+    },
+    "archdesc[@level='collection']/*[name() != 'dsc']//note": {
+        "solrFields": [
+            "note_teim",
+            "note_dtim",
+            "note_iim",
+            "note_ssm"
+        ]
+    },
+    "archdesc[@level='collection']/*[name() != 'dsc']//occupation": {
+        "solrFields": [
+            "occupation_teim",
+            "occupation_dtim",
+            "occupation_iim",
+            "occupation_ssm"
+        ]
+    },
+    "archdesc[@level='collection']/*[name() != 'dsc']//persname": {
+        "solrFields": [
+            "persname_teim",
+            "persname_dtim",
+            "persname_iim",
+            "persname_ssm"
+        ]
+    },
+    "archdesc[@level='collection']/phystech/p": {
+        "solrFields": [
+            "phystech_teim",
+            "phystech_dtim",
+            "phystech_iim"
+        ]
+    },
+    "archdesc[@level='collection']/scopecontent/p": {
+        "solrFields": [
+            "scopecontent_teim",
+            "scopecontent_dtim",
+            "scopecontent_iim"
+        ]
+    },
+    "archdesc[@level='collection']/*[name() != 'dsc']//subject": {
+        "solrFields": [
+            "subject_teim",
+            "subject_dtim",
+            "subject_iim",
+            "subject_ssm"
+        ]
+    },
+    "archdesc[@level='collection']/*[name() != 'dsc']//title": {
+        "solrFields": [
+            "title_teim",
+            "title_dtim",
+            "title_iim",
+            "title_ssm"
+        ]
+    },
+    "archdesc[@level='collection']/did/unitdate[not(@type)]": {
+        "solrFields": [
+            "unitdate_teim",
+            "unitdate_dtim",
+            "unitdate_iim"
+        ]
+    },
+    "archdesc[@level='collection']/did/unitdate[@type='bulk']": {
+        "solrFields": [
+            "unitdate_bulk_teim",
+            "unitdate_bulk_dtim",
+            "unitdate_bulk_iim"
+        ]
+    },
+    "archdesc[@level='collection']/did/unitdate[@type='inclusive']": {
+        "solrFields": [
+            "unitdate_inclusive_teim",
+            "unitdate_inclusive_dtim",
+            "unitdate_inclusive_iim"
+        ]
+    },
+    "archdesc[@level='collection']/did/unitdate/@normal": {
+        "solrFields": [
+            "unitdate_normal_ssm",
+            "unitdate_normal_teim",
+            "unitdate_normal_dtim",
+            "unitdate_normal_iim",
+            "unitdate_normal_sim"
+        ]
+    },
+    "archdesc[@level='collection']/did/unitid": {
+        "solrFields": [
+            "unitid_teim",
+            "unitid_dtim",
+            "unitid_iim",
+            "unitid_ssm"
+        ]
+    }
+}
