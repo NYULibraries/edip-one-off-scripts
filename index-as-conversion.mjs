@@ -1,7 +1,3 @@
-const INDEXED = ':indexed';
-const MULTIVALUED = ':multivalued';
-const STRING = ':string';
-
 const indexAsConversion = {
     displayable : {
         suffixes : [ '_ssm' ],
