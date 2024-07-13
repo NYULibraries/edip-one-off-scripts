@@ -1,4 +1,4 @@
-const solrFields = {
+const mainDocSolrFields = {
     // langcode : {
     //     xpath : 'archdesc[@level=\'collection\']/did/langmaterial/language/@langcode',
     // },
@@ -117,5 +117,5 @@ const solrFields = {
 };
 
 export {
-    solrFields,
+    mainDocSolrFields,
 };
