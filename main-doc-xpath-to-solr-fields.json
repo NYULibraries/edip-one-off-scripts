@@ -79,6 +79,12 @@
             "custodhist_iim"
         ]
     },
+    "eadid": {
+        "solrFields": [
+            "ead_ssi",
+            "ead_dtsi"
+        ]
+    },
     "archdesc[@level='collection']/*[name() != 'dsc']//famname": {
         "solrFields": [
             "famname_teim",

@@ -5,8 +5,8 @@ import { indexAsConversion } from './index-as-conversion.mjs';
 
 const mainDocXpathToSolrFields = {};
 
-Object.keys( mainDocSolrFields ).sort().forEach( solrFieldName => {
-    const solrField = mainDocSolrFields[ solrFieldName ];
+Object.keys( mainDocSolrFields.xpath ).sort().forEach( solrFieldName => {
+    const solrField = mainDocSolrFields.xpath[ solrFieldName ];
     const suffixes = [];
     const indexAsArray = solrField.indexAsArray;
     if ( indexAsArray ) {
