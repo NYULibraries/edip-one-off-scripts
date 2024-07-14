@@ -117,6 +117,13 @@
             "geogname_ssm"
         ]
     },
+    "archdesc[@level='collection']/did/langmaterial/language/@langcode": {
+        "solrFields": [
+            "langcode_tesim",
+            "langcode_dtsim",
+            "langcode_isim"
+        ]
+    },
     "archdesc[@level='collection']/*[name() != 'dsc']//name": {
         "solrFields": [
             "name_teim",

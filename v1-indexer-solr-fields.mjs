@@ -1,8 +1,5 @@
 const mainDocSolrFields = {
     xpath: {
-        // langcode : {
-        //     xpath : 'archdesc[@level=\'collection\']/did/langmaterial/language/@langcode',
-        // },
         abstract : {
             xpath    : 'archdesc[@level=\'collection\']/did/abstract',
             indexAsArray : [ 'searchable', 'displayable' ],
@@ -62,6 +59,10 @@ const mainDocSolrFields = {
         geogname : {
             xpath    : 'archdesc[@level=\'collection\']/*[name() != \'dsc\']//geogname',
             indexAsArray : [ 'searchable', 'displayable' ],
+        },
+        langcode : {
+            xpath : 'archdesc[@level=\'collection\']/did/langmaterial/language/@langcode',
+            indexAsArray : [ 'stored_searchable' ],
         },
         name : {
             xpath    : 'archdesc[@level=\'collection\']/*[name() != \'dsc\']//name',
