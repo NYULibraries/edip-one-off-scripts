@@ -1,0 +1,24 @@
+{
+    "0": {
+        "solrFields": [
+            "format_tei",
+            "format_si",
+            "format_dti",
+            "format_ii"
+        ]
+    },
+    "Hardcoded \"Archival Collection\"": {
+        "solrFields": [
+            "format_sim",
+            "format_ssm"
+        ]
+    },
+    "Derived from name of parent directory of EAD file": {
+        "solrFields": [
+            "undefined_ssm",
+            "undefined_sim",
+            "undefined_ssi",
+            "undefined_dtsi"
+        ]
+    }
+}

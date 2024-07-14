@@ -1,0 +1,7 @@
+{
+    "First token of <eadid>": {
+        "solrFields": [
+            "id"
+        ]
+    }
+}

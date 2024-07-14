@@ -1,4 +1,25 @@
 const mainDocSolrFields = {
+    direct : {
+        id : {
+            source : 'First token of <eadid>',
+        },
+    },
+    nonXpath: {
+        formatArchivalCollection: {
+            basename: 'format',
+            source : [ 'Hardcoded "Archival Collection"' ],
+            indexAsArray : [ 'facetable', 'displayable' ],
+        },
+        formatDummyForMainDocSort: {
+            basename: 'format',
+            source : [ 0 ],
+            indexAsArray : [ 'sortable' ],
+        },
+        repository : {
+            source    : [ 'Derived from name of parent directory of EAD file' ],
+            indexAsArray : [ 'displayable', 'facetable', 'stored_sortable' ],
+        },
+    },
     xpath: {
         abstract : {
             xpath    : 'archdesc[@level=\'collection\']/did/abstract',
@@ -120,9 +141,6 @@ const mainDocSolrFields = {
             xpath    : 'archdesc[@level=\'collection\']/did/unittitle',
             indexAsArray : [ 'searchable', 'displayable' ],
         },
-    },
-    derived : {
-
     },
 };
 
