@@ -5,13 +5,25 @@ const STORED_STORABLE = 'stored_sortable';
 const STORED_SEARCHABLE = 'stored_searchable';
 
 const mainDocSolrFields = {
-    direct : {
     nonSolrizer : {
         id : {
             source : 'First token of <eadid>',
         },
     },
     solrizer : {
+        composite: {
+            creator : {
+                xpathQueries: [
+                    "//origination[@label='creator']/corpname",
+                    "//origination[@label='creator']/famname",
+                    "//origination[@label='creator']/persname",
+                ],
+                process: 'Get elements for each xpath query in the order listed.' +
+                         ' Flatten returned node sets into one array, remove' +
+                         ' duplicates, and remove `nil` values.',
+                indexAsArray : [ DISPLAYABLE, FACETABLE ],
+            },
+        },
         nonXpath: {
             formatArchivalCollection: {
                 basename: 'format',
