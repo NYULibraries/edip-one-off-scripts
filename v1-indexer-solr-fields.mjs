@@ -1,5 +1,12 @@
+const DISPLAYABLE = 'displayable';
+const FACETABLE = 'facetable';
+const SEARCHABLE = 'searchable';
+const STORED_STORABLE = 'stored_sortable';
+const STORED_SEARCHABLE = 'stored_searchable';
+
 const mainDocSolrFields = {
     direct : {
+    nonSolrizer : {
         id : {
             source : 'First token of <eadid>',
         },
@@ -8,7 +15,7 @@ const mainDocSolrFields = {
         formatArchivalCollection: {
             basename: 'format',
             source : [ 'Hardcoded "Archival Collection"' ],
-            indexAsArray : [ 'facetable', 'displayable' ],
+            indexAsArray : [ FACETABLE, DISPLAYABLE ],
         },
         formatDummyForMainDocSort: {
             basename: 'format',
@@ -17,129 +24,129 @@ const mainDocSolrFields = {
         },
         repository : {
             source    : [ 'Derived from name of parent directory of EAD file' ],
-            indexAsArray : [ 'displayable', 'facetable', 'stored_sortable' ],
+            indexAsArray : [ DISPLAYABLE, FACETABLE, STORED_STORABLE ],
         },
     },
     xpath: {
         abstract : {
             xpath    : 'archdesc[@level=\'collection\']/did/abstract',
-            indexAsArray : [ 'searchable', 'displayable' ],
+            indexAsArray : [ SEARCHABLE, DISPLAYABLE ],
         },
         acqinfo : {
             xpath    : 'archdesc[@level=\'collection\']/acqinfo/p',
-            indexAsArray : [ 'searchable' ],
+            indexAsArray : [ SEARCHABLE ],
         },
         appraisal : {
             xpath    : 'archdesc[@level=\'collection\']/appraisal/p',
-            indexAsArray : [ 'searchable' ],
+            indexAsArray : [ SEARCHABLE ],
         },
         author : {
             xpath    : 'filedesc/titlestmt/author',
-            indexAsArray : [ 'searchable', 'displayable' ],
+            indexAsArray : [ SEARCHABLE, DISPLAYABLE ],
         },
         bioghist : {
             xpath    : 'archdesc[@level=\'collection\']/bioghist/p',
-            indexAsArray : [ 'searchable' ],
+            indexAsArray : [ SEARCHABLE ],
         },
         chronlist : {
             xpath    : 'archdesc[@level=\'collection\']/*[name() != \'dsc\']//chronlist/chronitem//text()',
-            indexAsArray : [ 'searchable' ],
+            indexAsArray : [ SEARCHABLE ],
         },
         collection : {
             xpath    : 'archdesc[@level=\'collection\']/did/unittitle',
-            indexAsArray : [ 'facetable', 'displayable', 'searchable' ],
+            indexAsArray : [ FACETABLE, DISPLAYABLE, SEARCHABLE ],
         },
         corpname : {
             xpath    : 'archdesc[@level=\'collection\']/*[name() != \'dsc\']//corpname',
-            indexAsArray : [ 'searchable', 'displayable' ],
+            indexAsArray : [ SEARCHABLE, DISPLAYABLE ],
         },
         creator : {
             xpath    : 'archdesc[@level=\'collection\']/did/origination[@label=\'creator\']/*[#{creator_fields_to_xpath}]',
-            indexAsArray : [ 'searchable', 'displayable' ],
+            indexAsArray : [ SEARCHABLE, DISPLAYABLE ],
         },
         custodhist : {
             xpath    : 'archdesc[@level=\'collection\']/custodhist/p',
-            indexAsArray : [ 'searchable' ],
+            indexAsArray : [ SEARCHABLE ],
         },
         ead : {
             xpath : 'eadid',
-            indexAsArray : [ 'stored_sortable' ],
+            indexAsArray : [ STORED_STORABLE ],
         },
         famname : {
             xpath    : 'archdesc[@level=\'collection\']/*[name() != \'dsc\']//famname',
-            indexAsArray : [ 'searchable', 'displayable' ],
+            indexAsArray : [ SEARCHABLE, DISPLAYABLE ],
         },
         function : {
             xpath    : 'archdesc[@level=\'collection\']/*[name() != \'dsc\']//function',
-            indexAsArray : [ 'searchable', 'displayable' ],
+            indexAsArray : [ SEARCHABLE, DISPLAYABLE ],
         },
         genreform : {
             xpath    : 'archdesc[@level=\'collection\']/*[name() != \'dsc\']//genreform',
-            indexAsArray : [ 'searchable', 'displayable' ],
+            indexAsArray : [ SEARCHABLE, DISPLAYABLE ],
         },
         geogname : {
             xpath    : 'archdesc[@level=\'collection\']/*[name() != \'dsc\']//geogname',
-            indexAsArray : [ 'searchable', 'displayable' ],
+            indexAsArray : [ SEARCHABLE, DISPLAYABLE ],
         },
         langcode : {
             xpath : 'archdesc[@level=\'collection\']/did/langmaterial/language/@langcode',
-            indexAsArray : [ 'stored_searchable' ],
+            indexAsArray : [ STORED_SEARCHABLE ],
         },
         name : {
             xpath    : 'archdesc[@level=\'collection\']/*[name() != \'dsc\']//name',
-            indexAsArray : [ 'searchable', 'displayable' ],
+            indexAsArray : [ SEARCHABLE, DISPLAYABLE ],
         },
         note : {
             xpath    : 'archdesc[@level=\'collection\']/*[name() != \'dsc\']//note',
-            indexAsArray : [ 'searchable', 'displayable' ],
+            indexAsArray : [ SEARCHABLE, DISPLAYABLE ],
         },
         occupation : {
             xpath    : 'archdesc[@level=\'collection\']/*[name() != \'dsc\']//occupation',
-            indexAsArray : [ 'searchable', 'displayable' ],
+            indexAsArray : [ SEARCHABLE, DISPLAYABLE ],
         },
         persname : {
             xpath    : 'archdesc[@level=\'collection\']/*[name() != \'dsc\']//persname',
-            indexAsArray : [ 'searchable', 'displayable' ],
+            indexAsArray : [ SEARCHABLE, DISPLAYABLE ],
         },
         phystech : {
             xpath    : 'archdesc[@level=\'collection\']/phystech/p',
-            indexAsArray : [ 'searchable' ],
+            indexAsArray : [ SEARCHABLE ],
         },
         scopecontent : {
             xpath    : 'archdesc[@level=\'collection\']/scopecontent/p',
-            indexAsArray : [ 'searchable' ],
+            indexAsArray : [ SEARCHABLE ],
         },
         subject : {
             xpath    : 'archdesc[@level=\'collection\']/*[name() != \'dsc\']//subject',
-            indexAsArray : [ 'searchable', 'displayable' ],
+            indexAsArray : [ SEARCHABLE, DISPLAYABLE ],
         },
         title : {
             xpath    : 'archdesc[@level=\'collection\']/*[name() != \'dsc\']//title',
-            indexAsArray : [ 'searchable', 'displayable' ],
+            indexAsArray : [ SEARCHABLE, DISPLAYABLE ],
         },
         unitdate : {
             xpath    : 'archdesc[@level=\'collection\']/did/unitdate[not(@type)]',
-            indexAsArray : [ 'searchable' ],
+            indexAsArray : [ SEARCHABLE ],
         },
         unitdate_bulk : {
             xpath    : 'archdesc[@level=\'collection\']/did/unitdate[@type=\'bulk\']',
-            indexAsArray : [ 'searchable' ],
+            indexAsArray : [ SEARCHABLE ],
         },
         unitdate_normal : {
             xpath    : 'archdesc[@level=\'collection\']/did/unitdate/@normal',
-            indexAsArray : [ 'displayable', 'searchable', 'facetable' ],
+            indexAsArray : [ DISPLAYABLE, SEARCHABLE, FACETABLE ],
         },
         unitdate_inclusive : {
             xpath    : 'archdesc[@level=\'collection\']/did/unitdate[@type=\'inclusive\']',
-            indexAsArray : [ 'searchable' ],
+            indexAsArray : [ SEARCHABLE ],
         },
         unitid : {
             xpath    : 'archdesc[@level=\'collection\']/did/unitid',
-            indexAsArray : [ 'searchable', 'displayable' ],
+            indexAsArray : [ SEARCHABLE, DISPLAYABLE ],
         },
         unittitle : {
             xpath    : 'archdesc[@level=\'collection\']/did/unittitle',
-            indexAsArray : [ 'searchable', 'displayable' ],
+            indexAsArray : [ SEARCHABLE, DISPLAYABLE ],
         },
     },
 };
