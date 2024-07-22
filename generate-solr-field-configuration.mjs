@@ -7,9 +7,9 @@ const mainDocDirectToSolrFields = {};
 const mainDocNonXpathToSolrFields = {};
 const mainDocXpathToSolrFields = {};
 
-function addDirectSolrFields() {
-    Object.keys( mainDocSolrFields.direct ).sort().forEach( solrFieldName => {
-        const solrField = mainDocSolrFields.direct[ solrFieldName ];
+function addNonSolrizerSolrFields() {
+    Object.keys( mainDocSolrFields.nonSolrizer ).sort().forEach( solrFieldName => {
+        const solrField = mainDocSolrFields.nonSolrizer[ solrFieldName ];
         if ( ! mainDocDirectToSolrFields[ solrField.source ] ) {
             mainDocDirectToSolrFields[ solrField.source ] = {};
             mainDocDirectToSolrFields[ solrField.source ].solrFields = [];
@@ -60,12 +60,12 @@ function addXpathSolrFields() {
     } );
 }
 
-addDirectSolrFields();
+addNonSolrizerSolrFields();
 addNonXpathSolrFields();
 addXpathSolrFields();
 
 writeFileSync(
-    'main-doc-direct-to-solr-fields.json',
+    'main-doc-non-solrizer-solr-fields.json',
     JSON.stringify( mainDocDirectToSolrFields, null, '    ' ),
     { encoding : 'utf8' },
 );
