@@ -19,8 +19,8 @@ function addNonSolrizerSolrFields() {
 }
 
 function addNonXpathSolrFields() {
-    Object.keys( mainDocSolrFields.nonXpath ).sort().forEach( solrFieldName => {
-        const solrField = mainDocSolrFields.nonXpath[ solrFieldName ];
+    Object.keys( mainDocSolrFields.solrizer.nonXpath ).sort().forEach( solrFieldName => {
+        const solrField = mainDocSolrFields.solrizer.nonXpath[ solrFieldName ];
         const suffixes = [];
         const indexAsArray = solrField.indexAsArray;
         if ( indexAsArray ) {
@@ -40,8 +40,8 @@ function addNonXpathSolrFields() {
 }
 
 function addXpathSolrFields() {
-    Object.keys( mainDocSolrFields.xpath ).sort().forEach( solrFieldName => {
-        const solrField = mainDocSolrFields.xpath[ solrFieldName ];
+    Object.keys( mainDocSolrFields.solrizer.xpath ).sort().forEach( solrFieldName => {
+        const solrField = mainDocSolrFields.solrizer.xpath[ solrFieldName ];
         const suffixes = [];
         const indexAsArray = solrField.indexAsArray;
         if ( indexAsArray ) {
