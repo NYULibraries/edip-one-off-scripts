@@ -1,0 +1,1075 @@
+#<OM::XML::Terminology:0x00007fe1c1dee130
+ @namespaces={},
+ @schema=nil,
+ @terms=
+  {:ead=>
+    #<OM::XML::Term:0x00007fe1c1dedb90
+     @ancestors=[],
+     @attributes=nil,
+     @children=
+      {:eadid=>
+        #<OM::XML::Term:0x00007fe1c1ded0c8
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @attributes=nil,
+         @children={},
+         @default_content_path=nil,
+         @index_as=nil,
+         @name=:eadid,
+         @namespace_prefix=nil,
+         @path="eadid",
+         @required=false,
+         @type=:string,
+         @variant_of=nil,
+         @xpath="//ead/eadid",
+         @xpath_constrained=
+          "//ead/eadid[contains(., \\\"\#{constraint_value}\\\")]",
+         @xpath_relative="eadid">,
+       :author=>
+        #<OM::XML::Term:0x00007fe1c1de7448
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @attributes=nil,
+         @children={},
+         @default_content_path=nil,
+         @index_as=[:searchable, :displayable],
+         @name=:author,
+         @namespace_prefix=nil,
+         @path="filedesc/titlestmt/author",
+         @required=false,
+         @type=:string,
+         @variant_of=nil,
+         @xpath="//ead/filedesc/titlestmt/author",
+         @xpath_constrained=
+          "//ead/filedesc/titlestmt/author[contains(., \\\"\#{constraint_value}\\\")]",
+         @xpath_relative="filedesc/titlestmt/author">,
+       :unittitle=>
+        #<OM::XML::Term:0x00007fe1c1de5788
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @attributes=nil,
+         @children={},
+         @default_content_path=nil,
+         @index_as=[:searchable, :displayable],
+         @name=:unittitle,
+         @namespace_prefix=nil,
+         @path="archdesc[@level='collection']/did/unittitle",
+         @required=false,
+         @type=:string,
+         @variant_of=nil,
+         @xpath="//ead/archdesc[@level='collection']/did/unittitle",
+         @xpath_constrained=
+          "//ead/archdesc[@level='collection']/did/unittitle[contains(., \\\"\#{constraint_value}\\\")]",
+         @xpath_relative="archdesc[@level='collection']/did/unittitle">,
+       :unitid=>
+        #<OM::XML::Term:0x00007fe1c1de41f8
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @attributes=nil,
+         @children={},
+         @default_content_path=nil,
+         @index_as=[:searchable, :displayable],
+         @name=:unitid,
+         @namespace_prefix=nil,
+         @path="archdesc[@level='collection']/did/unitid",
+         @required=false,
+         @type=:string,
+         @variant_of=nil,
+         @xpath="//ead/archdesc[@level='collection']/did/unitid",
+         @xpath_constrained=
+          "//ead/archdesc[@level='collection']/did/unitid[contains(., \\\"\#{constraint_value}\\\")]",
+         @xpath_relative="archdesc[@level='collection']/did/unitid">,
+       :langcode=>
+        #<OM::XML::Term:0x00007fe1c1ddeb90
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @attributes=nil,
+         @children={},
+         @default_content_path=nil,
+         @index_as=nil,
+         @name=:langcode,
+         @namespace_prefix=nil,
+         @path=
+          "archdesc[@level='collection']/did/langmaterial/language/@langcode",
+         @required=false,
+         @type=:string,
+         @variant_of=nil,
+         @xpath=
+          "//ead/archdesc[@level='collection']/did/langmaterial/language/@langcode",
+         @xpath_constrained=
+          "//ead/archdesc[@level='collection']/did/langmaterial/language/@langcode[contains(., \\\"\#{constraint_value}\\\")]",
+         @xpath_relative=
+          "archdesc[@level='collection']/did/langmaterial/language/@langcode">,
+       :abstract=>
+        #<OM::XML::Term:0x00007fe1c1ddcfc0
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @attributes=nil,
+         @children={},
+         @default_content_path=nil,
+         @index_as=[:searchable, :displayable],
+         @name=:abstract,
+         @namespace_prefix=nil,
+         @path="archdesc[@level='collection']/did/abstract",
+         @required=false,
+         @type=:string,
+         @variant_of=nil,
+         @xpath="//ead/archdesc[@level='collection']/did/abstract",
+         @xpath_constrained=
+          "//ead/archdesc[@level='collection']/did/abstract[contains(., \\\"\#{constraint_value}\\\")]",
+         @xpath_relative="archdesc[@level='collection']/did/abstract">,
+       :creator=>
+        #<OM::XML::Term:0x00007fe1c1dd7b60
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @attributes=nil,
+         @children={},
+         @default_content_path=nil,
+         @index_as=[:searchable, :displayable],
+         @name=:creator,
+         @namespace_prefix=nil,
+         @path=
+          "archdesc[@level='collection']/did/origination[@label='creator']/*[name() = 'corpname' or name() = 'famname' or name() = 'persname']",
+         @required=false,
+         @type=:string,
+         @variant_of=nil,
+         @xpath=
+          "//ead/archdesc[@level='collection']/did/origination[@label='creator']/*[name() = 'corpname' or name() = 'famname' or name() = 'persname']",
+         @xpath_constrained=
+          "//ead/archdesc[@level='collection']/did/origination[@label='creator']/*[name() = 'corpname' or name() = 'famname' or name() = 'persname' and contains(., \\\"\#{constraint_value}\\\")]",
+         @xpath_relative=
+          "archdesc[@level='collection']/did/origination[@label='creator']/*[name() = 'corpname' or name() = 'famname' or name() = 'persname']">,
+       :unitdate_normal=>
+        #<OM::XML::Term:0x00007fe1c1dd6418
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @attributes=nil,
+         @children={},
+         @default_content_path=nil,
+         @index_as=[:displayable, :searchable, :facetable],
+         @name=:unitdate_normal,
+         @namespace_prefix=nil,
+         @path="archdesc[@level='collection']/did/unitdate/@normal",
+         @required=false,
+         @type=:string,
+         @variant_of=nil,
+         @xpath="//ead/archdesc[@level='collection']/did/unitdate/@normal",
+         @xpath_constrained=
+          "//ead/archdesc[@level='collection']/did/unitdate/@normal[contains(., \\\"\#{constraint_value}\\\")]",
+         @xpath_relative="archdesc[@level='collection']/did/unitdate/@normal">,
+       :unitdate=>
+        #<OM::XML::Term:0x00007fe1c1dd4e38
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @attributes=nil,
+         @children={},
+         @default_content_path=nil,
+         @index_as=[:searchable],
+         @name=:unitdate,
+         @namespace_prefix=nil,
+         @path="archdesc[@level='collection']/did/unitdate[not(@type)]",
+         @required=false,
+         @type=:string,
+         @variant_of=nil,
+         @xpath="//ead/archdesc[@level='collection']/did/unitdate[not(@type)]",
+         @xpath_constrained=
+          "//ead/archdesc[@level='collection']/did/unitdate[not(@type) and contains(., \\\"\#{constraint_value}\\\")]",
+         @xpath_relative=
+          "archdesc[@level='collection']/did/unitdate[not(@type)]">,
+       :unitdate_bulk=>
+        #<OM::XML::Term:0x00007fe1c1da2b90
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @attributes=nil,
+         @children={},
+         @default_content_path=nil,
+         @index_as=[:searchable],
+         @name=:unitdate_bulk,
+         @namespace_prefix=nil,
+         @path="archdesc[@level='collection']/did/unitdate[@type='bulk']",
+         @required=false,
+         @type=:string,
+         @variant_of=nil,
+         @xpath=
+          "//ead/archdesc[@level='collection']/did/unitdate[@type='bulk']",
+         @xpath_constrained=
+          "//ead/archdesc[@level='collection']/did/unitdate[@type='bulk' and contains(., \\\"\#{constraint_value}\\\")]",
+         @xpath_relative=
+          "archdesc[@level='collection']/did/unitdate[@type='bulk']">,
+       :unitdate_inclusive=>
+        #<OM::XML::Term:0x00007fe1c1da1b50
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @attributes=nil,
+         @children={},
+         @default_content_path=nil,
+         @index_as=[:searchable],
+         @name=:unitdate_inclusive,
+         @namespace_prefix=nil,
+         @path="archdesc[@level='collection']/did/unitdate[@type='inclusive']",
+         @required=false,
+         @type=:string,
+         @variant_of=nil,
+         @xpath=
+          "//ead/archdesc[@level='collection']/did/unitdate[@type='inclusive']",
+         @xpath_constrained=
+          "//ead/archdesc[@level='collection']/did/unitdate[@type='inclusive' and contains(., \\\"\#{constraint_value}\\\")]",
+         @xpath_relative=
+          "archdesc[@level='collection']/did/unitdate[@type='inclusive']">,
+       :scopecontent=>
+        #<OM::XML::Term:0x00007fe1c1da09d0
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @attributes=nil,
+         @children={},
+         @default_content_path=nil,
+         @index_as=[:searchable],
+         @name=:scopecontent,
+         @namespace_prefix=nil,
+         @path="archdesc[@level='collection']/scopecontent/p",
+         @required=false,
+         @type=:string,
+         @variant_of=nil,
+         @xpath="//ead/archdesc[@level='collection']/scopecontent/p",
+         @xpath_constrained=
+          "//ead/archdesc[@level='collection']/scopecontent/p[contains(., \\\"\#{constraint_value}\\\")]",
+         @xpath_relative="archdesc[@level='collection']/scopecontent/p">,
+       :bioghist=>
+        #<OM::XML::Term:0x00007fe1c1dce290
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @attributes=nil,
+         @children={},
+         @default_content_path=nil,
+         @index_as=[:searchable],
+         @name=:bioghist,
+         @namespace_prefix=nil,
+         @path="archdesc[@level='collection']/bioghist/p",
+         @required=false,
+         @type=:string,
+         @variant_of=nil,
+         @xpath="//ead/archdesc[@level='collection']/bioghist/p",
+         @xpath_constrained=
+          "//ead/archdesc[@level='collection']/bioghist/p[contains(., \\\"\#{constraint_value}\\\")]",
+         @xpath_relative="archdesc[@level='collection']/bioghist/p">,
+       :acqinfo=>
+        #<OM::XML::Term:0x00007fe1c1d9f5f8
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @attributes=nil,
+         @children={},
+         @default_content_path=nil,
+         @index_as=[:searchable],
+         @name=:acqinfo,
+         @namespace_prefix=nil,
+         @path="archdesc[@level='collection']/acqinfo/p",
+         @required=false,
+         @type=:string,
+         @variant_of=nil,
+         @xpath="//ead/archdesc[@level='collection']/acqinfo/p",
+         @xpath_constrained=
+          "//ead/archdesc[@level='collection']/acqinfo/p[contains(., \\\"\#{constraint_value}\\\")]",
+         @xpath_relative="archdesc[@level='collection']/acqinfo/p">,
+       :custodhist=>
+        #<OM::XML::Term:0x00007fe1c1d9e478
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @attributes=nil,
+         @children={},
+         @default_content_path=nil,
+         @index_as=[:searchable],
+         @name=:custodhist,
+         @namespace_prefix=nil,
+         @path="archdesc[@level='collection']/custodhist/p",
+         @required=false,
+         @type=:string,
+         @variant_of=nil,
+         @xpath="//ead/archdesc[@level='collection']/custodhist/p",
+         @xpath_constrained=
+          "//ead/archdesc[@level='collection']/custodhist/p[contains(., \\\"\#{constraint_value}\\\")]",
+         @xpath_relative="archdesc[@level='collection']/custodhist/p">,
+       :appraisal=>
+        #<OM::XML::Term:0x00007fe1c1dc1e28
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @attributes=nil,
+         @children={},
+         @default_content_path=nil,
+         @index_as=[:searchable],
+         @name=:appraisal,
+         @namespace_prefix=nil,
+         @path="archdesc[@level='collection']/appraisal/p",
+         @required=false,
+         @type=:string,
+         @variant_of=nil,
+         @xpath="//ead/archdesc[@level='collection']/appraisal/p",
+         @xpath_constrained=
+          "//ead/archdesc[@level='collection']/appraisal/p[contains(., \\\"\#{constraint_value}\\\")]",
+         @xpath_relative="archdesc[@level='collection']/appraisal/p">,
+       :phystech=>
+        #<OM::XML::Term:0x00007fe1c1dbb5c8
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @attributes=nil,
+         @children={},
+         @default_content_path=nil,
+         @index_as=[:searchable],
+         @name=:phystech,
+         @namespace_prefix=nil,
+         @path="archdesc[@level='collection']/phystech/p",
+         @required=false,
+         @type=:string,
+         @variant_of=nil,
+         @xpath="//ead/archdesc[@level='collection']/phystech/p",
+         @xpath_constrained=
+          "//ead/archdesc[@level='collection']/phystech/p[contains(., \\\"\#{constraint_value}\\\")]",
+         @xpath_relative="archdesc[@level='collection']/phystech/p">,
+       :chronlist=>
+        #<OM::XML::Term:0x00007fe1c1dba588
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @attributes=nil,
+         @children={},
+         @default_content_path=nil,
+         @index_as=[:searchable],
+         @name=:chronlist,
+         @namespace_prefix=nil,
+         @path=
+          "archdesc[@level='collection']/*[name() != 'dsc']//chronlist/chronitem//text()",
+         @required=false,
+         @type=:string,
+         @variant_of=nil,
+         @xpath=
+          "//ead/archdesc[@level='collection']/*[name() != 'dsc']//chronlist/chronitem//text()",
+         @xpath_constrained=
+          "//ead/archdesc[@level='collection']/*[name() != 'dsc']//chronlist/chronitem//text()[contains(., \\\"\#{constraint_value}\\\")]",
+         @xpath_relative=
+          "archdesc[@level='collection']/*[name() != 'dsc']//chronlist/chronitem//text()">,
+       :corpname=>
+        #<OM::XML::Term:0x00007fe1c1db9340
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @attributes=nil,
+         @children={},
+         @default_content_path=nil,
+         @index_as=[:searchable, :displayable],
+         @name=:corpname,
+         @namespace_prefix=nil,
+         @path="archdesc[@level='collection']/*[name() != 'dsc']//corpname",
+         @required=false,
+         @type=:string,
+         @variant_of=nil,
+         @xpath=
+          "//ead/archdesc[@level='collection']/*[name() != 'dsc']//corpname",
+         @xpath_constrained=
+          "//ead/archdesc[@level='collection']/*[name() != 'dsc']//corpname[contains(., \\\"\#{constraint_value}\\\")]",
+         @xpath_relative=
+          "archdesc[@level='collection']/*[name() != 'dsc']//corpname">,
+       :famname=>
+        #<OM::XML::Term:0x00007fe1c1db30d0
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @attributes=nil,
+         @children={},
+         @default_content_path=nil,
+         @index_as=[:searchable, :displayable],
+         @name=:famname,
+         @namespace_prefix=nil,
+         @path="archdesc[@level='collection']/*[name() != 'dsc']//famname",
+         @required=false,
+         @type=:string,
+         @variant_of=nil,
+         @xpath=
+          "//ead/archdesc[@level='collection']/*[name() != 'dsc']//famname",
+         @xpath_constrained=
+          "//ead/archdesc[@level='collection']/*[name() != 'dsc']//famname[contains(., \\\"\#{constraint_value}\\\")]",
+         @xpath_relative=
+          "archdesc[@level='collection']/*[name() != 'dsc']//famname">,
+       :function=>
+        #<OM::XML::Term:0x00007fe1c1db20e0
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @attributes=nil,
+         @children={},
+         @default_content_path=nil,
+         @index_as=[:searchable, :displayable],
+         @name=:function,
+         @namespace_prefix=nil,
+         @path="archdesc[@level='collection']/*[name() != 'dsc']//function",
+         @required=false,
+         @type=:string,
+         @variant_of=nil,
+         @xpath=
+          "//ead/archdesc[@level='collection']/*[name() != 'dsc']//function",
+         @xpath_constrained=
+          "//ead/archdesc[@level='collection']/*[name() != 'dsc']//function[contains(., \\\"\#{constraint_value}\\\")]",
+         @xpath_relative=
+          "archdesc[@level='collection']/*[name() != 'dsc']//function">,
+       :genreform=>
+        #<OM::XML::Term:0x00007fe1c1db0ee8
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @attributes=nil,
+         @children={},
+         @default_content_path=nil,
+         @index_as=[:searchable, :displayable],
+         @name=:genreform,
+         @namespace_prefix=nil,
+         @path="archdesc[@level='collection']/*[name() != 'dsc']//genreform",
+         @required=false,
+         @type=:string,
+         @variant_of=nil,
+         @xpath=
+          "//ead/archdesc[@level='collection']/*[name() != 'dsc']//genreform",
+         @xpath_constrained=
+          "//ead/archdesc[@level='collection']/*[name() != 'dsc']//genreform[contains(., \\\"\#{constraint_value}\\\")]",
+         @xpath_relative=
+          "archdesc[@level='collection']/*[name() != 'dsc']//genreform">,
+       :geogname=>
+        #<OM::XML::Term:0x00007fe1c1dabcb8
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @attributes=nil,
+         @children={},
+         @default_content_path=nil,
+         @index_as=[:searchable, :displayable],
+         @name=:geogname,
+         @namespace_prefix=nil,
+         @path="archdesc[@level='collection']/*[name() != 'dsc']//geogname",
+         @required=false,
+         @type=:string,
+         @variant_of=nil,
+         @xpath=
+          "//ead/archdesc[@level='collection']/*[name() != 'dsc']//geogname",
+         @xpath_constrained=
+          "//ead/archdesc[@level='collection']/*[name() != 'dsc']//geogname[contains(., \\\"\#{constraint_value}\\\")]",
+         @xpath_relative=
+          "archdesc[@level='collection']/*[name() != 'dsc']//geogname">,
+       :name=>
+        #<OM::XML::Term:0x00007fe1c1daa660
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @attributes=nil,
+         @children={},
+         @default_content_path=nil,
+         @index_as=[:searchable, :displayable],
+         @name=:name,
+         @namespace_prefix=nil,
+         @path="archdesc[@level='collection']/*[name() != 'dsc']//name",
+         @required=false,
+         @type=:string,
+         @variant_of=nil,
+         @xpath="//ead/archdesc[@level='collection']/*[name() != 'dsc']//name",
+         @xpath_constrained=
+          "//ead/archdesc[@level='collection']/*[name() != 'dsc']//name[contains(., \\\"\#{constraint_value}\\\")]",
+         @xpath_relative=
+          "archdesc[@level='collection']/*[name() != 'dsc']//name">,
+       :occupation=>
+        #<OM::XML::Term:0x00007fe1c1da8b08
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @attributes=nil,
+         @children={},
+         @default_content_path=nil,
+         @index_as=[:searchable, :displayable],
+         @name=:occupation,
+         @namespace_prefix=nil,
+         @path="archdesc[@level='collection']/*[name() != 'dsc']//occupation",
+         @required=false,
+         @type=:string,
+         @variant_of=nil,
+         @xpath=
+          "//ead/archdesc[@level='collection']/*[name() != 'dsc']//occupation",
+         @xpath_constrained=
+          "//ead/archdesc[@level='collection']/*[name() != 'dsc']//occupation[contains(., \\\"\#{constraint_value}\\\")]",
+         @xpath_relative=
+          "archdesc[@level='collection']/*[name() != 'dsc']//occupation">,
+       :persname=>
+        #<OM::XML::Term:0x00007fe1c1d9a350
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @attributes=nil,
+         @children={},
+         @default_content_path=nil,
+         @index_as=[:searchable, :displayable],
+         @name=:persname,
+         @namespace_prefix=nil,
+         @path="archdesc[@level='collection']/*[name() != 'dsc']//persname",
+         @required=false,
+         @type=:string,
+         @variant_of=nil,
+         @xpath=
+          "//ead/archdesc[@level='collection']/*[name() != 'dsc']//persname",
+         @xpath_constrained=
+          "//ead/archdesc[@level='collection']/*[name() != 'dsc']//persname[contains(., \\\"\#{constraint_value}\\\")]",
+         @xpath_relative=
+          "archdesc[@level='collection']/*[name() != 'dsc']//persname">,
+       :subject=>
+        #<OM::XML::Term:0x00007fe1c1d98348
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @attributes=nil,
+         @children={},
+         @default_content_path=nil,
+         @index_as=[:searchable, :displayable],
+         @name=:subject,
+         @namespace_prefix=nil,
+         @path="archdesc[@level='collection']/*[name() != 'dsc']//subject",
+         @required=false,
+         @type=:string,
+         @variant_of=nil,
+         @xpath=
+          "//ead/archdesc[@level='collection']/*[name() != 'dsc']//subject",
+         @xpath_constrained=
+          "//ead/archdesc[@level='collection']/*[name() != 'dsc']//subject[contains(., \\\"\#{constraint_value}\\\")]",
+         @xpath_relative=
+          "archdesc[@level='collection']/*[name() != 'dsc']//subject">,
+       :title=>
+        #<OM::XML::Term:0x00007fe1c1d92a60
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @attributes=nil,
+         @children={},
+         @default_content_path=nil,
+         @index_as=[:searchable, :displayable],
+         @name=:title,
+         @namespace_prefix=nil,
+         @path="archdesc[@level='collection']/*[name() != 'dsc']//title",
+         @required=false,
+         @type=:string,
+         @variant_of=nil,
+         @xpath=
+          "//ead/archdesc[@level='collection']/*[name() != 'dsc']//title",
+         @xpath_constrained=
+          "//ead/archdesc[@level='collection']/*[name() != 'dsc']//title[contains(., \\\"\#{constraint_value}\\\")]",
+         @xpath_relative=
+          "archdesc[@level='collection']/*[name() != 'dsc']//title">,
+       :note=>
+        #<OM::XML::Term:0x00007fe1c1d90e90
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @attributes=nil,
+         @children={},
+         @default_content_path=nil,
+         @index_as=[:searchable, :displayable],
+         @name=:note,
+         @namespace_prefix=nil,
+         @path="archdesc[@level='collection']/*[name() != 'dsc']//note",
+         @required=false,
+         @type=:string,
+         @variant_of=nil,
+         @xpath="//ead/archdesc[@level='collection']/*[name() != 'dsc']//note",
+         @xpath_constrained=
+          "//ead/archdesc[@level='collection']/*[name() != 'dsc']//note[contains(., \\\"\#{constraint_value}\\\")]",
+         @xpath_relative=
+          "archdesc[@level='collection']/*[name() != 'dsc']//note">,
+       :collection=>
+        #<OM::XML::NamedTermProxy:0x00007fe1c1d8b530
+         @ancestors=[#<OM::XML::Term:0x00007fe1c1dedb90 ...>],
+         @children={},
+         @index_as=[:facetable, :displayable, :searchable],
+         @name=:collection,
+         @proxy_pointer=[:unittitle],
+         @terminology=#<OM::XML::Terminology:0x00007fe1c1dee130 ...>>},
+     @default_content_path=nil,
+     @index_as=nil,
+     @is_root_term=true,
+     @name=:ead,
+     @namespace_prefix=nil,
+     @path="ead",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath="//ead",
+     @xpath_constrained="//ead[contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative="ead">,
+   :eadid=>
+    #<OM::XML::Term:0x00007fe1c1d5b088
+     @ancestors=[],
+     @attributes=nil,
+     @children={},
+     @default_content_path=nil,
+     @index_as=nil,
+     @name=:eadid,
+     @namespace_prefix=nil,
+     @path="eadid",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath="//eadid",
+     @xpath_constrained="//eadid[contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative="eadid">,
+   :author=>
+    #<OM::XML::Term:0x00007fe1c1d58c48
+     @ancestors=[],
+     @attributes=nil,
+     @children={},
+     @default_content_path=nil,
+     @index_as=[:searchable, :displayable],
+     @name=:author,
+     @namespace_prefix=nil,
+     @path="filedesc/titlestmt/author",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath="//filedesc/titlestmt/author",
+     @xpath_constrained=
+      "//filedesc/titlestmt/author[contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative="filedesc/titlestmt/author">,
+   :unittitle=>
+    #<OM::XML::Term:0x00007fe1c1d516a0
+     @ancestors=[],
+     @attributes=nil,
+     @children={},
+     @default_content_path=nil,
+     @index_as=[:searchable, :displayable],
+     @name=:unittitle,
+     @namespace_prefix=nil,
+     @path="archdesc[@level='collection']/did/unittitle",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath="//archdesc[@level='collection']/did/unittitle",
+     @xpath_constrained=
+      "//archdesc[@level='collection']/did/unittitle[contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative="archdesc[@level='collection']/did/unittitle">,
+   :unitid=>
+    #<OM::XML::Term:0x00007fe1c1d50110
+     @ancestors=[],
+     @attributes=nil,
+     @children={},
+     @default_content_path=nil,
+     @index_as=[:searchable, :displayable],
+     @name=:unitid,
+     @namespace_prefix=nil,
+     @path="archdesc[@level='collection']/did/unitid",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath="//archdesc[@level='collection']/did/unitid",
+     @xpath_constrained=
+      "//archdesc[@level='collection']/did/unitid[contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative="archdesc[@level='collection']/did/unitid">,
+   :langcode=>
+    #<OM::XML::Term:0x00007fe1c1d4aa30
+     @ancestors=[],
+     @attributes=nil,
+     @children={},
+     @default_content_path=nil,
+     @index_as=nil,
+     @name=:langcode,
+     @namespace_prefix=nil,
+     @path="archdesc[@level='collection']/did/langmaterial/language/@langcode",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath=
+      "//archdesc[@level='collection']/did/langmaterial/language/@langcode",
+     @xpath_constrained=
+      "//archdesc[@level='collection']/did/langmaterial/language/@langcode[contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative=
+      "archdesc[@level='collection']/did/langmaterial/language/@langcode">,
+   :abstract=>
+    #<OM::XML::Term:0x00007fe1c1d49900
+     @ancestors=[],
+     @attributes=nil,
+     @children={},
+     @default_content_path=nil,
+     @index_as=[:searchable, :displayable],
+     @name=:abstract,
+     @namespace_prefix=nil,
+     @path="archdesc[@level='collection']/did/abstract",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath="//archdesc[@level='collection']/did/abstract",
+     @xpath_constrained=
+      "//archdesc[@level='collection']/did/abstract[contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative="archdesc[@level='collection']/did/abstract">,
+   :creator=>
+    #<OM::XML::Term:0x00007fe1c1d485c8
+     @ancestors=[],
+     @attributes=nil,
+     @children={},
+     @default_content_path=nil,
+     @index_as=[:searchable, :displayable],
+     @name=:creator,
+     @namespace_prefix=nil,
+     @path=
+      "archdesc[@level='collection']/did/origination[@label='creator']/*[name() = 'corpname' or name() = 'famname' or name() = 'persname']",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath=
+      "//archdesc[@level='collection']/did/origination[@label='creator']/*[name() = 'corpname' or name() = 'famname' or name() = 'persname']",
+     @xpath_constrained=
+      "//archdesc[@level='collection']/did/origination[@label='creator']/*[name() = 'corpname' or name() = 'famname' or name() = 'persname' and contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative=
+      "archdesc[@level='collection']/did/origination[@label='creator']/*[name() = 'corpname' or name() = 'famname' or name() = 'persname']">,
+   :unitdate_normal=>
+    #<OM::XML::Term:0x00007fe1c1d430f0
+     @ancestors=[],
+     @attributes=nil,
+     @children={},
+     @default_content_path=nil,
+     @index_as=[:displayable, :searchable, :facetable],
+     @name=:unitdate_normal,
+     @namespace_prefix=nil,
+     @path="archdesc[@level='collection']/did/unitdate/@normal",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath="//archdesc[@level='collection']/did/unitdate/@normal",
+     @xpath_constrained=
+      "//archdesc[@level='collection']/did/unitdate/@normal[contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative="archdesc[@level='collection']/did/unitdate/@normal">,
+   :unitdate=>
+    #<OM::XML::Term:0x00007fe1c1d41138
+     @ancestors=[],
+     @attributes=nil,
+     @children={},
+     @default_content_path=nil,
+     @index_as=[:searchable],
+     @name=:unitdate,
+     @namespace_prefix=nil,
+     @path="archdesc[@level='collection']/did/unitdate[not(@type)]",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath="//archdesc[@level='collection']/did/unitdate[not(@type)]",
+     @xpath_constrained=
+      "//archdesc[@level='collection']/did/unitdate[not(@type) and contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative="archdesc[@level='collection']/did/unitdate[not(@type)]">,
+   :unitdate_bulk=>
+    #<OM::XML::Term:0x00007fe1c1d3aea0
+     @ancestors=[],
+     @attributes=nil,
+     @children={},
+     @default_content_path=nil,
+     @index_as=[:searchable],
+     @name=:unitdate_bulk,
+     @namespace_prefix=nil,
+     @path="archdesc[@level='collection']/did/unitdate[@type='bulk']",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath="//archdesc[@level='collection']/did/unitdate[@type='bulk']",
+     @xpath_constrained=
+      "//archdesc[@level='collection']/did/unitdate[@type='bulk' and contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative=
+      "archdesc[@level='collection']/did/unitdate[@type='bulk']">,
+   :unitdate_inclusive=>
+    #<OM::XML::Term:0x00007fe1c1d39ca8
+     @ancestors=[],
+     @attributes=nil,
+     @children={},
+     @default_content_path=nil,
+     @index_as=[:searchable],
+     @name=:unitdate_inclusive,
+     @namespace_prefix=nil,
+     @path="archdesc[@level='collection']/did/unitdate[@type='inclusive']",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath="//archdesc[@level='collection']/did/unitdate[@type='inclusive']",
+     @xpath_constrained=
+      "//archdesc[@level='collection']/did/unitdate[@type='inclusive' and contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative=
+      "archdesc[@level='collection']/did/unitdate[@type='inclusive']">,
+   :scopecontent=>
+    #<OM::XML::Term:0x00007fe1c1d38178
+     @ancestors=[],
+     @attributes=nil,
+     @children={},
+     @default_content_path=nil,
+     @index_as=[:searchable],
+     @name=:scopecontent,
+     @namespace_prefix=nil,
+     @path="archdesc[@level='collection']/scopecontent/p",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath="//archdesc[@level='collection']/scopecontent/p",
+     @xpath_constrained=
+      "//archdesc[@level='collection']/scopecontent/p[contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative="archdesc[@level='collection']/scopecontent/p">,
+   :bioghist=>
+    #<OM::XML::Term:0x00007fe1c1d30c98
+     @ancestors=[],
+     @attributes=nil,
+     @children={},
+     @default_content_path=nil,
+     @index_as=[:searchable],
+     @name=:bioghist,
+     @namespace_prefix=nil,
+     @path="archdesc[@level='collection']/bioghist/p",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath="//archdesc[@level='collection']/bioghist/p",
+     @xpath_constrained=
+      "//archdesc[@level='collection']/bioghist/p[contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative="archdesc[@level='collection']/bioghist/p">,
+   :acqinfo=>
+    #<OM::XML::Term:0x00007fe1c1d2a488
+     @ancestors=[],
+     @attributes=nil,
+     @children={},
+     @default_content_path=nil,
+     @index_as=[:searchable],
+     @name=:acqinfo,
+     @namespace_prefix=nil,
+     @path="archdesc[@level='collection']/acqinfo/p",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath="//archdesc[@level='collection']/acqinfo/p",
+     @xpath_constrained=
+      "//archdesc[@level='collection']/acqinfo/p[contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative="archdesc[@level='collection']/acqinfo/p">,
+   :custodhist=>
+    #<OM::XML::Term:0x00007fe1c1d28e80
+     @ancestors=[],
+     @attributes=nil,
+     @children={},
+     @default_content_path=nil,
+     @index_as=[:searchable],
+     @name=:custodhist,
+     @namespace_prefix=nil,
+     @path="archdesc[@level='collection']/custodhist/p",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath="//archdesc[@level='collection']/custodhist/p",
+     @xpath_constrained=
+      "//archdesc[@level='collection']/custodhist/p[contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative="archdesc[@level='collection']/custodhist/p">,
+   :appraisal=>
+    #<OM::XML::Term:0x00007fe1c1d23a70
+     @ancestors=[],
+     @attributes=nil,
+     @children={},
+     @default_content_path=nil,
+     @index_as=[:searchable],
+     @name=:appraisal,
+     @namespace_prefix=nil,
+     @path="archdesc[@level='collection']/appraisal/p",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath="//archdesc[@level='collection']/appraisal/p",
+     @xpath_constrained=
+      "//archdesc[@level='collection']/appraisal/p[contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative="archdesc[@level='collection']/appraisal/p">,
+   :phystech=>
+    #<OM::XML::Term:0x00007fe1c1d22120
+     @ancestors=[],
+     @attributes=nil,
+     @children={},
+     @default_content_path=nil,
+     @index_as=[:searchable],
+     @name=:phystech,
+     @namespace_prefix=nil,
+     @path="archdesc[@level='collection']/phystech/p",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath="//archdesc[@level='collection']/phystech/p",
+     @xpath_constrained=
+      "//archdesc[@level='collection']/phystech/p[contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative="archdesc[@level='collection']/phystech/p">,
+   :chronlist=>
+    #<OM::XML::Term:0x00007fe1c1d20a28
+     @ancestors=[],
+     @attributes=nil,
+     @children={},
+     @default_content_path=nil,
+     @index_as=[:searchable],
+     @name=:chronlist,
+     @namespace_prefix=nil,
+     @path=
+      "archdesc[@level='collection']/*[name() != 'dsc']//chronlist/chronitem//text()",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath=
+      "//archdesc[@level='collection']/*[name() != 'dsc']//chronlist/chronitem//text()",
+     @xpath_constrained=
+      "//archdesc[@level='collection']/*[name() != 'dsc']//chronlist/chronitem//text()[contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative=
+      "archdesc[@level='collection']/*[name() != 'dsc']//chronlist/chronitem//text()">,
+   :corpname=>
+    #<OM::XML::Term:0x00007fe1c1d1b3c0
+     @ancestors=[],
+     @attributes=nil,
+     @children={},
+     @default_content_path=nil,
+     @index_as=[:searchable, :displayable],
+     @name=:corpname,
+     @namespace_prefix=nil,
+     @path="archdesc[@level='collection']/*[name() != 'dsc']//corpname",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath="//archdesc[@level='collection']/*[name() != 'dsc']//corpname",
+     @xpath_constrained=
+      "//archdesc[@level='collection']/*[name() != 'dsc']//corpname[contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative=
+      "archdesc[@level='collection']/*[name() != 'dsc']//corpname">,
+   :famname=>
+    #<OM::XML::Term:0x00007fe1c1d18b20
+     @ancestors=[],
+     @attributes=nil,
+     @children={},
+     @default_content_path=nil,
+     @index_as=[:searchable, :displayable],
+     @name=:famname,
+     @namespace_prefix=nil,
+     @path="archdesc[@level='collection']/*[name() != 'dsc']//famname",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath="//archdesc[@level='collection']/*[name() != 'dsc']//famname",
+     @xpath_constrained=
+      "//archdesc[@level='collection']/*[name() != 'dsc']//famname[contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative=
+      "archdesc[@level='collection']/*[name() != 'dsc']//famname">,
+   :function=>
+    #<OM::XML::Term:0x00007fe1c1d124c8
+     @ancestors=[],
+     @attributes=nil,
+     @children={},
+     @default_content_path=nil,
+     @index_as=[:searchable, :displayable],
+     @name=:function,
+     @namespace_prefix=nil,
+     @path="archdesc[@level='collection']/*[name() != 'dsc']//function",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath="//archdesc[@level='collection']/*[name() != 'dsc']//function",
+     @xpath_constrained=
+      "//archdesc[@level='collection']/*[name() != 'dsc']//function[contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative=
+      "archdesc[@level='collection']/*[name() != 'dsc']//function">,
+   :genreform=>
+    #<OM::XML::Term:0x00007fe1c1d10740
+     @ancestors=[],
+     @attributes=nil,
+     @children={},
+     @default_content_path=nil,
+     @index_as=[:searchable, :displayable],
+     @name=:genreform,
+     @namespace_prefix=nil,
+     @path="archdesc[@level='collection']/*[name() != 'dsc']//genreform",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath="//archdesc[@level='collection']/*[name() != 'dsc']//genreform",
+     @xpath_constrained=
+      "//archdesc[@level='collection']/*[name() != 'dsc']//genreform[contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative=
+      "archdesc[@level='collection']/*[name() != 'dsc']//genreform">,
+   :geogname=>
+    #<OM::XML::Term:0x00007fe1c1d09800
+     @ancestors=[],
+     @attributes=nil,
+     @children={},
+     @default_content_path=nil,
+     @index_as=[:searchable, :displayable],
+     @name=:geogname,
+     @namespace_prefix=nil,
+     @path="archdesc[@level='collection']/*[name() != 'dsc']//geogname",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath="//archdesc[@level='collection']/*[name() != 'dsc']//geogname",
+     @xpath_constrained=
+      "//archdesc[@level='collection']/*[name() != 'dsc']//geogname[contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative=
+      "archdesc[@level='collection']/*[name() != 'dsc']//geogname">,
+   :name=>
+    #<OM::XML::Term:0x00007fe1c1d035b8
+     @ancestors=[],
+     @attributes=nil,
+     @children={},
+     @default_content_path=nil,
+     @index_as=[:searchable, :displayable],
+     @name=:name,
+     @namespace_prefix=nil,
+     @path="archdesc[@level='collection']/*[name() != 'dsc']//name",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath="//archdesc[@level='collection']/*[name() != 'dsc']//name",
+     @xpath_constrained=
+      "//archdesc[@level='collection']/*[name() != 'dsc']//name[contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative="archdesc[@level='collection']/*[name() != 'dsc']//name">,
+   :occupation=>
+    #<OM::XML::Term:0x00007fe1c1d01b00
+     @ancestors=[],
+     @attributes=nil,
+     @children={},
+     @default_content_path=nil,
+     @index_as=[:searchable, :displayable],
+     @name=:occupation,
+     @namespace_prefix=nil,
+     @path="archdesc[@level='collection']/*[name() != 'dsc']//occupation",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath="//archdesc[@level='collection']/*[name() != 'dsc']//occupation",
+     @xpath_constrained=
+      "//archdesc[@level='collection']/*[name() != 'dsc']//occupation[contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative=
+      "archdesc[@level='collection']/*[name() != 'dsc']//occupation">,
+   :persname=>
+    #<OM::XML::Term:0x00007fe1c1cfbcf0
+     @ancestors=[],
+     @attributes=nil,
+     @children={},
+     @default_content_path=nil,
+     @index_as=[:searchable, :displayable],
+     @name=:persname,
+     @namespace_prefix=nil,
+     @path="archdesc[@level='collection']/*[name() != 'dsc']//persname",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath="//archdesc[@level='collection']/*[name() != 'dsc']//persname",
+     @xpath_constrained=
+      "//archdesc[@level='collection']/*[name() != 'dsc']//persname[contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative=
+      "archdesc[@level='collection']/*[name() != 'dsc']//persname">,
+   :subject=>
+    #<OM::XML::Term:0x00007fe1c1cfaaa8
+     @ancestors=[],
+     @attributes=nil,
+     @children={},
+     @default_content_path=nil,
+     @index_as=[:searchable, :displayable],
+     @name=:subject,
+     @namespace_prefix=nil,
+     @path="archdesc[@level='collection']/*[name() != 'dsc']//subject",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath="//archdesc[@level='collection']/*[name() != 'dsc']//subject",
+     @xpath_constrained=
+      "//archdesc[@level='collection']/*[name() != 'dsc']//subject[contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative=
+      "archdesc[@level='collection']/*[name() != 'dsc']//subject">,
+   :title=>
+    #<OM::XML::Term:0x00007fe1c1cf94a0
+     @ancestors=[],
+     @attributes=nil,
+     @children={},
+     @default_content_path=nil,
+     @index_as=[:searchable, :displayable],
+     @name=:title,
+     @namespace_prefix=nil,
+     @path="archdesc[@level='collection']/*[name() != 'dsc']//title",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath="//archdesc[@level='collection']/*[name() != 'dsc']//title",
+     @xpath_constrained=
+      "//archdesc[@level='collection']/*[name() != 'dsc']//title[contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative=
+      "archdesc[@level='collection']/*[name() != 'dsc']//title">,
+   :note=>
+    #<OM::XML::Term:0x00007fe1c1cf3730
+     @ancestors=[],
+     @attributes=nil,
+     @children={},
+     @default_content_path=nil,
+     @index_as=[:searchable, :displayable],
+     @name=:note,
+     @namespace_prefix=nil,
+     @path="archdesc[@level='collection']/*[name() != 'dsc']//note",
+     @required=false,
+     @type=:string,
+     @variant_of=nil,
+     @xpath="//archdesc[@level='collection']/*[name() != 'dsc']//note",
+     @xpath_constrained=
+      "//archdesc[@level='collection']/*[name() != 'dsc']//note[contains(., \\\"\#{constraint_value}\\\")]",
+     @xpath_relative="archdesc[@level='collection']/*[name() != 'dsc']//note">,
+   :collection=>
+    #<OM::XML::NamedTermProxy:0x00007fe1c1cebb98
+     @ancestors=[],
+     @children={},
+     @index_as=[:facetable, :displayable, :searchable],
+     @name=:collection,
+     @proxy_pointer=[:unittitle],
+     @terminology=#<OM::XML::Terminology:0x00007fe1c1dee130 ...>>}>
