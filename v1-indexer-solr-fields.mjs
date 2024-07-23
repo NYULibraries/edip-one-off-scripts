@@ -138,6 +138,13 @@ const mainDocSolrFields = {
                 xpath    : 'archdesc[@level=\'collection\']/phystech/p',
                 indexAsArray : [ SEARCHABLE ],
             },
+            place : {
+                xpath: '//geogname',
+                process: 'For each element, replace strings matching /\|\w{1}/' +
+                         ' (MARC subfield demarcators) with "--",' +
+                         ' remove `nil` values, and remove duplicates.',
+                indexAsArray : [ FACETABLE ],
+            },
             scopecontent : {
                 xpath    : 'archdesc[@level=\'collection\']/scopecontent/p',
                 indexAsArray : [ SEARCHABLE ],

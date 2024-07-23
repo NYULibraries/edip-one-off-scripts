@@ -163,6 +163,12 @@
             "phystech_iim"
         ]
     },
+    "//geogname": {
+        "solrFields": [
+            "place_sim"
+        ],
+        "process": "For each element, replace strings matching /|w{1}/ (MARC subfield demarcators) with \"--\", remove `nil` values, and remove duplicates."
+    },
     "archdesc[@level='collection']/scopecontent/p": {
         "solrFields": [
             "scopecontent_teim",
