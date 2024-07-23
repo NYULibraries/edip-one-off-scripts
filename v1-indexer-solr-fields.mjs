@@ -60,16 +60,16 @@ const mainDocSolrFields = {
             },
             formatArchivalCollection  : {
                 basename     : 'format',
-                source       : [ 'Hardcoded "Archival Collection"' ],
+                source       : 'Hardcoded "Archival Collection"',
                 indexAsArray : [ FACETABLE, DISPLAYABLE ],
             },
             formatDummyForMainDocSort : {
                 basename     : 'format',
-                source       : [ 'Hardcoded 0 (number, not string)' ],
+                source       : 'Hardcoded 0 (number, not string)',
                 indexAsArray : [ SORTABLE ],
             },
             repository                : {
-                source       : [ 'Derived from name of parent directory of EAD file' ],
+                source       : 'Derived from name of parent directory of EAD file',
                 indexAsArray : [ DISPLAYABLE, FACETABLE, STORED_STORABLE ],
             },
         },
