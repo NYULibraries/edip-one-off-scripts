@@ -23,6 +23,19 @@ const mainDocSolrFields = {
                          ' duplicates, and remove `nil` values.',
                 indexAsArray : [ DISPLAYABLE, FACETABLE ],
             },
+            name : {
+                xpathQueries: [
+                    "//famname",
+                    "//persname",
+                    "//*[local-name()!='repository']/corpname",
+                ],
+                process: 'Get elements for each xpath query in the order listed.' +
+                         ' Flatten returned node sets into one array,' +
+                         ' and for each element replace strings matching /\|\w{1}/' +
+                         ' (MARC subfield demarcators) with "--",' +
+                         ' remove `nil` values, and remove duplicates.',
+                indexAsArray : [ FACETABLE, SEARCHABLE ],
+            },
         },
         nonXpath: {
             formatArchivalCollection: {
