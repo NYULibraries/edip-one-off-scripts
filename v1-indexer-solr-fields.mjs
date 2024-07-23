@@ -36,6 +36,20 @@ const mainDocSolrFields = {
                          ' (MARC subfield demarcators) with "--".',
                 indexAsArray : [ FACETABLE, SEARCHABLE ],
             },
+            subject : {
+                xpathQueries: [
+                    '[archdesc[@level=\'collection\']/*[name() != \'dsc\']//subject',
+                    '//*[local-name()=\'subject\' or local-name()=\'function\' or local-name() = \'occupation\']',
+                ],
+                process: 'For the first xpath query, create these Solr doc fields: ' +
+                         ' `subject_ssm`, `subject_teim`, `subject_dtim`, `subject_iim`.' +
+                         ' For the second xpath query, create the same set of' +
+                         ' Solr fields plus `subject_sim`, taking the node sets' +
+                         ' and flattening them into an array, remove `nil` values' +
+                         ' and duplicates.  For each element replace strings matching' +
+                         ' /\|\w{1}/ (MARC subfield demarcators) with "--".',
+                indexAsArray : [ FACETABLE, SEARCHABLE, DISPLAYABLE ],
+            },
         },
         nonXpath: {
             formatArchivalCollection: {
@@ -148,10 +162,6 @@ const mainDocSolrFields = {
             scopecontent : {
                 xpath    : 'archdesc[@level=\'collection\']/scopecontent/p',
                 indexAsArray : [ SEARCHABLE ],
-            },
-            subject : {
-                xpath    : 'archdesc[@level=\'collection\']/*[name() != \'dsc\']//subject',
-                indexAsArray : [ SEARCHABLE, DISPLAYABLE ],
             },
             title : {
                 xpath    : 'archdesc[@level=\'collection\']/*[name() != \'dsc\']//title',

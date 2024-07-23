@@ -176,14 +176,6 @@
             "scopecontent_iim"
         ]
     },
-    "archdesc[@level='collection']/*[name() != 'dsc']//subject": {
-        "solrFields": [
-            "subject_teim",
-            "subject_dtim",
-            "subject_iim",
-            "subject_ssm"
-        ]
-    },
     "archdesc[@level='collection']/*[name() != 'dsc']//title": {
         "solrFields": [
             "title_teim",
