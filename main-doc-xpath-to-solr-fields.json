@@ -124,6 +124,13 @@
             "langcode_isim"
         ]
     },
+    "//genreform": {
+        "solrFields": [
+            "material_type_sim",
+            "material_type_ssm"
+        ],
+        "process": "For each element, replace strings matching /|w{1}/ (MARC subfield demarcators) with \"--\", remove `nil` values, and remove duplicates."
+    },
     "archdesc[@level='collection']/*[name() != 'dsc']//name": {
         "solrFields": [
             "name_teim",

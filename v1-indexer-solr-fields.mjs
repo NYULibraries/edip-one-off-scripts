@@ -137,6 +137,13 @@ const mainDocSolrFields = {
                 xpath : 'archdesc[@level=\'collection\']/did/langmaterial/language/@langcode',
                 indexAsArray : [ STORED_SEARCHABLE ],
             },
+            material_type : {
+                xpath: '//genreform',
+                process: 'For each element, replace strings matching /\|\w{1}/' +
+                         ' (MARC subfield demarcators) with "--",' +
+                         ' remove `nil` values, and remove duplicates.',
+                indexAsArray : [ FACETABLE, DISPLAYABLE ],
+            },
             name : {
                 xpath    : 'archdesc[@level=\'collection\']/*[name() != \'dsc\']//name',
                 indexAsArray : [ SEARCHABLE, DISPLAYABLE ],
