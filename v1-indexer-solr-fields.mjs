@@ -72,6 +72,11 @@ const mainDocSolrFields = {
                 source       : 'Derived from name of parent directory of EAD file',
                 indexAsArray : [ DISPLAYABLE, FACETABLE, STORED_STORABLE ],
             },
+            unitdateDisplay : {
+                basename: 'unitdate',
+                source : 'If \`unitdate\` is empty: "Inclusive," plus `unitdate_inclusive` if both either `unitdate_inclusive` or `unitdate_bulk` are non-empty, plus ";" and `unitdate_bulk` if non-empty.  NOTE: This is likely a bug in v1 indexer -- see https://jira.nyu.edu/browse/DLFA-211?focusedCommentId=8378822&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-8378822.',
+                indexAsArray : [ DISPLAYABLE ],
+            },
         },
         xpath     : {
             abstract           : {
