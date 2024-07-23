@@ -1,6 +1,7 @@
 const DISPLAYABLE = 'displayable';
 const FACETABLE = 'facetable';
 const SEARCHABLE = 'searchable';
+const SORTABLE = 'sortable';
 const STORED_SEARCHABLE = 'stored_searchable';
 const STORED_STORABLE = 'stored_sortable';
 
@@ -65,7 +66,7 @@ const mainDocSolrFields = {
             formatDummyForMainDocSort : {
                 basename     : 'format',
                 source       : [ 'Hardcoded 0 (number, not string)' ],
-                indexAsArray : [ 'sortable' ],
+                indexAsArray : [ SORTABLE ],
             },
             repository                : {
                 source       : [ 'Derived from name of parent directory of EAD file' ],
