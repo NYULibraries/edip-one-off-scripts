@@ -133,6 +133,10 @@ const mainDocSolrFields = {
                 xpath        : 'archdesc[@level=\'collection\']/*[name() != \'dsc\']//geogname',
                 indexAsArray : [ SEARCHABLE, DISPLAYABLE ],
             },
+            heading          : {
+                xpath        : 'archdesc[@level=\'collection\']/did/unittitle',
+                indexAsArray : [ DISPLAYABLE ],
+            },
             langcode           : {
                 xpath        : 'archdesc[@level=\'collection\']/did/langmaterial/language/@langcode',
                 indexAsArray : [ STORED_SEARCHABLE ],
