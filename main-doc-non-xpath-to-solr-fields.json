@@ -1,4 +1,9 @@
 {
+    "Hardcoded \"Online Access\" if //dao is not empty": {
+        "solrFields": [
+            "dao_sim"
+        ]
+    },
     "Hardcoded \"Archival Collection\"": {
         "solrFields": [
             "format_sim",

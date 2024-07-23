@@ -52,6 +52,11 @@ const mainDocSolrFields = {
             },
         },
         nonXpath: {
+            dao: {
+                basename: 'dao',
+                source: 'Hardcoded "Online Access" if //dao is not empty',
+                indexAsArray : [ FACETABLE ],
+            },
             formatArchivalCollection: {
                 basename: 'format',
                 source : [ 'Hardcoded "Archival Collection"' ],
