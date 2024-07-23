@@ -192,6 +192,12 @@ const mainDocSolrFields = {
                 xpath        : 'archdesc[@level=\'collection\']/did/unitdate[@type=\'bulk\']',
                 indexAsArray : [ SEARCHABLE ],
             },
+            unitdate_end       : {
+                xpath        : 'archdesc[@level=\'collection\']/did/unitdate[not(@type)]',
+                process      : 'For each element returned, if the value matches /(\\d{4})\\/(\\d{4})/,' +
+                               ' take the number on the right of the slash and add to array to be indexed.',
+                indexAsArray : [ FACETABLE, DISPLAYABLE, SORTABLE ],
+            },
             unitdate_normal    : {
                 xpath        : 'archdesc[@level=\'collection\']/did/unitdate/@normal',
                 indexAsArray : [ DISPLAYABLE, SEARCHABLE, FACETABLE ],
@@ -199,6 +205,12 @@ const mainDocSolrFields = {
             unitdate_inclusive : {
                 xpath        : 'archdesc[@level=\'collection\']/did/unitdate[@type=\'inclusive\']',
                 indexAsArray : [ SEARCHABLE ],
+            },
+            unitdate_start     : {
+                xpath        : 'archdesc[@level=\'collection\']/did/unitdate[not(@type)]',
+                process      : 'For each element returned, if the value matches /(\\d{4})\\/(\\d{4})/,' +
+                               ' take the number on the left of the slash and add to array to be indexed.',
+                indexAsArray : [ FACETABLE, DISPLAYABLE, SORTABLE ],
             },
             unitid             : {
                 xpath        : 'archdesc[@level=\'collection\']/did/unitid',
