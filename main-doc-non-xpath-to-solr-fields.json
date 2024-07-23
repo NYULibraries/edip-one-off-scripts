@@ -1,16 +1,16 @@
 {
-    "0": {
+    "Hardcoded \"Archival Collection\"": {
+        "solrFields": [
+            "format_sim",
+            "format_ssm"
+        ]
+    },
+    "Hardcoded 0 (number, not string)": {
         "solrFields": [
             "format_tei",
             "format_si",
             "format_dti",
             "format_ii"
-        ]
-    },
-    "Hardcoded \"Archival Collection\"": {
-        "solrFields": [
-            "format_sim",
-            "format_ssm"
         ]
     },
     "Derived from name of parent directory of EAD file": {

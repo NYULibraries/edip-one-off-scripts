@@ -45,7 +45,7 @@ const mainDocSolrFields = {
             },
             formatDummyForMainDocSort: {
                 basename: 'format',
-                source : [ 0 ],
+                source : [ 'Hardcoded 0 (number, not string)' ],
                 indexAsArray : [ 'sortable' ],
             },
             repository : {
