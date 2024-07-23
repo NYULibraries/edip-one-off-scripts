@@ -1,8 +1,8 @@
 const DISPLAYABLE = 'displayable';
 const FACETABLE = 'facetable';
 const SEARCHABLE = 'searchable';
-const STORED_STORABLE = 'stored_sortable';
 const STORED_SEARCHABLE = 'stored_searchable';
+const STORED_STORABLE = 'stored_sortable';
 
 const mainDocSolrFields = {
     nonSolrizer : {
