@@ -82,6 +82,10 @@ function addXpathSolrFields() {
             mainDocXpathToSolrFields[ solrField.xpath ].solrFields = [];
         }
         mainDocXpathToSolrFields[ solrField.xpath ].solrFields.push( ...suffixedSolrFields );
+
+        if ( solrField.process ) {
+            mainDocXpathToSolrFields[ solrField.xpath ].process = solrField.process;
+        }
     } );
 }
 
