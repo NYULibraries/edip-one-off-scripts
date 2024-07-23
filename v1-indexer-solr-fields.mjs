@@ -31,9 +31,9 @@ const mainDocSolrFields = {
                 ],
                 process: 'Get elements for each xpath query in the order listed.' +
                          ' Flatten returned node sets into one array,' +
-                         ' and for each element replace strings matching /\|\w{1}/' +
-                         ' (MARC subfield demarcators) with "--",' +
-                         ' remove `nil` values, and remove duplicates.',
+                         ' remove `nil` values, and remove duplicates, and for ' +
+                         ' each element replace strings matching /\|\w{1}/' +
+                         ' (MARC subfield demarcators) with "--".',
                 indexAsArray : [ FACETABLE, SEARCHABLE ],
             },
         },
