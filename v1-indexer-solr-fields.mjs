@@ -134,7 +134,7 @@ const mainDocSolrFields = {
                 xpath        : 'archdesc[@level=\'collection\']/*[name() != \'dsc\']//geogname',
                 indexAsArray : [ SEARCHABLE, DISPLAYABLE ],
             },
-            heading          : {
+            heading            : {
                 xpath        : 'archdesc[@level=\'collection\']/did/unittitle',
                 indexAsArray : [ DISPLAYABLE ],
             },
@@ -218,12 +218,12 @@ const mainDocSolrFields = {
             },
             unittitle          : {
                 xpath        : 'archdesc[@level=\'collection\']/did/unittitle',
-                process: 'For `unittitle_teim`, `unittitle_dtim`, and `unittitle_iim`,' +
-                         ' no special instructions.  For `unittitle_ssm`: change' +
-                         ' all EAD tags in the <unittitle> text which have `render`' +
-                         ' attributes to the appropriate HTML tag using this' +
-                         ' table: https://github.com/awead/solr_ead/blob/v0.7.5/lib/solr_ead/formatting.rb#L5-L23' +
-                         ' and remove the `render` attribute from the tag.',
+                process      : 'For `unittitle_teim`, `unittitle_dtim`, and `unittitle_iim`,' +
+                               ' no special instructions.  For `unittitle_ssm`: change' +
+                               ' all EAD tags in the <unittitle> text which have `render`' +
+                               ' attributes to the appropriate HTML tag using this' +
+                               ' table: https://github.com/awead/solr_ead/blob/v0.7.5/lib/solr_ead/formatting.rb#L5-L23' +
+                               ' and remove the `render` attribute from the tag.',
                 indexAsArray : [ SEARCHABLE, DISPLAYABLE ],
             },
         },
