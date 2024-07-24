@@ -1,7 +1,7 @@
 import { writeFileSync } from 'node:fs';
 
-import { mainDocSolrFields } from './v1-indexer-solr-fields.mjs';
-import { indexAsConversion } from './index-as-conversion.mjs';
+import { mainDocSolrFields } from './lib/v1-indexer-solr-fields.mjs';
+import { indexAsConversion } from './lib/index-as-conversion.mjs';
 
 const mainDocCompositeSolrFields = {};
 const mainDocDirectToSolrFields = {};
