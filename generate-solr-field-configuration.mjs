@@ -1,5 +1,14 @@
 import { writeFileSync } from 'node:fs';
 
+import path from 'node:path';
+import * as url from 'url';
+
+const __dirname = url.fileURLToPath( new URL( '.', import.meta.url ) );
+
+const ROOT = path.join( __dirname );
+
+const TRANSFORMATION_MAP_FILES_DIR = path.join( ROOT, 'transformation-map-files' );
+
 import { mainDocSolrFields } from './lib/v1-indexer-solr-fields.mjs';
 import { indexAsConversion } from './lib/index-as-conversion.mjs';
 
@@ -95,25 +104,25 @@ addSolrizerNonXpathSolrFields();
 addSolrizerXpathSolrFields();
 
 writeFileSync(
-    './transformation-map-files/main-doc-solrizer-composite-solr-fields.json',
+    path.join( TRANSFORMATION_MAP_FILES_DIR, 'main-doc-solrizer-composite-solr-fields.json' ),
     JSON.stringify( mainDocCompositeSolrFields, null, '    ' ),
     { encoding : 'utf8' },
 );
 
 writeFileSync(
-    './transformation-map-files/main-doc-non-solrizer-solr-fields.json',
+    path.join( TRANSFORMATION_MAP_FILES_DIR, 'main-doc-non-solrizer-solr-fields.json' ),
     JSON.stringify( mainDocDirectToSolrFields, null, '    ' ),
     { encoding : 'utf8' },
 );
 
 writeFileSync(
-    './transformation-map-files/main-doc-solrizer-non-xpath-to-solr-fields.json',
+    path.join( TRANSFORMATION_MAP_FILES_DIR, 'main-doc-solrizer-non-xpath-to-solr-fields.json' ),
     JSON.stringify( mainDocNonXpathToSolrFields, null, '    ' ),
     { encoding : 'utf8' },
 );
 
 writeFileSync(
-    './transformation-map-files/main-doc-solrizer-xpath-to-solr-fields.json',
+    path.join( TRANSFORMATION_MAP_FILES_DIR, 'main-doc-solrizer-xpath-to-solr-fields.json' ),
     JSON.stringify( mainDocXpathToSolrFields, null, '    ' ),
     { encoding : 'utf8' },
 );
