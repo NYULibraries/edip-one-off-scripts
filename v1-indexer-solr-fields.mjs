@@ -58,6 +58,11 @@ const mainDocSolrFields = {
                 source       : 'Hardcoded "Online Access" if //dao is not empty',
                 indexAsArray : [ FACETABLE ],
             },
+            dateRange: {
+                basename: 'date_range',
+                source : 'For each [UNITDATE_NORMAL] date that falls within `start_date` and `end_date` ranges found in v1 indexer `DATE_RANGES` here: https://github.com/NYULibraries/ead_indexer/blob/f1bc142dfe1507dbd173bfa126168fa52bba9871/lib/ead_indexer/behaviors/dates.rb#L4-L15, add to array.  If there are no in-range values, then value is an array with a single string "undated & other".',
+                indexAsArray: [ FACETABLE ],
+            },
             formatArchivalCollection  : {
                 basename     : 'format',
                 source       : 'Hardcoded "Archival Collection"',
