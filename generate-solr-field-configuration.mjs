@@ -95,25 +95,25 @@ addSolrizerNonXpathSolrFields();
 addSolrizerXpathSolrFields();
 
 writeFileSync(
-    'main-doc-solrizer-composite-solr-fields.json',
+    './transformation-map-files/main-doc-solrizer-composite-solr-fields.json',
     JSON.stringify( mainDocCompositeSolrFields, null, '    ' ),
     { encoding : 'utf8' },
 );
 
 writeFileSync(
-    'main-doc-non-solrizer-solr-fields.json',
+    './transformation-map-files/main-doc-non-solrizer-solr-fields.json',
     JSON.stringify( mainDocDirectToSolrFields, null, '    ' ),
     { encoding : 'utf8' },
 );
 
 writeFileSync(
-    'main-doc-solrizer-non-xpath-to-solr-fields.json',
+    './transformation-map-files/main-doc-solrizer-non-xpath-to-solr-fields.json',
     JSON.stringify( mainDocNonXpathToSolrFields, null, '    ' ),
     { encoding : 'utf8' },
 );
 
 writeFileSync(
-    'main-doc-solrizer-xpath-to-solr-fields.json',
+    './transformation-map-files/main-doc-solrizer-xpath-to-solr-fields.json',
     JSON.stringify( mainDocXpathToSolrFields, null, '    ' ),
     { encoding : 'utf8' },
 );
