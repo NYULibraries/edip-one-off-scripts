@@ -73,7 +73,7 @@ function addSolrizerNonXpathSolrFields() {
     } );
 }
 
-function addSolrizerXpathSolrFields() {
+function addSolrizerSimpleXpathSolrFields() {
     Object.keys( mainDocSolrFields.solrizer.xpath ).sort().forEach( solrFieldName => {
         const solrField = mainDocSolrFields.solrizer.xpath[ solrFieldName ];
         const suffixes = [];
@@ -101,7 +101,7 @@ function addSolrizerXpathSolrFields() {
 addSolrizerCompositeSolrFields();
 addNonSolrizerSolrFields();
 addSolrizerNonXpathSolrFields();
-addSolrizerXpathSolrFields();
+addSolrizerSimpleXpathSolrFields();
 
 writeFileSync(
     path.join( TRANSFORMATION_MAP_FILES_DIR, 'main-doc-solrizer-composite-solr-fields.json' ),
@@ -122,7 +122,7 @@ writeFileSync(
 );
 
 writeFileSync(
-    path.join( TRANSFORMATION_MAP_FILES_DIR, 'main-doc-solrizer-xpath-to-solr-fields.json' ),
+    path.join( TRANSFORMATION_MAP_FILES_DIR, 'main-doc-solrizer-simple-xpath-to-solr-fields.json' ),
     JSON.stringify( mainDocXpathToSolrFields, null, '    ' ),
     { encoding : 'utf8' },
 );
