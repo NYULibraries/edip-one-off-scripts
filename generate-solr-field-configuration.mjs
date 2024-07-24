@@ -8,7 +8,7 @@ const mainDocDirectToSolrFields = {};
 const mainDocNonXpathToSolrFields = {};
 const mainDocXpathToSolrFields = {};
 
-function addCompositeSolrizerSolrFields() {
+function addSolrizerCompositeSolrFields() {
     Object.keys( mainDocSolrFields.solrizer.composite ).sort().forEach( solrFieldName => {
         const solrField = mainDocSolrFields.solrizer.composite[ solrFieldName ];
         const suffixes = [];
@@ -43,7 +43,7 @@ function addNonSolrizerSolrFields() {
     } );
 }
 
-function addNonXpathSolrFields() {
+function addSolrizerNonXpathSolrFields() {
     Object.keys( mainDocSolrFields.solrizer.nonXpath ).sort().forEach( solrFieldName => {
         const solrField = mainDocSolrFields.solrizer.nonXpath[ solrFieldName ];
         const suffixes = [];
@@ -64,7 +64,7 @@ function addNonXpathSolrFields() {
     } );
 }
 
-function addXpathSolrFields() {
+function addSolrizerXpathSolrFields() {
     Object.keys( mainDocSolrFields.solrizer.xpath ).sort().forEach( solrFieldName => {
         const solrField = mainDocSolrFields.solrizer.xpath[ solrFieldName ];
         const suffixes = [];
@@ -89,13 +89,13 @@ function addXpathSolrFields() {
     } );
 }
 
-addCompositeSolrizerSolrFields();
+addSolrizerCompositeSolrFields();
 addNonSolrizerSolrFields();
-addNonXpathSolrFields();
-addXpathSolrFields();
+addSolrizerNonXpathSolrFields();
+addSolrizerXpathSolrFields();
 
 writeFileSync(
-    'main-doc-composite-solr-fields.json',
+    'main-doc-solrizer-composite-solr-fields.json',
     JSON.stringify( mainDocCompositeSolrFields, null, '    ' ),
     { encoding : 'utf8' },
 );
@@ -107,13 +107,13 @@ writeFileSync(
 );
 
 writeFileSync(
-    'main-doc-non-xpath-to-solr-fields.json',
+    'main-doc-solrizer-non-xpath-to-solr-fields.json',
     JSON.stringify( mainDocNonXpathToSolrFields, null, '    ' ),
     { encoding : 'utf8' },
 );
 
 writeFileSync(
-    'main-doc-xpath-to-solr-fields.json',
+    'main-doc-solrizer-xpath-to-solr-fields.json',
     JSON.stringify( mainDocXpathToSolrFields, null, '    ' ),
     { encoding : 'utf8' },
 );
