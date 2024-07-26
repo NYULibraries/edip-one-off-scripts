@@ -7,122 +7,56 @@ const __dirname = url.fileURLToPath( new URL( '.', import.meta.url ) );
 
 const ROOT = path.join( __dirname );
 
-const TRANSFORMATION_MAP_FILES_DIR = path.join( ROOT, 'transformation-map-files' );
+const TRANSFORMATION_MAPS_DIR = path.join( ROOT, 'transformation-maps' );
+const EAD_TO_SOLR_FIELDS_DIR = path.join( TRANSFORMATION_MAPS_DIR, 'ead-to-solr-fields' );
+const SOLR_FIELDS_TO_EAD_DIR = path.join( TRANSFORMATION_MAPS_DIR, 'solr-fields-to-ead' );
 
-import { mainDocSolrFields } from './lib/v1-indexer-solr-fields.mjs';
-import { indexAsConversion } from './lib/index-as-conversion.mjs';
+function getMainDocCsvMaps() {
 
-const mainDocCompositeSolrFields = {};
-const mainDocDirectToSolrFields = {};
-const mainDocNonXpathToSolrFields = {};
-const mainDocXpathToSolrFields = {};
 
-function addSolrizerCompositeSolrFields() {
-    Object.keys( mainDocSolrFields.solrizer.composite ).sort().forEach( solrFieldName => {
-        const solrField = mainDocSolrFields.solrizer.composite[ solrFieldName ];
-        const suffixes = [];
-        const indexAsArray = solrField.indexAsArray;
-        if ( indexAsArray ) {
-            indexAsArray.forEach( indexAs => {
-                suffixes.push( ...indexAsConversion[ indexAs ].suffixes );
-            } );
-        }
-        const suffixedSolrFields =
-            suffixes.map( suffix => `${ solrFieldName }${ suffix }` );
 
-        if ( ! mainDocCompositeSolrFields[ solrFieldName ] ) {
-            mainDocCompositeSolrFields[ solrFieldName ] = {};
-            mainDocCompositeSolrFields[ solrFieldName ].process = solrField.process;
-            mainDocCompositeSolrFields[ solrFieldName ].solrFields = [];
-            mainDocCompositeSolrFields[ solrFieldName ].xpathQueries = [];
-        }
-        mainDocCompositeSolrFields[ solrFieldName ].solrFields.push( ...suffixedSolrFields );
-        mainDocCompositeSolrFields[ solrFieldName ].xpathQueries.push( ...solrField.xpathQueries );
-    } );
+    return {
+        mainDocEadToSolrFieldsCsvMap: 'Main doc EAD to Solr fields map CSV',
+        mainDocSolrFieldsToEadCsvMap: 'Main doc Solr fields to EAD map CSV',
+    };
 }
 
-function addNonSolrizerSolrFields() {
-    Object.keys( mainDocSolrFields.nonSolrizer ).sort().forEach( solrFieldName => {
-        const solrField = mainDocSolrFields.nonSolrizer[ solrFieldName ];
-        if ( ! mainDocDirectToSolrFields[ solrField.source ] ) {
-            mainDocDirectToSolrFields[ solrField.source ] = {};
-            mainDocDirectToSolrFields[ solrField.source ].solrFields = [];
-        }
-        mainDocDirectToSolrFields[ solrField.source ].solrFields.push( solrFieldName );
-    } );
-}
+function getComponentCsvMaps() {
+    return {
+        componentEadToSolrFieldsCsvMap: 'Component EAD to Solr fields map CSV',
+        componentSolrFieldsToEadCsvMap: 'Component Solr fields to EAD map CSV',
+    };}
 
-function addSolrizerNonXpathSolrFields() {
-    Object.keys( mainDocSolrFields.solrizer.nonXpath ).sort().forEach( solrFieldName => {
-        const solrField = mainDocSolrFields.solrizer.nonXpath[ solrFieldName ];
-        const suffixes = [];
-        const indexAsArray = solrField.indexAsArray;
-        if ( indexAsArray ) {
-            indexAsArray.forEach( indexAs => {
-                suffixes.push( ...indexAsConversion[ indexAs ].suffixes );
-            } );
-        }
-        const suffixedSolrFields =
-            suffixes.map( suffix => `${ solrField.basename }${ suffix }` );
+const {
+    mainDocEadToSolrFieldsCsvMap,
+    mainDocSolrFieldsToEadCsvMap,
+} = getMainDocCsvMaps();
 
-        if ( ! mainDocNonXpathToSolrFields[ solrField.source ] ) {
-            mainDocNonXpathToSolrFields[ solrField.source ] = {};
-            mainDocNonXpathToSolrFields[ solrField.source ].solrFields = [];
-        }
-        mainDocNonXpathToSolrFields[ solrField.source ].solrFields.push( ...suffixedSolrFields );
-    } );
-}
-
-function addSolrizerSimpleXpathSolrFields() {
-    Object.keys( mainDocSolrFields.solrizer.xpath ).sort().forEach( solrFieldName => {
-        const solrField = mainDocSolrFields.solrizer.xpath[ solrFieldName ];
-        const suffixes = [];
-        const indexAsArray = solrField.indexAsArray;
-        if ( indexAsArray ) {
-            indexAsArray.forEach( indexAs => {
-                suffixes.push( ...indexAsConversion[ indexAs ].suffixes );
-            } );
-        }
-        const suffixedSolrFields =
-            suffixes.map( suffix => `${ solrFieldName }${ suffix }` );
-
-        if ( ! mainDocXpathToSolrFields[ solrField.xpath ] ) {
-            mainDocXpathToSolrFields[ solrField.xpath ] = {};
-            mainDocXpathToSolrFields[ solrField.xpath ].solrFields = [];
-        }
-        mainDocXpathToSolrFields[ solrField.xpath ].solrFields.push( ...suffixedSolrFields );
-
-        if ( solrField.process ) {
-            mainDocXpathToSolrFields[ solrField.xpath ].process = solrField.process;
-        }
-    } );
-}
-
-addSolrizerCompositeSolrFields();
-addNonSolrizerSolrFields();
-addSolrizerNonXpathSolrFields();
-addSolrizerSimpleXpathSolrFields();
+const {
+    componentEadToSolrFieldsCsvMap,
+    componentSolrFieldsToEadCsvMap,
+} = getComponentCsvMaps();
 
 writeFileSync(
-    path.join( TRANSFORMATION_MAP_FILES_DIR, 'main-doc-solrizer-composite-solr-fields.json' ),
-    JSON.stringify( mainDocCompositeSolrFields, null, '    ' ),
+    path.join( EAD_TO_SOLR_FIELDS_DIR, 'main-doc.csv' ),
+    mainDocEadToSolrFieldsCsvMap,
     { encoding : 'utf8' },
 );
 
 writeFileSync(
-    path.join( TRANSFORMATION_MAP_FILES_DIR, 'main-doc-non-solrizer-solr-fields.json' ),
-    JSON.stringify( mainDocDirectToSolrFields, null, '    ' ),
+    path.join( SOLR_FIELDS_TO_EAD_DIR, 'main-doc.csv' ),
+    mainDocSolrFieldsToEadCsvMap,
     { encoding : 'utf8' },
 );
 
 writeFileSync(
-    path.join( TRANSFORMATION_MAP_FILES_DIR, 'main-doc-solrizer-non-xpath-to-solr-fields.json' ),
-    JSON.stringify( mainDocNonXpathToSolrFields, null, '    ' ),
+    path.join( EAD_TO_SOLR_FIELDS_DIR, 'component.csv' ),
+    componentEadToSolrFieldsCsvMap,
     { encoding : 'utf8' },
 );
 
 writeFileSync(
-    path.join( TRANSFORMATION_MAP_FILES_DIR, 'main-doc-solrizer-simple-xpath-to-solr-fields.json' ),
-    JSON.stringify( mainDocXpathToSolrFields, null, '    ' ),
+    path.join( SOLR_FIELDS_TO_EAD_DIR, 'component.csv' ),
+    componentSolrFieldsToEadCsvMap,
     { encoding : 'utf8' },
 );
