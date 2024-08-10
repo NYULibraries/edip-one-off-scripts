@@ -48,17 +48,12 @@ function getComponentCsvMaps() {
     };
 }
 
-function main() {
-    const {
-        mainDocEadToSolrFieldsCsvMap,
-        mainDocSolrFieldsToEadCsvMap,
-    } = getMainDocCsvMaps();
-
-    const {
-        componentEadToSolrFieldsCsvMap,
-        componentSolrFieldsToEadCsvMap,
-    } = getComponentCsvMaps();
-
+function writeTransformationMapFiles(
+    mainDocEadToSolrFieldsCsvMap,
+    mainDocSolrFieldsToEadCsvMap,
+    componentEadToSolrFieldsCsvMap,
+    componentSolrFieldsToEadCsvMap,
+) {
     writeFileSync(
         path.join( EAD_TO_SOLR_FIELDS_DIR, 'main-doc.csv' ),
         mainDocEadToSolrFieldsCsvMap,
@@ -81,6 +76,25 @@ function main() {
         path.join( SOLR_FIELDS_TO_EAD_DIR, 'component.csv' ),
         componentSolrFieldsToEadCsvMap,
         { encoding : 'utf8' },
+    );
+}
+
+function main() {
+    const {
+        mainDocEadToSolrFieldsCsvMap,
+        mainDocSolrFieldsToEadCsvMap,
+    } = getMainDocCsvMaps();
+
+    const {
+        componentEadToSolrFieldsCsvMap,
+        componentSolrFieldsToEadCsvMap,
+    } = getComponentCsvMaps();
+
+    writeTransformationMapFiles(
+        mainDocEadToSolrFieldsCsvMap,
+        mainDocSolrFieldsToEadCsvMap,
+        componentEadToSolrFieldsCsvMap,
+        componentSolrFieldsToEadCsvMap,
     );
 }
 
