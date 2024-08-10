@@ -3,6 +3,9 @@ import { writeFileSync } from 'node:fs';
 import path from 'node:path';
 import * as url from 'url';
 
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+
 const __dirname = url.fileURLToPath( new URL( '.', import.meta.url ) );
 
 const ROOT = path.join( __dirname );
