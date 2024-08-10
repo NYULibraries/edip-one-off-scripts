@@ -26,8 +26,14 @@ const MAIN_DOC_SOLRIZER_SIMPLE_SOLR_FIELDS_FILE =
     path.join( SOLR_FIELD_CONFIGURATION_FILES, 'main-doc-solrizer-simple-xpath-to-solr-fields.json' )
 
 function getMainDocCsvMaps() {
-
-
+    const mainDocNonSolrizerSolrFieldsConfig =
+        require( MAIN_DOC_NON_SOLRIZER_SOLR_FIELDS_FILE );
+    const mainDocSolrizerCompositeSolrFieldsConfig =
+        require( MAIN_DOC_SOLRIZER_COMPOSITE_SOLR_FIELDS_FILE );
+    const mainDocSolrizerNonXpathSolrFieldsConfig =
+        require( MAIN_DOC_SOLRIZER_NON_XPATH_SOLR_FIELDS_FILE );
+    const mainDocSolrizerSimpleSolrFieldsConfig =
+        require( MAIN_DOC_SOLRIZER_SIMPLE_SOLR_FIELDS_FILE );
 
     return {
         mainDocEadToSolrFieldsCsvMap: 'Main doc EAD to Solr fields map CSV',
@@ -42,36 +48,40 @@ function getComponentCsvMaps() {
     };
 }
 
-const {
-    mainDocEadToSolrFieldsCsvMap,
-    mainDocSolrFieldsToEadCsvMap,
-} = getMainDocCsvMaps();
+function main() {
+    const {
+        mainDocEadToSolrFieldsCsvMap,
+        mainDocSolrFieldsToEadCsvMap,
+    } = getMainDocCsvMaps();
 
-const {
-    componentEadToSolrFieldsCsvMap,
-    componentSolrFieldsToEadCsvMap,
-} = getComponentCsvMaps();
+    const {
+        componentEadToSolrFieldsCsvMap,
+        componentSolrFieldsToEadCsvMap,
+    } = getComponentCsvMaps();
 
-writeFileSync(
-    path.join( EAD_TO_SOLR_FIELDS_DIR, 'main-doc.csv' ),
-    mainDocEadToSolrFieldsCsvMap,
-    { encoding : 'utf8' },
-);
+    writeFileSync(
+        path.join( EAD_TO_SOLR_FIELDS_DIR, 'main-doc.csv' ),
+        mainDocEadToSolrFieldsCsvMap,
+        { encoding : 'utf8' },
+    );
 
-writeFileSync(
-    path.join( SOLR_FIELDS_TO_EAD_DIR, 'main-doc.csv' ),
-    mainDocSolrFieldsToEadCsvMap,
-    { encoding : 'utf8' },
-);
+    writeFileSync(
+        path.join( SOLR_FIELDS_TO_EAD_DIR, 'main-doc.csv' ),
+        mainDocSolrFieldsToEadCsvMap,
+        { encoding : 'utf8' },
+    );
 
-writeFileSync(
-    path.join( EAD_TO_SOLR_FIELDS_DIR, 'component.csv' ),
-    componentEadToSolrFieldsCsvMap,
-    { encoding : 'utf8' },
-);
+    writeFileSync(
+        path.join( EAD_TO_SOLR_FIELDS_DIR, 'component.csv' ),
+        componentEadToSolrFieldsCsvMap,
+        { encoding : 'utf8' },
+    );
 
-writeFileSync(
-    path.join( SOLR_FIELDS_TO_EAD_DIR, 'component.csv' ),
-    componentSolrFieldsToEadCsvMap,
-    { encoding : 'utf8' },
-);
+    writeFileSync(
+        path.join( SOLR_FIELDS_TO_EAD_DIR, 'component.csv' ),
+        componentSolrFieldsToEadCsvMap,
+        { encoding : 'utf8' },
+    );
+}
+
+main();
