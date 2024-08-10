@@ -1,1 +1,2 @@
-Main doc Solr fields to EAD map CSV
+xpath query,Processing,Solr field
+id,n/a,First token of <eadid>

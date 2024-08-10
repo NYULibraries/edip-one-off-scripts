@@ -1,1 +1,4 @@
-Main doc EAD to Solr fields map CSV
+xpath query,Processing,Solr field
+First token of <eadid>,,id
+"Hardcoded ""Online Access"" if //dao is not empty",,dao_sim
+archdesc[@level='collection']/did/abstract,,"abstract_teim,abstract_dtim,abstract_iim,abstract_ssm"

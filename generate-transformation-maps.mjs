@@ -2,6 +2,8 @@ import { writeFileSync } from 'node:fs';
 import path from 'node:path';
 import * as url from 'url';
 
+import Papa from 'papaparse';
+
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
@@ -24,6 +26,8 @@ const MAIN_DOC_SOLRIZER_NON_XPATH_SOLR_FIELDS_FILE =
 const MAIN_DOC_SOLRIZER_SIMPLE_SOLR_FIELDS_FILE =
     path.join( SOLR_FIELD_CONFIGURATION_FILES, 'main-doc-solrizer-simple-xpath-to-solr-fields.json' )
 
+const CSV_FILE_HEADER = [ 'SOURCE', 'PROCESSING', 'SOLR FIELD' ];
+
 function getMainDocCsvMaps() {
     const mainDocNonSolrizerSolrFieldsConfig =
         require( MAIN_DOC_NON_SOLRIZER_SOLR_FIELDS_FILE );
@@ -34,9 +38,40 @@ function getMainDocCsvMaps() {
     const mainDocSolrizerSimpleSolrFieldsConfig =
         require( MAIN_DOC_SOLRIZER_SIMPLE_SOLR_FIELDS_FILE );
 
+    function direct( configFile ) {
+        const data = [];
+
+        for ( const [ xpathQuery, object ] of Object.entries( configFile ) ) {
+            data.push( xpathQuery, object.process, object.solrFields.join( ',' ) );
+        }
+
+        return data;
+    }
+
+    const mainDocEadToSolrFieldsCsvMapData = [];
+    mainDocEadToSolrFieldsCsvMapData.push(
+        direct( mainDocNonSolrizerSolrFieldsConfig )
+    );
+    mainDocEadToSolrFieldsCsvMapData.push(
+        direct( mainDocSolrizerNonXpathSolrFieldsConfig )
+    );
+    mainDocEadToSolrFieldsCsvMapData.push(
+        direct( mainDocSolrizerSimpleSolrFieldsConfig )
+    );
+
     return {
-        mainDocEadToSolrFieldsCsvMap: 'Main doc EAD to Solr fields map CSV',
-        mainDocSolrFieldsToEadCsvMap: 'Main doc Solr fields to EAD map CSV',
+        mainDocEadToSolrFieldsCsvMap: {
+            fields: CSV_FILE_HEADER,
+            data: mainDocEadToSolrFieldsCsvMapData,
+        },
+        mainDocSolrFieldsToEadCsvMap: {
+            fields: CSV_FILE_HEADER,
+            data: [
+                'id',
+                'n/a',
+                'First token of <eadid>',
+            ],
+        }
     };
 }
 
@@ -47,33 +82,51 @@ function getComponentCsvMaps() {
     };
 }
 
+function getPapaParseConfig() {
+    return {
+        // Or array of booleans
+        quotes: false,
+        quoteChar: '"',
+        escapeChar: '"',
+        delimiter: ',',
+        header: true,
+        newline: '\n',
+        // Other option is 'greedy', meaning skip delimiters, quotes, and whitespace.
+        skipEmptyLines: false,
+        // Or array of strings
+        columns: null,
+    };
+}
+
 function writeTransformationMapFiles(
     mainDocEadToSolrFieldsCsvMap,
     mainDocSolrFieldsToEadCsvMap,
     componentEadToSolrFieldsCsvMap,
     componentSolrFieldsToEadCsvMap,
 ) {
+    const papaParseConfig = getPapaParseConfig();
+
     writeFileSync(
         path.join( EAD_TO_SOLR_FIELDS_DIR, 'main-doc.csv' ),
-        mainDocEadToSolrFieldsCsvMap,
+        Papa.unparse( mainDocEadToSolrFieldsCsvMap, papaParseConfig ),
         { encoding : 'utf8' },
     );
 
     writeFileSync(
         path.join( SOLR_FIELDS_TO_EAD_DIR, 'main-doc.csv' ),
-        mainDocSolrFieldsToEadCsvMap,
+        Papa.unparse( mainDocSolrFieldsToEadCsvMap, papaParseConfig ),
         { encoding : 'utf8' },
     );
 
     writeFileSync(
         path.join( EAD_TO_SOLR_FIELDS_DIR, 'component.csv' ),
-        componentEadToSolrFieldsCsvMap,
+        Papa.unparse( componentEadToSolrFieldsCsvMap, papaParseConfig ),
         { encoding : 'utf8' },
     );
 
     writeFileSync(
         path.join( SOLR_FIELDS_TO_EAD_DIR, 'component.csv' ),
-        componentSolrFieldsToEadCsvMap,
+        Papa.unparse( componentSolrFieldsToEadCsvMap, papaParseConfig ),
         { encoding : 'utf8' },
     );
 }
