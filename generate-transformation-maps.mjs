@@ -36,7 +36,8 @@ function getComponentCsvMaps() {
     return {
         componentEadToSolrFieldsCsvMap: 'Component EAD to Solr fields map CSV',
         componentSolrFieldsToEadCsvMap: 'Component Solr fields to EAD map CSV',
-    };}
+    };
+}
 
 const {
     mainDocEadToSolrFieldsCsvMap,
