@@ -1,5 +1,4 @@
 import { writeFileSync } from 'node:fs';
-
 import path from 'node:path';
 import * as url from 'url';
 
