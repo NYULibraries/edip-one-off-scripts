@@ -11,6 +11,17 @@ const TRANSFORMATION_MAPS_DIR = path.join( ROOT, 'transformation-maps' );
 const EAD_TO_SOLR_FIELDS_DIR = path.join( TRANSFORMATION_MAPS_DIR, 'ead-to-solr-fields' );
 const SOLR_FIELDS_TO_EAD_DIR = path.join( TRANSFORMATION_MAPS_DIR, 'solr-fields-to-ead' );
 
+const SOLR_FIELD_CONFIGURATION_FILES =
+    path.join( ROOT, 'solr-field-configuration-files' );
+const MAIN_DOC_NON_SOLRIZER_SOLR_FIELDS_FILE =
+    path.join( SOLR_FIELD_CONFIGURATION_FILES, 'main-doc-non-solrizer-solr-fields.json' )
+const MAIN_DOC_SOLRIZER_COMPOSITE_SOLR_FIELDS_FILE =
+    path.join( SOLR_FIELD_CONFIGURATION_FILES, 'main-doc-solrizer-composite-solr-fields.json' )
+const MAIN_DOC_SOLRIZER_NON_XPATH_SOLR_FIELDS_FILE =
+    path.join( SOLR_FIELD_CONFIGURATION_FILES, 'main-doc-solrizer-non-xpath-to-solr-fields.json' )
+const MAIN_DOC_SOLRIZER_SIMPLE_SOLR_FIELDS_FILE =
+    path.join( SOLR_FIELD_CONFIGURATION_FILES, 'main-doc-solrizer-simple-xpath-to-solr-fields.json' )
+
 function getMainDocCsvMaps() {
 
 
