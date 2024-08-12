@@ -30,16 +30,35 @@ const MAIN_DOC_SOLRIZER_SIMPLE_SOLR_FIELDS_CONFIG =
 const CSV_FILE_HEADER = [ 'SOURCE TYPE', 'SOURCE', 'PROCESSING', 'SOLR FIELD' ];
 
 function getMainDocCsvMaps() {
+    const mainDocEadToSolrFieldsCsvMapData = getMainDocEadToSolrFieldsCsvMapData();
+
+    return {
+        mainDocEadToSolrFieldsCsvMap: {
+            fields: CSV_FILE_HEADER,
+            data: mainDocEadToSolrFieldsCsvMapData,
+        },
+        mainDocSolrFieldsToEadCsvMap: {
+            fields: CSV_FILE_HEADER,
+            data: [
+                'id',
+                'n/a',
+                'First token of <eadid>',
+            ],
+        }
+    };
+}
+
+function getMainDocEadToSolrFieldsCsvMapData() {
     function composite( sourceType, configFile ) {
         const data = [];
 
         for ( const [ source, object ] of Object.entries( configFile ) ) {
             data.push( [
-                sourceType,
-                `${ source }: ${ object.xpathQueries.join( ', ' ) }`,
-                object.process,
-                object.solrFields.join( ',' )
-           ] );
+                           sourceType,
+                           `${ source }: ${ object.xpathQueries.join( ', ' ) }`,
+                           object.process,
+                           object.solrFields.join( ',' )
+                       ] );
         }
 
         return data;
@@ -70,20 +89,7 @@ function getMainDocCsvMaps() {
         ...composite( 'Solrizer - composite', MAIN_DOC_SOLRIZER_COMPOSITE_SOLR_FIELDS_CONFIG )
     );
 
-    return {
-        mainDocEadToSolrFieldsCsvMap: {
-            fields: CSV_FILE_HEADER,
-            data: mainDocEadToSolrFieldsCsvMapData,
-        },
-        mainDocSolrFieldsToEadCsvMap: {
-            fields: CSV_FILE_HEADER,
-            data: [
-                'id',
-                'n/a',
-                'First token of <eadid>',
-            ],
-        }
-    };
+    return mainDocEadToSolrFieldsCsvMapData;
 }
 
 function getComponentCsvMaps() {
