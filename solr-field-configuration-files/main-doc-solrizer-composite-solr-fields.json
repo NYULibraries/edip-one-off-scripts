@@ -15,9 +15,7 @@
         "process": "Get elements for each xpath query in the order listed. Flatten returned node sets into one array, remove `nil` values, and remove duplicates, and for  each element replace strings matching /|w{1}/ (MARC subfield demarcators) with \"--\".",
         "solrFields": [
             "name_sim",
-            "name_teim",
-            "name_dtim",
-            "name_iim"
+            "name_teim"
         ],
         "xpathQueries": [
             "//famname",
@@ -30,8 +28,6 @@
         "solrFields": [
             "subject_sim",
             "subject_teim",
-            "subject_dtim",
-            "subject_iim",
             "subject_ssm"
         ],
         "xpathQueries": [
