@@ -95,8 +95,14 @@ function getMainDocEadToSolrFieldsCsvMapData() {
 
 function getComponentCsvMaps() {
     return {
-        componentEadToSolrFieldsCsvMap: 'Component EAD to Solr fields map CSV',
-        componentSolrFieldsToEadCsvMap: 'Component Solr fields to EAD map CSV',
+        componentEadToSolrFieldsCsvMap: {
+            fields: CSV_FILE_HEADER_EAD_TO_SOLR_FIELD,
+            data: [ 'Component EAD to Solr fields map CSV' ],
+        },
+        componentSolrFieldsToEadCsvMap: {
+            fields: CSV_FILE_HEADER_TO_SOLR_FIELD_TO_EAD,
+            data: [ 'Component Solr fields to EAD map CSV' ],
+        },
     };
 }
 
