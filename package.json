@@ -1,0 +1,7 @@
+{
+  "name": "edip",
+  "version": "0.0.1",
+  "dependencies": {
+    "papaparse": "^5.4.1"
+  }
+}
