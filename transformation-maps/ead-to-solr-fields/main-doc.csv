@@ -1,4 +1,4 @@
-SOURCE TYPE,SOURCE,PROCESSING,SOLR FIELD
+SOURCE TYPE,SOURCE,PROCESSING,SOLR FIELDS
 Non-Solrizer,First token of <eadid>,,id
 Solrizer - non-xpath,"Hardcoded ""Online Access"" if //dao is not empty",,dao_sim
 Solrizer - non-xpath,"For each [UNITDATE_NORMAL] date that falls within `start_date` and `end_date` ranges found in v1 indexer `DATE_RANGES` here: https://github.com/NYULibraries/ead_indexer/blob/f1bc142dfe1507dbd173bfa126168fa52bba9871/lib/ead_indexer/behaviors/dates.rb#L4-L15, add to array.  If there are no in-range values, then value is an array with a single string ""undated & other"".",,date_range_sim
