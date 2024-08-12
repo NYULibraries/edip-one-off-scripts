@@ -38,6 +38,21 @@ function getMainDocCsvMaps() {
     const mainDocSolrizerSimpleSolrFieldsConfig =
         require( MAIN_DOC_SOLRIZER_SIMPLE_SOLR_FIELDS_FILE );
 
+    function composite( sourceType, configFile ) {
+        const data = [];
+
+        for ( const [ source, object ] of Object.entries( configFile ) ) {
+            data.push( [
+                sourceType,
+                `${ source }: ${ object.xpathQueries.join( ', ' ) }`,
+                object.process,
+                object.solrFields.join( ',' )
+           ] );
+        }
+
+        return data;
+    }
+
     function direct( sourceType, configFile ) {
         const data = [];
 
@@ -51,6 +66,9 @@ function getMainDocCsvMaps() {
     const mainDocEadToSolrFieldsCsvMapData = [];
     mainDocEadToSolrFieldsCsvMapData.push(
         ...direct( 'Non-Solrizer', mainDocNonSolrizerSolrFieldsConfig )
+    );
+    mainDocEadToSolrFieldsCsvMapData.push(
+        ...composite( 'Solrizer - composite', mainDocSolrizerCompositeSolrFieldsConfig )
     );
     mainDocEadToSolrFieldsCsvMapData.push(
         ...direct( 'Solrizer - non-xpath', mainDocSolrizerNonXpathSolrFieldsConfig )
