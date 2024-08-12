@@ -42,7 +42,7 @@ function getMainDocCsvMaps() {
         const data = [];
 
         for ( const [ source, object ] of Object.entries( configFile ) ) {
-            data.push( sourceType, source, object.process, object.solrFields.join( ',' ) );
+            data.push( [ sourceType, source, object.process, object.solrFields.join( ',' ) ] );
         }
 
         return data;
@@ -50,13 +50,13 @@ function getMainDocCsvMaps() {
 
     const mainDocEadToSolrFieldsCsvMapData = [];
     mainDocEadToSolrFieldsCsvMapData.push(
-        direct( 'Non-Solrizer', mainDocNonSolrizerSolrFieldsConfig )
+        ...direct( 'Non-Solrizer', mainDocNonSolrizerSolrFieldsConfig )
     );
     mainDocEadToSolrFieldsCsvMapData.push(
-        direct( 'Solrizer - non-xpath', mainDocSolrizerNonXpathSolrFieldsConfig )
+        ...direct( 'Solrizer - non-xpath', mainDocSolrizerNonXpathSolrFieldsConfig )
     );
     mainDocEadToSolrFieldsCsvMapData.push(
-        direct( 'Solrizer - xpath query', mainDocSolrizerSimpleSolrFieldsConfig )
+        ...direct( 'Solrizer - xpath query', mainDocSolrizerSimpleSolrFieldsConfig )
     );
 
     return {
