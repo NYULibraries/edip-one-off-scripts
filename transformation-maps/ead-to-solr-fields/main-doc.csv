@@ -1,4 +1,4 @@
-xpath query,Processing,Solr field
-First token of <eadid>,,id
-"Hardcoded ""Online Access"" if //dao is not empty",,dao_sim
-archdesc[@level='collection']/did/abstract,,"abstract_teim,abstract_dtim,abstract_iim,abstract_ssm"
+SOURCE TYPE,SOURCE,PROCESSING,SOLR FIELD
+Non-Solrizer,First token of <eadid>,,id
+Solrizer - non-xpath,"Hardcoded ""Online Access"" if //dao is not empty",,dao_sim
+Solrizer - xpath query,archdesc[@level='collection']/did/abstract,,"abstract_teim,abstract_dtim,abstract_iim,abstract_ssm"

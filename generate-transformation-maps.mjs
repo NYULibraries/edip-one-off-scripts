@@ -26,7 +26,7 @@ const MAIN_DOC_SOLRIZER_NON_XPATH_SOLR_FIELDS_FILE =
 const MAIN_DOC_SOLRIZER_SIMPLE_SOLR_FIELDS_FILE =
     path.join( SOLR_FIELD_CONFIGURATION_FILES, 'main-doc-solrizer-simple-xpath-to-solr-fields.json' )
 
-const CSV_FILE_HEADER = [ 'SOURCE', 'PROCESSING', 'SOLR FIELD' ];
+const CSV_FILE_HEADER = [ 'SOURCE TYPE', 'SOURCE', 'PROCESSING', 'SOLR FIELD' ];
 
 function getMainDocCsvMaps() {
     const mainDocNonSolrizerSolrFieldsConfig =
@@ -38,11 +38,11 @@ function getMainDocCsvMaps() {
     const mainDocSolrizerSimpleSolrFieldsConfig =
         require( MAIN_DOC_SOLRIZER_SIMPLE_SOLR_FIELDS_FILE );
 
-    function direct( configFile ) {
+    function direct( sourceType, configFile ) {
         const data = [];
 
-        for ( const [ xpathQuery, object ] of Object.entries( configFile ) ) {
-            data.push( xpathQuery, object.process, object.solrFields.join( ',' ) );
+        for ( const [ source, object ] of Object.entries( configFile ) ) {
+            data.push( sourceType, source, object.process, object.solrFields.join( ',' ) );
         }
 
         return data;
@@ -50,13 +50,13 @@ function getMainDocCsvMaps() {
 
     const mainDocEadToSolrFieldsCsvMapData = [];
     mainDocEadToSolrFieldsCsvMapData.push(
-        direct( mainDocNonSolrizerSolrFieldsConfig )
+        direct( 'Non-Solrizer', mainDocNonSolrizerSolrFieldsConfig )
     );
     mainDocEadToSolrFieldsCsvMapData.push(
-        direct( mainDocSolrizerNonXpathSolrFieldsConfig )
+        direct( 'Solrizer - non-xpath', mainDocSolrizerNonXpathSolrFieldsConfig )
     );
     mainDocEadToSolrFieldsCsvMapData.push(
-        direct( mainDocSolrizerSimpleSolrFieldsConfig )
+        direct( 'Solrizer - xpath query', mainDocSolrizerSimpleSolrFieldsConfig )
     );
 
     return {
