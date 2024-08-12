@@ -27,18 +27,19 @@ const MAIN_DOC_SOLRIZER_NON_XPATH_SOLR_FIELDS_CONFIG =
 const MAIN_DOC_SOLRIZER_SIMPLE_SOLR_FIELDS_CONFIG =
     require( path.join( SOLR_FIELD_CONFIGURATION_FILES, 'main-doc-solrizer-simple-xpath-to-solr-fields.json' ) );
 
-const CSV_FILE_HEADER = [ 'SOURCE TYPE', 'SOURCE', 'PROCESSING', 'SOLR FIELD' ];
+const CSV_FILE_HEADER_EAD_TO_SOLR_FIELD = [ 'SOURCE TYPE', 'SOURCE', 'PROCESSING', 'SOLR FIELD' ];
+const CSV_FILE_HEADER_TO_SOLR_FIELD_TO_EAD = [ 'SOURCE TYPE', 'SOLR_FIELD', 'PROCESSING', 'SOURCE' ];
 
 function getMainDocCsvMaps() {
     const mainDocEadToSolrFieldsCsvMapData = getMainDocEadToSolrFieldsCsvMapData();
 
     return {
         mainDocEadToSolrFieldsCsvMap: {
-            fields: CSV_FILE_HEADER,
+            fields: CSV_FILE_HEADER_EAD_TO_SOLR_FIELD,
             data: mainDocEadToSolrFieldsCsvMapData,
         },
         mainDocSolrFieldsToEadCsvMap: {
-            fields: CSV_FILE_HEADER,
+            fields: CSV_FILE_HEADER_TO_SOLR_FIELD_TO_EAD,
             data: [
                 'id',
                 'n/a',
