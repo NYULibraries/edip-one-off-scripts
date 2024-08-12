@@ -68,13 +68,14 @@ function getMainDocCsvMaps() {
         ...direct( 'Non-Solrizer', mainDocNonSolrizerSolrFieldsConfig )
     );
     mainDocEadToSolrFieldsCsvMapData.push(
-        ...composite( 'Solrizer - composite', mainDocSolrizerCompositeSolrFieldsConfig )
-    );
-    mainDocEadToSolrFieldsCsvMapData.push(
         ...direct( 'Solrizer - non-xpath', mainDocSolrizerNonXpathSolrFieldsConfig )
     );
     mainDocEadToSolrFieldsCsvMapData.push(
         ...direct( 'Solrizer - xpath query', mainDocSolrizerSimpleSolrFieldsConfig )
+    );
+
+    mainDocEadToSolrFieldsCsvMapData.push(
+        ...composite( 'Solrizer - composite', mainDocSolrizerCompositeSolrFieldsConfig )
     );
 
     return {
