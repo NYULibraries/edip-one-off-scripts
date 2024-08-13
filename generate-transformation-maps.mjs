@@ -32,6 +32,7 @@ const CSV_FILE_HEADER_TO_SOLR_FIELD_TO_EAD = [ 'SOURCE TYPE', 'SOLR_FIELD', 'PRO
 
 function getMainDocCsvMaps() {
     const mainDocEadToSolrFieldsCsvMapData = getMainDocEadToSolrFieldsCsvMapData();
+    const mainDocSolrFieldsToEadCsvMapData = getMainDocSolrFieldsToEadCsvMapData();
 
     return {
         mainDocEadToSolrFieldsCsvMap: {
@@ -40,11 +41,7 @@ function getMainDocCsvMaps() {
         },
         mainDocSolrFieldsToEadCsvMap: {
             fields: CSV_FILE_HEADER_TO_SOLR_FIELD_TO_EAD,
-            data: [
-                'id',
-                'n/a',
-                'First token of <eadid>',
-            ],
+            data: mainDocSolrFieldsToEadCsvMapData,
         }
     };
 }
@@ -91,6 +88,59 @@ function getMainDocEadToSolrFieldsCsvMapData() {
     );
 
     return mainDocEadToSolrFieldsCsvMapData;
+}
+
+function getMainDocSolrFieldsToEadCsvMapData() {
+    function composite( sourceType, configFile ) {
+        const data = [];
+
+        for ( const [ source, object ] of Object.entries( configFile ) ) {
+            object.solrFields.forEach( solrField => {
+                data.push( [
+                               sourceType,
+                               solrField,
+                               object.process,
+                               `${ source }: ${ object.xpathQueries.join( ', ' ) }`,
+                           ] );
+            } );
+        }
+
+        return data;
+    }
+
+    function direct( sourceType, configFile ) {
+        const data = [];
+
+        for ( const [ source, object ] of Object.entries( configFile ) ) {
+            object.solrFields.forEach( solrField => {
+                data.push( [
+                               sourceType,
+                               solrField,
+                               object.process,
+                               source,
+                           ] );
+            } );
+        }
+
+        return data;
+    }
+
+    const mainDocSolrFieldsToEadCsvMapData = [];
+    mainDocSolrFieldsToEadCsvMapData.push(
+        ...direct( 'Non-Solrizer', MAIN_DOC_NON_SOLRIZER_SOLR_FIELDS_CONFIG )
+    );
+    mainDocSolrFieldsToEadCsvMapData.push(
+        ...direct( 'Solrizer - non-xpath', MAIN_DOC_SOLRIZER_NON_XPATH_SOLR_FIELDS_CONFIG )
+    );
+    mainDocSolrFieldsToEadCsvMapData.push(
+        ...direct( 'Solrizer - xpath query', MAIN_DOC_SOLRIZER_SIMPLE_SOLR_FIELDS_CONFIG )
+    );
+
+    mainDocSolrFieldsToEadCsvMapData.push(
+        ...composite( 'Solrizer - composite', MAIN_DOC_SOLRIZER_COMPOSITE_SOLR_FIELDS_CONFIG )
+    );
+
+    return mainDocSolrFieldsToEadCsvMapData;
 }
 
 function getComponentCsvMaps() {
