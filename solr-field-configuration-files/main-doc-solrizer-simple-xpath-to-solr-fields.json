@@ -90,9 +90,10 @@
     },
     "archdesc[@level='collection']/did/langmaterial/language/@langcode": {
         "solrFields": [
-            "langcode_bsi",
-            "langcode_isim"
-        ]
+            "language_sim",
+            "language_ssm"
+        ],
+        "process": "Get the first Node returned by the xpath query, translate the langcode to a language name using this table: https://github.com/xwmx/iso-639/blob/169e152b4af5ca4a7876a3c7e37fcd272c3e577f/lib/data/ISO-639-2_utf-8.txt If the langcode is 3 or 7 characters and is found in the first or second columns of an entry in the table, use value in the fourth column for that entry, else if the langcode is 2 characters and is found in the third column of an entry in the table, use value in the fourth column for that entry."
     },
     "//genreform": {
         "solrFields": [
