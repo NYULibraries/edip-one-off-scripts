@@ -17,7 +17,6 @@
     },
     "Hardcoded 0 (number, not string)": {
         "solrFields": [
-            "format_si",
             "format_ii"
         ]
     },

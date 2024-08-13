@@ -60,7 +60,12 @@ function addSolrizerNonXpathSolrFields() {
         const indexAsArray = solrField.indexAsArray;
         if ( indexAsArray ) {
             indexAsArray.forEach( indexAs => {
-                suffixes.push( ...indexAsConversion[ indexAs ].suffixes );
+                const suffixesForIndexAs = indexAsConversion[ indexAs ].suffixes;
+                if ( Array.isArray( suffixesForIndexAs )  ) {
+                    suffixes.push( ...suffixesForIndexAs );
+                } else {
+                    suffixes.push( ...suffixesForIndexAs[ solrField.dataType ] );
+                }
             } );
         }
         const suffixedSolrFields =
@@ -81,7 +86,12 @@ function addSolrizerSimpleXpathSolrFields() {
         const indexAsArray = solrField.indexAsArray;
         if ( indexAsArray ) {
             indexAsArray.forEach( indexAs => {
-                suffixes.push( ...indexAsConversion[ indexAs ].suffixes );
+                const suffixesForIndexAs = indexAsConversion[ indexAs ].suffixes;
+                if ( Array.isArray( suffixesForIndexAs )  ) {
+                    suffixes.push( ...suffixesForIndexAs );
+                } else {
+                    suffixes.push( ...suffixesForIndexAs[ solrField.dataType ] );
+                }
             } );
         }
         const suffixedSolrFields =
