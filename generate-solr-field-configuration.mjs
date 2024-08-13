@@ -85,7 +85,7 @@ function addSolrizerSimpleXpathSolrFields() {
             } );
         }
         const suffixedSolrFields =
-            suffixes.map( suffix => `${ solrFieldName }${ suffix }` );
+            suffixes.map( suffix => `${ solrField.basename || solrFieldName }${ suffix }` );
 
         if ( ! mainDocXpathToSolrFields[ solrField.xpath ] ) {
             mainDocXpathToSolrFields[ solrField.xpath ] = {};

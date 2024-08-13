@@ -141,7 +141,18 @@
             "scopecontent_teim"
         ]
     },
+    "[archdesc[@level='collection']/*[name() != 'dsc']//subject": {
+        "solrFields": [
+            "subject_teim",
+            "subject_ssm"
         ]
+    },
+    "//*[local-name()='subject' or local-name()='function' or local-name() = 'occupation']": {
+        "solrFields": [
+            "subject_sim",
+            "subject_teim"
+        ],
+        "process": "Take the node sets, flatten them into an array, and remove `nil` values and duplicates.  For  each element replace strings matching /|w{1}/ (MARC subfield demarcators) with \"--\"."
     },
     "archdesc[@level='collection']/*[name() != 'dsc']//title": {
         "solrFields": [
