@@ -3,39 +3,40 @@ Non-Solrizer,First token of <eadid>,,id
 Solrizer - non-xpath,"Hardcoded ""Online Access"" if //dao is not empty",,dao_sim
 Solrizer - non-xpath,"For each [UNITDATE_NORMAL] date that falls within `start_date` and `end_date` ranges found in v1 indexer `DATE_RANGES` here: https://github.com/NYULibraries/ead_indexer/blob/f1bc142dfe1507dbd173bfa126168fa52bba9871/lib/ead_indexer/behaviors/dates.rb#L4-L15, add to array.  If there are no in-range values, then value is an array with a single string ""undated & other"".",,date_range_sim
 Solrizer - non-xpath,"Hardcoded ""Archival Collection""",,"format_sim,format_ssm"
-Solrizer - non-xpath,"Hardcoded 0 (number, not string)",,"format_tei,format_si,format_dti,format_ii"
-Solrizer - non-xpath,Derived from name of parent directory of EAD file,,"undefined_ssm,undefined_sim,undefined_ssi,undefined_dtsi"
+Solrizer - non-xpath,"Hardcoded 0 (number, not string)",,format_ii
+Solrizer - non-xpath,Derived from name of parent directory of EAD file,,"repository_ssm,repository_sim,repository_ssi"
 Solrizer - non-xpath,"If `unitdate` is empty: ""Inclusive,"" plus `unitdate_inclusive` if both either `unitdate_inclusive` or `unitdate_bulk` are non-empty, plus "";"" and `unitdate_bulk` if non-empty.  NOTE: This is likely a bug in v1 indexer -- see https://jira.nyu.edu/browse/DLFA-211?focusedCommentId=8378822&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-8378822.",,unitdate_ssm
-Solrizer - xpath query,archdesc[@level='collection']/did/abstract,,"abstract_teim,abstract_dtim,abstract_iim,abstract_ssm"
-Solrizer - xpath query,archdesc[@level='collection']/acqinfo/p,,"acqinfo_teim,acqinfo_dtim,acqinfo_iim"
-Solrizer - xpath query,archdesc[@level='collection']/appraisal/p,,"appraisal_teim,appraisal_dtim,appraisal_iim"
-Solrizer - xpath query,filedesc/titlestmt/author,,"author_teim,author_dtim,author_iim,author_ssm"
-Solrizer - xpath query,archdesc[@level='collection']/bioghist/p,,"bioghist_teim,bioghist_dtim,bioghist_iim"
-Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//chronlist/chronitem//text(),,"chronlist_teim,chronlist_dtim,chronlist_iim"
-Solrizer - xpath query,archdesc[@level='collection']/did/unittitle,"For `unittitle_teim`, `unittitle_dtim`, and `unittitle_iim`, no special instructions.  For `unittitle_ssm`: change all EAD tags in the <unittitle> text which have `render` attributes to the appropriate HTML tag using this table: https://github.com/awead/solr_ead/blob/v0.7.5/lib/solr_ead/formatting.rb#L5-L23 and remove the `render` attribute from the tag.","collection_sim,collection_ssm,collection_teim,collection_dtim,collection_iim,heading_ssm,unittitle_teim,unittitle_dtim,unittitle_iim,unittitle_ssm"
-Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//corpname,,"corpname_teim,corpname_dtim,corpname_iim,corpname_ssm"
-Solrizer - xpath query,archdesc[@level='collection']/did/origination[@label='creator']/*[#{creator_fields_to_xpath}],,"creator_teim,creator_dtim,creator_iim,creator_ssm"
-Solrizer - xpath query,archdesc[@level='collection']/custodhist/p,,"custodhist_teim,custodhist_dtim,custodhist_iim"
-Solrizer - xpath query,eadid,,"ead_ssi,ead_dtsi"
-Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//famname,,"famname_teim,famname_dtim,famname_iim,famname_ssm"
-Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//function,,"function_teim,function_dtim,function_iim,function_ssm"
-Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//genreform,,"genreform_teim,genreform_dtim,genreform_iim,genreform_ssm"
-Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//geogname,,"geogname_teim,geogname_dtim,geogname_iim,geogname_ssm"
-Solrizer - xpath query,archdesc[@level='collection']/did/langmaterial/language/@langcode,,"langcode_tesim,langcode_dtsim,langcode_isim"
+Solrizer - xpath query,archdesc[@level='collection']/did/abstract,,"abstract_teim,abstract_ssm"
+Solrizer - xpath query,archdesc[@level='collection']/acqinfo/p,,acqinfo_teim
+Solrizer - xpath query,archdesc[@level='collection']/appraisal/p,,appraisal_teim
+Solrizer - xpath query,filedesc/titlestmt/author,,"author_teim,author_ssm"
+Solrizer - xpath query,archdesc[@level='collection']/bioghist/p,,bioghist_teim
+Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//chronlist/chronitem//text(),,chronlist_teim
+Solrizer - xpath query,archdesc[@level='collection']/did/unittitle,"For `unittitle_teim`, `unittitle_dtim`, and `unittitle_iim`, no special instructions.  For `unittitle_ssm`: change all EAD tags in the <unittitle> text which have `render` attributes to the appropriate HTML tag using this table: https://github.com/awead/solr_ead/blob/v0.7.5/lib/solr_ead/formatting.rb#L5-L23 and remove the `render` attribute from the tag.","collection_sim,collection_ssm,collection_teim,heading_ssm,unittitle_teim,unittitle_ssm"
+Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//corpname,,"corpname_teim,corpname_ssm"
+Solrizer - xpath query,archdesc[@level='collection']/did/origination[@label='creator']/*[#{creator_fields_to_xpath}],,"creator_teim,creator_ssm"
+Solrizer - xpath query,archdesc[@level='collection']/custodhist/p,,custodhist_teim
+Solrizer - xpath query,eadid,,ead_ssi
+Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//famname,,"famname_teim,famname_ssm"
+Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//function,,"function_teim,function_ssm"
+Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//genreform,,"genreform_teim,genreform_ssm"
+Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//geogname,,"geogname_teim,geogname_ssm"
+Solrizer - xpath query,archdesc[@level='collection']/did/langmaterial/language/@langcode,"Get the first Node returned by the xpath query, translate the langcode to a language name using this table: https://github.com/xwmx/iso-639/blob/169e152b4af5ca4a7876a3c7e37fcd272c3e577f/lib/data/ISO-639-2_utf-8.txt If the langcode is 3 or 7 characters and is found in the first or second columns of an entry in the table, use value in the fourth column for that entry, else if the langcode is 2 characters and is found in the third column of an entry in the table, use value in the fourth column for that entry.","language_sim,language_ssm"
 Solrizer - xpath query,//genreform,"For each element, replace strings matching /|w{1}/ (MARC subfield demarcators) with ""--"", remove `nil` values, and remove duplicates.","material_type_sim,material_type_ssm"
-Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//name,,"name_teim,name_dtim,name_iim,name_ssm"
-Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//note,,"note_teim,note_dtim,note_iim,note_ssm"
-Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//occupation,,"occupation_teim,occupation_dtim,occupation_iim,occupation_ssm"
-Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//persname,,"persname_teim,persname_dtim,persname_iim,persname_ssm"
-Solrizer - xpath query,archdesc[@level='collection']/phystech/p,,"phystech_teim,phystech_dtim,phystech_iim"
+Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//name,,"name_teim,name_ssm"
+Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//note,,"note_teim,note_ssm"
+Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//occupation,,"occupation_teim,occupation_ssm"
+Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//persname,,"persname_teim,persname_ssm"
+Solrizer - xpath query,archdesc[@level='collection']/phystech/p,,phystech_teim
 Solrizer - xpath query,//geogname,"For each element, replace strings matching /|w{1}/ (MARC subfield demarcators) with ""--"", remove `nil` values, and remove duplicates.",place_sim
-Solrizer - xpath query,archdesc[@level='collection']/scopecontent/p,,"scopecontent_teim,scopecontent_dtim,scopecontent_iim"
-Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//title,,"title_teim,title_dtim,title_iim,title_ssm"
-Solrizer - xpath query,archdesc[@level='collection']/did/unitdate[not(@type)],"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.","unitdate_teim,unitdate_dtim,unitdate_iim,unitdate_end_sim,unitdate_end_ssm,unitdate_end_tei,unitdate_end_si,unitdate_end_dti,unitdate_end_ii,unitdate_start_sim,unitdate_start_ssm,unitdate_start_tei,unitdate_start_si,unitdate_start_dti,unitdate_start_ii"
-Solrizer - xpath query,archdesc[@level='collection']/did/unitdate[@type='bulk'],,"unitdate_bulk_teim,unitdate_bulk_dtim,unitdate_bulk_iim"
-Solrizer - xpath query,archdesc[@level='collection']/did/unitdate[@type='inclusive'],,"unitdate_inclusive_teim,unitdate_inclusive_dtim,unitdate_inclusive_iim"
-Solrizer - xpath query,archdesc[@level='collection']/did/unitdate/@normal,,"unitdate_normal_ssm,unitdate_normal_teim,unitdate_normal_dtim,unitdate_normal_iim,unitdate_normal_sim"
-Solrizer - xpath query,archdesc[@level='collection']/did/unitid,,"unitid_teim,unitid_dtim,unitid_iim,unitid_ssm"
+Solrizer - xpath query,archdesc[@level='collection']/scopecontent/p,,scopecontent_teim
+Solrizer - xpath query,[archdesc[@level='collection']/*[name() != 'dsc']//subject,,"subject_teim,subject_ssm"
+Solrizer - xpath query,//*[local-name()='subject' or local-name()='function' or local-name() = 'occupation'],"Take the node sets, flatten them into an array, and remove `nil` values and duplicates.  For  each element replace strings matching /|w{1}/ (MARC subfield demarcators) with ""--"".","subject_sim,subject_teim"
+Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//title,,"title_teim,title_ssm"
+Solrizer - xpath query,archdesc[@level='collection']/did/unitdate[not(@type)],"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.","unitdate_teim,unitdate_end_sim,unitdate_end_ssm,unitdate_end_si,unitdate_start_sim,unitdate_start_ssm,unitdate_start_si"
+Solrizer - xpath query,archdesc[@level='collection']/did/unitdate[@type='bulk'],,unitdate_bulk_teim
+Solrizer - xpath query,archdesc[@level='collection']/did/unitdate[@type='inclusive'],,unitdate_inclusive_teim
+Solrizer - xpath query,archdesc[@level='collection']/did/unitdate/@normal,,"unitdate_normal_ssm,unitdate_normal_teim,unitdate_normal_sim"
+Solrizer - xpath query,archdesc[@level='collection']/did/unitid,,"unitid_teim,unitid_ssm"
 Solrizer - composite,"creator: //origination[@label='creator']/corpname, //origination[@label='creator']/famname, //origination[@label='creator']/persname","Get elements for each xpath query in the order listed. Flatten returned node sets into one array, remove duplicates, and remove `nil` values.","creator_ssm,creator_sim"
-Solrizer - composite,"name: //famname, //persname, //*[local-name()!='repository']/corpname","Get elements for each xpath query in the order listed. Flatten returned node sets into one array, remove `nil` values, and remove duplicates, and for  each element replace strings matching /|w{1}/ (MARC subfield demarcators) with ""--"".","name_sim,name_teim,name_dtim,name_iim"
-Solrizer - composite,"subject: [archdesc[@level='collection']/*[name() != 'dsc']//subject, //*[local-name()='subject' or local-name()='function' or local-name() = 'occupation']","For the first xpath query, create these Solr doc fields:  `subject_ssm`, `subject_teim`, `subject_dtim`, `subject_iim`. For the second xpath query, create the same set of Solr fields plus `subject_sim`, taking the node sets and flattening them into an array, remove `nil` values and duplicates.  For each element replace strings matching /|w{1}/ (MARC subfield demarcators) with ""--"".","subject_sim,subject_teim,subject_dtim,subject_iim,subject_ssm"
+Solrizer - composite,"name: //famname, //persname, //*[local-name()!='repository']/corpname","Get elements for each xpath query in the order listed. Flatten returned node sets into one array, remove `nil` values, and remove duplicates, and for  each element replace strings matching /|w{1}/ (MARC subfield demarcators) with ""--"".","name_sim,name_teim"
