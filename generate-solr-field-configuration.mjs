@@ -61,9 +61,9 @@ function addNonSolrizerSolrFields( solrFieldDefinitions, directToSolrFields ) {
     } );
 }
 
-function addSolrizerNonXpathSolrFields() {
-    Object.keys( mainDocSolrFields.solrizer.nonXpath ).sort().forEach( solrFieldName => {
-        const solrField = mainDocSolrFields.solrizer.nonXpath[ solrFieldName ];
+function addSolrizerNonXpathSolrFields( solrFieldDefinitions, nonXpathToSolrFields ) {
+    Object.keys( solrFieldDefinitions.solrizer.nonXpath ).sort().forEach( solrFieldName => {
+        const solrField = solrFieldDefinitions.solrizer.nonXpath[ solrFieldName ];
         const suffixes = [];
         const indexAsArray = solrField.indexAsArray;
         if ( indexAsArray ) {
@@ -79,11 +79,11 @@ function addSolrizerNonXpathSolrFields() {
         const suffixedSolrFields =
             suffixes.map( suffix => `${ solrField.basename }${ suffix }` );
 
-        if ( ! mainDocNonXpathToSolrFields[ solrField.source ] ) {
-            mainDocNonXpathToSolrFields[ solrField.source ] = {};
-            mainDocNonXpathToSolrFields[ solrField.source ].solrFields = [];
+        if ( ! nonXpathToSolrFields[ solrField.source ] ) {
+            nonXpathToSolrFields[ solrField.source ] = {};
+            nonXpathToSolrFields[ solrField.source ].solrFields = [];
         }
-        mainDocNonXpathToSolrFields[ solrField.source ].solrFields.push( ...suffixedSolrFields );
+        nonXpathToSolrFields[ solrField.source ].solrFields.push( ...suffixedSolrFields );
     } );
 }
 
@@ -123,7 +123,7 @@ addSolrizerCompositeSolrFields( mainDocSolrFields, mainDocCompositeSolrFields );
 // addNonSolrizerSolrFields( componentSolrFields, componentDirectToSolrFields );
 addNonSolrizerSolrFields( mainDocSolrFields, mainDocDirectToSolrFields );
 
-// addSolrizerNonXpathSolrFields( componentSolrFields, componentNonXpathToSolrFields );
+addSolrizerNonXpathSolrFields( componentSolrFields, componentNonXpathToSolrFields );
 addSolrizerNonXpathSolrFields( mainDocSolrFields, mainDocNonXpathToSolrFields );
 
 // addSolrizerSimpleXpathSolrFields( componentSolrFields, componentXpathToSolrFields );
