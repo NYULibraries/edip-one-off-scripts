@@ -19,6 +19,12 @@
             "chronlist_teim"
         ]
     },
+    "collection": {
+        "solrFields": [
+            "collection_sim",
+            "collection_ssm"
+        ]
+    },
     "corpname": {
         "solrFields": [
             "corpname_teim",
