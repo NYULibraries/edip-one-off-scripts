@@ -25,6 +25,11 @@
             "collection_ssm"
         ]
     },
+    "//archdesc/did/unitid": {
+        "solrFields": [
+            "collection_unitid_ssm"
+        ]
+    },
     "corpname": {
         "solrFields": [
             "corpname_teim",
