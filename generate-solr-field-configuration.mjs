@@ -9,17 +9,22 @@ const ROOT = path.join( __dirname );
 const SOLR_FIELD_CONFIGURATION_FILES =
     path.join( ROOT, 'solr-field-configuration-files' );
 
-import { mainDocSolrFields } from './lib/v1-indexer-solr-fields.mjs';
+import { componentSolrFields, mainDocSolrFields } from './lib/v1-indexer-solr-fields.mjs';
 import { indexAsConversion } from './lib/index-as-conversion.mjs';
+
+const componentCompositeSolrFields = {};
+const componentDirectToSolrFields = {};
+const componentNonXpathToSolrFields = {};
+const componentXpathToSolrFields = {};
 
 const mainDocCompositeSolrFields = {};
 const mainDocDirectToSolrFields = {};
 const mainDocNonXpathToSolrFields = {};
 const mainDocXpathToSolrFields = {};
 
-function addSolrizerCompositeSolrFields() {
-    Object.keys( mainDocSolrFields.solrizer.composite ).sort().forEach( solrFieldName => {
-        const solrField = mainDocSolrFields.solrizer.composite[ solrFieldName ];
+function addSolrizerCompositeSolrFields( solrFieldDefinitions, compositeSolrFields ) {
+    Object.keys( solrFieldDefinitions.solrizer.composite ).sort().forEach( solrFieldName => {
+        const solrField = solrFieldDefinitions.solrizer.composite[ solrFieldName ];
         const suffixes = [];
         const indexAsArray = solrField.indexAsArray;
         if ( indexAsArray ) {
@@ -30,25 +35,25 @@ function addSolrizerCompositeSolrFields() {
         const suffixedSolrFields =
             suffixes.map( suffix => `${ solrFieldName }${ suffix }` );
 
-        if ( ! mainDocCompositeSolrFields[ solrFieldName ] ) {
-            mainDocCompositeSolrFields[ solrFieldName ] = {};
-            mainDocCompositeSolrFields[ solrFieldName ].process = solrField.process;
-            mainDocCompositeSolrFields[ solrFieldName ].solrFields = [];
-            mainDocCompositeSolrFields[ solrFieldName ].xpathQueries = [];
+        if ( ! compositeSolrFields[ solrFieldName ] ) {
+            compositeSolrFields[ solrFieldName ] = {};
+            compositeSolrFields[ solrFieldName ].process = solrField.process;
+            compositeSolrFields[ solrFieldName ].solrFields = [];
+            compositeSolrFields[ solrFieldName ].xpathQueries = [];
         }
-        mainDocCompositeSolrFields[ solrFieldName ].solrFields.push( ...suffixedSolrFields );
-        mainDocCompositeSolrFields[ solrFieldName ].xpathQueries.push( ...solrField.xpathQueries );
+        compositeSolrFields[ solrFieldName ].solrFields.push( ...suffixedSolrFields );
+        compositeSolrFields[ solrFieldName ].xpathQueries.push( ...solrField.xpathQueries );
     } );
 }
 
-function addNonSolrizerSolrFields() {
-    Object.keys( mainDocSolrFields.nonSolrizer ).sort().forEach( solrFieldName => {
-        const solrField = mainDocSolrFields.nonSolrizer[ solrFieldName ];
-        if ( ! mainDocDirectToSolrFields[ solrField.source ] ) {
-            mainDocDirectToSolrFields[ solrField.source ] = {};
-            mainDocDirectToSolrFields[ solrField.source ].solrFields = [];
+function addNonSolrizerSolrFields( solrFieldDefinitions, directToSolrFields ) {
+    Object.keys( solrFieldDefinitions.nonSolrizer ).sort().forEach( solrFieldName => {
+        const solrField = solrFieldDefinitions.nonSolrizer[ solrFieldName ];
+        if ( ! directToSolrFields[ solrField.source ] ) {
+            directToSolrFields[ solrField.source ] = {};
+            directToSolrFields[ solrField.source ].solrFields = [];
         }
-        mainDocDirectToSolrFields[ solrField.source ].solrFields.push( solrFieldName );
+        directToSolrFields[ solrField.source ].solrFields.push( solrFieldName );
     } );
 }
 
@@ -108,10 +113,41 @@ function addSolrizerSimpleXpathSolrFields() {
     } );
 }
 
-addSolrizerCompositeSolrFields();
-addNonSolrizerSolrFields();
-addSolrizerNonXpathSolrFields();
-addSolrizerSimpleXpathSolrFields();
+addSolrizerCompositeSolrFields( componentSolrFields, componentCompositeSolrFields );
+addSolrizerCompositeSolrFields( mainDocSolrFields, mainDocCompositeSolrFields );
+
+// addNonSolrizerSolrFields( componentSolrFields, componentDirectToSolrFields );
+addNonSolrizerSolrFields( mainDocSolrFields, mainDocDirectToSolrFields );
+
+// addSolrizerNonXpathSolrFields( componentSolrFields, componentNonXpathToSolrFields );
+addSolrizerNonXpathSolrFields( mainDocSolrFields, mainDocNonXpathToSolrFields );
+
+// addSolrizerSimpleXpathSolrFields( componentSolrFields, componentXpathToSolrFields );
+addSolrizerSimpleXpathSolrFields( mainDocSolrFields, mainDocXpathToSolrFields );
+
+writeFileSync(
+    path.join( SOLR_FIELD_CONFIGURATION_FILES, 'component-solrizer-composite-solr-fields.json' ),
+    JSON.stringify( componentCompositeSolrFields, null, '    ' ),
+    { encoding : 'utf8' },
+);
+
+writeFileSync(
+    path.join( SOLR_FIELD_CONFIGURATION_FILES, 'component-non-solrizer-solr-fields.json' ),
+    JSON.stringify( componentDirectToSolrFields, null, '    ' ),
+    { encoding : 'utf8' },
+);
+
+writeFileSync(
+    path.join( SOLR_FIELD_CONFIGURATION_FILES, 'component-solrizer-non-xpath-to-solr-fields.json' ),
+    JSON.stringify( componentNonXpathToSolrFields, null, '    ' ),
+    { encoding : 'utf8' },
+);
+
+writeFileSync(
+    path.join( SOLR_FIELD_CONFIGURATION_FILES, 'component-solrizer-simple-xpath-to-solr-fields.json' ),
+    JSON.stringify( componentXpathToSolrFields, null, '    ' ),
+    { encoding : 'utf8' },
+);
 
 writeFileSync(
     path.join( SOLR_FIELD_CONFIGURATION_FILES, 'main-doc-solrizer-composite-solr-fields.json' ),
