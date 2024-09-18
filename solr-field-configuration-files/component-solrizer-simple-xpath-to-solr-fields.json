@@ -19,7 +19,7 @@
             "chronlist_teim"
         ]
     },
-    "collection": {
+    "//archdesc/did/unittitle": {
         "solrFields": [
             "collection_sim",
             "collection_ssm"
