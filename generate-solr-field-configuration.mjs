@@ -31,7 +31,12 @@ function addSolrizerCompositeSolrFields( solrFieldDefinitions, compositeSolrFiel
         let solrFieldsToAdd = [];
         if ( indexAsArray ) {
             indexAsArray.forEach( indexAs => {
-                suffixes.push( ...indexAsConversion[ indexAs ].suffixes );
+                const suffixesForIndexAs = indexAsConversion[ indexAs ].suffixes;
+                if ( Array.isArray( suffixesForIndexAs )  ) {
+                    suffixes.push( ...suffixesForIndexAs );
+                } else {
+                    suffixes.push( ...suffixesForIndexAs[ solrField.dataType ] );
+                }
             } );
 
             solrFieldsToAdd.push( ...suffixes.map( suffix => `${ solrFieldName }${ suffix }` ) );
