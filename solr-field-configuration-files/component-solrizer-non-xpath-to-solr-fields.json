@@ -1,4 +1,9 @@
 {
+    "`true` if there are <c> child nodes, otherwise `false`": {
+        "solrFields": [
+            "component_children_bsi"
+        ]
+    },
     "The number of ancestor <c> elements plus 1": {
         "solrFields": [
             "component_level_isim"
