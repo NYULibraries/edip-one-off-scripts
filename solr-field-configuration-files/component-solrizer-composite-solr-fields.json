@@ -8,6 +8,19 @@
             "//eadid"
         ]
     },
+    "location": {
+        "process": "For each element returned by `//container/@id`, construct a string: \"[CONTAINER TYPE ATTRIBUTE]: [CONTAINER ID ATTRIBUTE], [SUB-CONTAINER INFO]\", where [CONTAINER TYPE ATTRIBUTE] is `//container[@id = '#{id}']/@type`,  [CONTAINER ID ATTRIBUTE] is `//container[@id = '#{id}']`, and [SUB-CONTAINER INFO] is comma-delimited list of strings based on the elements returned by `//container[@parent = '#{id}']`, with each string constructed like this: \"[TYPE ATTRIBUTE OF THE (SUB-)<container>]: [TEXT OF THE (SUB-)<container>]\"",
+        "solrFields": [
+            "location_ssm",
+            "location_si"
+        ],
+        "xpathQueries": [
+            "//container/@id",
+            "//container[@id = '#{id}']/@type",
+            "//container[@id = '#{id}']",
+            "//container[@parent = '#{id}']"
+        ]
+    },
     "parent_unittitles": {
         "process": "For each ancestor <c>, starting from the earliest ancestor to the immediate parent, if extract the first <unititle> element and add to array. For <unittitle> value, sanitize  (see https://jira.nyu.edu/browse/DLFA-209) and change all EAD tags in the <unittitle> text which have `render` attributes to the appropriate HTML tag using this table: https://github.com/awead/solr_ead/blob/v0.7.5/lib/solr_ead/formatting.rb#L5-L23 and remove the `render` attribute from the tag.  If there are no <unittitle> elements, collect the first <unitdate> element instead, using the same processing instructions.  If there are no <unitdate> elements, set value to \"[No title available]\"",
         "solrFields": [
