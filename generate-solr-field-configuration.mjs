@@ -87,9 +87,9 @@ function addSolrizerNonXpathSolrFields( solrFieldDefinitions, nonXpathToSolrFiel
     } );
 }
 
-function addSolrizerSimpleXpathSolrFields() {
-    Object.keys( mainDocSolrFields.solrizer.xpath ).sort().forEach( solrFieldName => {
-        const solrField = mainDocSolrFields.solrizer.xpath[ solrFieldName ];
+function addSolrizerSimpleXpathSolrFields( solrFieldDefinitions, xpathToSolrFields ) {
+    Object.keys( solrFieldDefinitions.solrizer.xpath ).sort().forEach( solrFieldName => {
+        const solrField = solrFieldDefinitions.solrizer.xpath[ solrFieldName ];
         const suffixes = [];
         const indexAsArray = solrField.indexAsArray;
         if ( indexAsArray ) {
@@ -105,14 +105,14 @@ function addSolrizerSimpleXpathSolrFields() {
         const suffixedSolrFields =
             suffixes.map( suffix => `${ solrField.basename || solrFieldName }${ suffix }` );
 
-        if ( ! mainDocXpathToSolrFields[ solrField.xpath ] ) {
-            mainDocXpathToSolrFields[ solrField.xpath ] = {};
-            mainDocXpathToSolrFields[ solrField.xpath ].solrFields = [];
+        if ( ! xpathToSolrFields[ solrField.xpath ] ) {
+            xpathToSolrFields[ solrField.xpath ] = {};
+            xpathToSolrFields[ solrField.xpath ].solrFields = [];
         }
-        mainDocXpathToSolrFields[ solrField.xpath ].solrFields.push( ...suffixedSolrFields );
+        xpathToSolrFields[ solrField.xpath ].solrFields.push( ...suffixedSolrFields );
 
         if ( solrField.process ) {
-            mainDocXpathToSolrFields[ solrField.xpath ].process = solrField.process;
+            xpathToSolrFields[ solrField.xpath ].process = solrField.process;
         }
     } );
 }
@@ -126,7 +126,7 @@ addNonSolrizerSolrFields( mainDocSolrFields, mainDocDirectToSolrFields );
 addSolrizerNonXpathSolrFields( componentSolrFields, componentNonXpathToSolrFields );
 addSolrizerNonXpathSolrFields( mainDocSolrFields, mainDocNonXpathToSolrFields );
 
-// addSolrizerSimpleXpathSolrFields( componentSolrFields, componentXpathToSolrFields );
+addSolrizerSimpleXpathSolrFields( componentSolrFields, componentXpathToSolrFields );
 addSolrizerSimpleXpathSolrFields( mainDocSolrFields, mainDocXpathToSolrFields );
 
 writeFileSync(
