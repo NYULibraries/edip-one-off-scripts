@@ -9,6 +9,12 @@
             "component_level_isim"
         ]
     },
+    "If `level` matches /\\Aseries|subseries/) then use \"Archival Series\", else \"Archival Object\"": {
+        "solrFields": [
+            "format_sim",
+            "format_ssm"
+        ]
+    },
     "Parent <c> `id` attribute if it is defined, omit this Solr field if it is not defined.": {
         "solrFields": [
             "parent_ssi"
@@ -17,6 +23,13 @@
     "`id` attributes of all ancestor <c> elements ordered from earliest ancestor to immediate parent.": {
         "solrFields": [
             "parent_ssm"
+        ]
+    },
+    "Derived from name of parent directory of EAD file": {
+        "solrFields": [
+            "repository_ssm",
+            "repository_sim",
+            "repository_ssi"
         ]
     }
 }
