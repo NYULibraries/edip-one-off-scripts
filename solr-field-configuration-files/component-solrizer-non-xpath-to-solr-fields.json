@@ -1,4 +1,9 @@
 {
+    "The number of ancestor <c> elements plus 1": {
+        "solrFields": [
+            "component_level_isim"
+        ]
+    },
     "Parent <c> `id` attribute if it is defined, omit this Solr field if it is not defined.": {
         "solrFields": [
             "parent_ssi"
