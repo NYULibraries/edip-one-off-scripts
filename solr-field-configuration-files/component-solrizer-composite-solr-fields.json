@@ -1,7 +1,9 @@
 {
     "id": {
         "process": "Append the `id` attribute of the <c> to the <eadid> value.  Example: \"photos_223aspace_ref1\"",
-        "solrFields": [],
+        "solrFields": [
+            "id"
+        ],
         "xpathQueries": [
             "//eadid"
         ]
