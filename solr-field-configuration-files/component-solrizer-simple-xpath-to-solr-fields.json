@@ -111,6 +111,12 @@
             "phystech_teim"
         ]
     },
+    "/c/@id": {
+        "solrFields": [
+            "ref_ssi"
+        ],
+        "process": "First element only, and only if it exists.  Note that there is a \"ref_\" in Terminology but it does produce a Solr field because it has no :index_as and in any case would be overwritten by the `Solrizer.insert_field` call in `SolrEad::Component.to_solr()`"
+    },
     "scopecontent/p": {
         "solrFields": [
             "scopecontent_teim"
