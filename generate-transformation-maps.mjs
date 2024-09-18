@@ -5,7 +5,8 @@ import * as url from 'url';
 import Papa from 'papaparse';
 
 import { createRequire } from "module";
-const require = createRequire(import.meta.url);
+
+const require = createRequire( import.meta.url );
 
 const __dirname = url.fileURLToPath( new URL( '.', import.meta.url ) );
 
@@ -35,13 +36,13 @@ function getMainDocCsvMaps() {
     const mainDocSolrFieldsToEadCsvMapData = getMainDocSolrFieldsToEadCsvMapData();
 
     return {
-        mainDocEadToSolrFieldsCsvMap: {
-            fields: CSV_FILE_HEADER_EAD_TO_SOLR_FIELD,
-            data: mainDocEadToSolrFieldsCsvMapData,
+        mainDocEadToSolrFieldsCsvMap : {
+            fields : CSV_FILE_HEADER_EAD_TO_SOLR_FIELD,
+            data   : mainDocEadToSolrFieldsCsvMapData,
         },
-        mainDocSolrFieldsToEadCsvMap: {
-            fields: CSV_FILE_HEADER_TO_SOLR_FIELD_TO_EAD,
-            data: mainDocSolrFieldsToEadCsvMapData,
+        mainDocSolrFieldsToEadCsvMap : {
+            fields : CSV_FILE_HEADER_TO_SOLR_FIELD_TO_EAD,
+            data   : mainDocSolrFieldsToEadCsvMapData,
         }
     };
 }
@@ -145,13 +146,13 @@ function getMainDocSolrFieldsToEadCsvMapData() {
 
 function getComponentCsvMaps() {
     return {
-        componentEadToSolrFieldsCsvMap: {
-            fields: CSV_FILE_HEADER_EAD_TO_SOLR_FIELD,
-            data: [ 'Component EAD to Solr fields map CSV' ],
+        componentEadToSolrFieldsCsvMap : {
+            fields : CSV_FILE_HEADER_EAD_TO_SOLR_FIELD,
+            data   : [ 'Component EAD to Solr fields map CSV' ],
         },
-        componentSolrFieldsToEadCsvMap: {
-            fields: CSV_FILE_HEADER_TO_SOLR_FIELD_TO_EAD,
-            data: [ 'Component Solr fields to EAD map CSV' ],
+        componentSolrFieldsToEadCsvMap : {
+            fields : CSV_FILE_HEADER_TO_SOLR_FIELD_TO_EAD,
+            data   : [ 'Component Solr fields to EAD map CSV' ],
         },
     };
 }
@@ -159,16 +160,16 @@ function getComponentCsvMaps() {
 function getPapaParseConfig() {
     return {
         // Or array of booleans
-        quotes: false,
-        quoteChar: '"',
-        escapeChar: '"',
-        delimiter: ',',
-        header: true,
-        newline: '\n',
+        quotes     : false,
+        quoteChar  : '"',
+        escapeChar : '"',
+        delimiter  : ',',
+        header     : true,
+        newline    : '\n',
         // Other option is 'greedy', meaning skip delimiters, quotes, and whitespace.
-        skipEmptyLines: false,
+        skipEmptyLines : false,
         // Or array of strings
-        columns: null,
+        columns : null,
     };
 }
 

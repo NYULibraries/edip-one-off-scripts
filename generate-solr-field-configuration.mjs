@@ -9,7 +9,10 @@ const ROOT = path.join( __dirname );
 const SOLR_FIELD_CONFIGURATION_FILES =
     path.join( ROOT, 'solr-field-configuration-files' );
 
-import { componentSolrFields, mainDocSolrFields } from './lib/v1-indexer-solr-fields.mjs';
+import {
+    componentSolrFields,
+    mainDocSolrFields
+} from './lib/v1-indexer-solr-fields.mjs';
 import { indexAsConversion } from './lib/index-as-conversion.mjs';
 
 const componentCompositeSolrFields = {};
@@ -32,7 +35,7 @@ function addSolrizerCompositeSolrFields( solrFieldDefinitions, compositeSolrFiel
         if ( indexAsArray ) {
             indexAsArray.forEach( indexAs => {
                 const suffixesForIndexAs = indexAsConversion[ indexAs ].suffixes;
-                if ( Array.isArray( suffixesForIndexAs )  ) {
+                if ( Array.isArray( suffixesForIndexAs ) ) {
                     suffixes.push( ...suffixesForIndexAs );
                 } else {
                     suffixes.push( ...suffixesForIndexAs[ solrField.dataType ] );
@@ -44,7 +47,7 @@ function addSolrizerCompositeSolrFields( solrFieldDefinitions, compositeSolrFiel
             solrFieldsToAdd.push( solrFieldName );
         }
 
-        if ( ! compositeSolrFields[ solrFieldName ] ) {
+        if ( !compositeSolrFields[ solrFieldName ] ) {
             compositeSolrFields[ solrFieldName ] = {};
             compositeSolrFields[ solrFieldName ].process = solrField.process;
             compositeSolrFields[ solrFieldName ].solrFields = [];
@@ -58,7 +61,7 @@ function addSolrizerCompositeSolrFields( solrFieldDefinitions, compositeSolrFiel
 function addNonSolrizerSolrFields( solrFieldDefinitions, directToSolrFields ) {
     Object.keys( solrFieldDefinitions.nonSolrizer ).sort().forEach( solrFieldName => {
         const solrField = solrFieldDefinitions.nonSolrizer[ solrFieldName ];
-        if ( ! directToSolrFields[ solrField.source ] ) {
+        if ( !directToSolrFields[ solrField.source ] ) {
             directToSolrFields[ solrField.source ] = {};
             directToSolrFields[ solrField.source ].solrFields = [];
         }
@@ -74,7 +77,7 @@ function addSolrizerNonXpathSolrFields( solrFieldDefinitions, nonXpathToSolrFiel
         if ( indexAsArray ) {
             indexAsArray.forEach( indexAs => {
                 const suffixesForIndexAs = indexAsConversion[ indexAs ].suffixes;
-                if ( Array.isArray( suffixesForIndexAs )  ) {
+                if ( Array.isArray( suffixesForIndexAs ) ) {
                     suffixes.push( ...suffixesForIndexAs );
                 } else {
                     suffixes.push( ...suffixesForIndexAs[ solrField.dataType ] );
@@ -84,7 +87,7 @@ function addSolrizerNonXpathSolrFields( solrFieldDefinitions, nonXpathToSolrFiel
         const suffixedSolrFields =
             suffixes.map( suffix => `${ solrField.basename }${ suffix }` );
 
-        if ( ! nonXpathToSolrFields[ solrField.source ] ) {
+        if ( !nonXpathToSolrFields[ solrField.source ] ) {
             nonXpathToSolrFields[ solrField.source ] = {};
             nonXpathToSolrFields[ solrField.source ].solrFields = [];
         }
@@ -100,7 +103,7 @@ function addSolrizerSimpleXpathSolrFields( solrFieldDefinitions, xpathToSolrFiel
         if ( indexAsArray ) {
             indexAsArray.forEach( indexAs => {
                 const suffixesForIndexAs = indexAsConversion[ indexAs ].suffixes;
-                if ( Array.isArray( suffixesForIndexAs )  ) {
+                if ( Array.isArray( suffixesForIndexAs ) ) {
                     suffixes.push( ...suffixesForIndexAs );
                 } else {
                     suffixes.push( ...suffixesForIndexAs[ solrField.dataType ] );
@@ -110,7 +113,7 @@ function addSolrizerSimpleXpathSolrFields( solrFieldDefinitions, xpathToSolrFiel
         const suffixedSolrFields =
             suffixes.map( suffix => `${ solrField.basename || solrFieldName }${ suffix }` );
 
-        if ( ! xpathToSolrFields[ solrField.xpath ] ) {
+        if ( !xpathToSolrFields[ solrField.xpath ] ) {
             xpathToSolrFields[ solrField.xpath ] = {};
             xpathToSolrFields[ solrField.xpath ].solrFields = [];
         }
