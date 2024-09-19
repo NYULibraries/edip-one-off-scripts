@@ -77,10 +77,22 @@
             "geogname_ssm"
         ]
     },
+    "archdesc[@level='collection']/did/unittitle": {
+        "solrFields": [
+            "heading_ssm"
+        ]
+    },
     "/c/@level": {
         "solrFields": [
             "level_sim"
         ]
+    },
+    "//genreform": {
+        "solrFields": [
+            "material_type_sim",
+            "material_type_ssm"
+        ],
+        "process": "For each element, replace strings matching /|w{1}/ (MARC subfield demarcators) with \"--\", remove `nil` values, and remove duplicates."
     },
     "name": {
         "solrFields": [
@@ -111,6 +123,13 @@
             "phystech_teim"
         ]
     },
+    "//geogname": {
+        "solrFields": [
+            "place_ssm",
+            "place_sim"
+        ],
+        "process": "For each element, replace strings matching /|w{1}/ (MARC subfield demarcators) with \"--\", remove `nil` values, and remove duplicates."
+    },
     "/c/@id": {
         "solrFields": [
             "ref_ssi"
@@ -127,6 +146,13 @@
             "subject_teim",
             "subject_ssm"
         ]
+    },
+    "//*[local-name()='subject' or local-name()='function' or local-name() = 'occupation']": {
+        "solrFields": [
+            "subject_sim",
+            "subject_teim"
+        ],
+        "process": "Take the node sets, flatten them into an array, and remove `nil` values and duplicates.  For  each element replace strings matching /|w{1}/ (MARC subfield demarcators) with \"--\"."
     },
     "title": {
         "solrFields": [
