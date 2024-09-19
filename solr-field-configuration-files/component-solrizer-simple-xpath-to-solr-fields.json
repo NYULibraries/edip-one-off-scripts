@@ -192,6 +192,7 @@
         "solrFields": [
             "unittitle_ssm",
             "unittitle_teim"
-        ]
+        ],
+        "process": "For `unittitle_teim`, no special instructions.  For `unittitle_ssm`: sanitize  (see https://jira.nyu.edu/browse/DLFA-209) and change all EAD tags in the <unittitle> text which have `render` attributes to the appropriate HTML tag using this table: https://github.com/awead/solr_ead/blob/v0.7.5/lib/solr_ead/formatting.rb#L5-L23 and remove the `render` attribute from the tag."
     }
 }
