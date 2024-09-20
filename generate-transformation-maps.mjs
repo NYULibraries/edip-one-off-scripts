@@ -1,3 +1,9 @@
+// There's a lot of duplication of code in the main doc and component processing
+// because main doc was implemented first and then component processing  was
+// implemented based on main doc.  For the time being, the same processing works
+// reasonably well for both, but there's a possibility of divergence in the future,
+// so for now, keep them separate and independent.
+
 import { writeFileSync } from 'node:fs';
 import path from 'node:path';
 import * as url from 'url';
