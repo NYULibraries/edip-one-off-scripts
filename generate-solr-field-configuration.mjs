@@ -42,9 +42,9 @@ function addSolrizerCompositeSolrFields( solrFieldDefinitions, compositeSolrFiel
                 }
             } );
 
-            solrFieldsToAdd.push( ...suffixes.map( suffix => `${ solrFieldName }${ suffix }` ) );
+            solrFieldsToAdd.push( ...suffixes.map( suffix => `${ solrField.basename || solrFieldName }${ suffix }` ) );
         } else {
-            solrFieldsToAdd.push( solrFieldName );
+            solrFieldsToAdd.push( solrField.basename || solrFieldName );
         }
 
         if ( !compositeSolrFields[ solrFieldName ] ) {
