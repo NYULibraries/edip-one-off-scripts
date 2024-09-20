@@ -13,6 +13,12 @@
             "collection_sim"
         ]
     },
+    "`collection_unitid_ssm` data, if it exists.  Note that in v1 indexer, this simply overwrites the existing `collection_unitid_ssm` field with the exact same data, in addition to adding `collection_teim`.": {
+        "solrFields": [
+            "collection_unitid_teim",
+            "collection_unitid_ssm"
+        ]
+    },
     "`true` if there are <c> child nodes, otherwise `false`": {
         "solrFields": [
             "component_children_bsi"
