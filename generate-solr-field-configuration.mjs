@@ -128,7 +128,7 @@ function addSolrizerSimpleXpathSolrFields( solrFieldDefinitions, xpathToSolrFiel
 addSolrizerCompositeSolrFields( componentSolrFields, componentCompositeSolrFields );
 addSolrizerCompositeSolrFields( mainDocSolrFields, mainDocCompositeSolrFields );
 
-// addNonSolrizerSolrFields( componentSolrFields, componentDirectToSolrFields );
+addNonSolrizerSolrFields( componentSolrFields, componentDirectToSolrFields );
 addNonSolrizerSolrFields( mainDocSolrFields, mainDocDirectToSolrFields );
 
 addSolrizerNonXpathSolrFields( componentSolrFields, componentNonXpathToSolrFields );
