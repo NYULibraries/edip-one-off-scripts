@@ -22,12 +22,14 @@
     "//archdesc/did/unittitle": {
         "solrFields": [
             "collection_sim",
-            "collection_ssm"
+            "collection_ssm",
+            "collection_teim"
         ]
     },
     "//archdesc/did/unitid": {
         "solrFields": [
-            "collection_unitid_ssm"
+            "collection_unitid_ssm",
+            "collection_unitid_teim"
         ]
     },
     "corpname": {
