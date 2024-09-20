@@ -84,6 +84,13 @@
             "heading_ssm"
         ]
     },
+    "did/langmaterial/language/@langcode": {
+        "solrFields": [
+            "language_sim",
+            "language_ssm"
+        ],
+        "process": "Translate the first language code into a language name"
+    },
     "/c/@level": {
         "solrFields": [
             "level_sim"
