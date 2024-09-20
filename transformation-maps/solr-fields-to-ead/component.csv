@@ -1,2 +1,87 @@
 SOURCE TYPE,SOLR_FIELD,PROCESSING,SOURCE
-Component Solr fields to EAD map CSV,,,
+Solrizer - non-xpath,component_children_bsi,,"`true` if there are <c> child nodes, otherwise `false`"
+Solrizer - non-xpath,component_level_isim,,The number of ancestor <c> elements plus 1
+Solrizer - non-xpath,dao_sim,,"Hardcoded ""Online Access"" if //dao is not empty"
+Solrizer - non-xpath,date_range_sim,,"For each [UNITDATE_NORMAL] date that falls within `start_date` and `end_date` ranges found in v1 indexer `DATE_RANGES` here: https://github.com/NYULibraries/ead_indexer/blob/f1bc142dfe1507dbd173bfa126168fa52bba9871/lib/ead_indexer/behaviors/dates.rb#L4-L15, add to array.  If there are no in-range values, then value is an array with a single string ""undated & other""."
+Solrizer - non-xpath,format_sim,,"If `level` matches /\Aseries|subseries/) then use ""Archival Series"", else ""Archival Object"""
+Solrizer - non-xpath,format_ssm,,"If `level` matches /\Aseries|subseries/) then use ""Archival Series"", else ""Archival Object"""
+Solrizer - non-xpath,parent_ssi,,"Parent <c> `id` attribute if it is defined, omit this Solr field if it is not defined."
+Solrizer - non-xpath,parent_ssm,,`id` attributes of all ancestor <c> elements ordered from earliest ancestor to immediate parent.
+Solrizer - non-xpath,repository_ssm,,Derived from name of parent directory of EAD file
+Solrizer - non-xpath,repository_sim,,Derived from name of parent directory of EAD file
+Solrizer - non-xpath,repository_ssi,,Derived from name of parent directory of EAD file
+Solrizer - non-xpath,unitdate_ssm,,"If `unitdate` is not empty, use `unitdate` values joined in a comma-delimited list, else if `unitdate` is empty: ""Inclusive,"" plus `unitdate_inclusive` if both either `unitdate_inclusive` or `unitdate_bulk` are non-empty, plus "";"" and `unitdate_bulk` if non-empty.  NOTE: This is likely a bug in v1 indexer -- see https://jira.nyu.edu/browse/DLFA-211?focusedCommentId=8378822&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-8378822."
+Solrizer - xpath query,address_teim,,address/p
+Solrizer - xpath query,appraisal_teim,,appraisal/p
+Solrizer - xpath query,bioghist_teim,,bioghist/p
+Solrizer - xpath query,chronlist_teim,Remove all empty string and `nil` elements from the array,chronlist/chronitem//text()
+Solrizer - xpath query,collection_sim,,//archdesc/did/unittitle
+Solrizer - xpath query,collection_ssm,,//archdesc/did/unittitle
+Solrizer - xpath query,collection_teim,,//archdesc/did/unittitle
+Solrizer - xpath query,collection_unitid_ssm,,//archdesc/did/unitid
+Solrizer - xpath query,collection_unitid_teim,,//archdesc/did/unitid
+Solrizer - xpath query,corpname_teim,,corpname
+Solrizer - xpath query,corpname_ssm,,corpname
+Solrizer - xpath query,creator_teim,,archdesc[@level='collection']/did/origination[@label='creator']/*[name() = 'corpname' or name() = 'famname' or name() = 'persname']
+Solrizer - xpath query,creator_ssm,,archdesc[@level='collection']/did/origination[@label='creator']/*[name() = 'corpname' or name() = 'famname' or name() = 'persname']
+Solrizer - xpath query,dao_teim,,"dao/daodesc/p"""
+Solrizer - xpath query,dao_ssm,,"dao/daodesc/p"""
+Solrizer - xpath query,ead_ssi,,//eadid
+Solrizer - xpath query,famname_teim,,famname
+Solrizer - xpath query,famname_ssm,,famname
+Solrizer - xpath query,function_teim,,function
+Solrizer - xpath query,function_ssm,,function
+Solrizer - xpath query,genreform_teim,,genreform
+Solrizer - xpath query,genreform_ssm,,genreform
+Solrizer - xpath query,geogname_teim,,geogname
+Solrizer - xpath query,geogname_ssm,,geogname
+Solrizer - xpath query,heading_ssm,,archdesc[@level='collection']/did/unittitle
+Solrizer - xpath query,language_sim,Translate the first language code into a language name,did/langmaterial/language/@langcode
+Solrizer - xpath query,language_ssm,Translate the first language code into a language name,did/langmaterial/language/@langcode
+Solrizer - xpath query,level_sim,,/c/@level
+Solrizer - xpath query,material_type_sim,"For each element, replace strings matching /|w{1}/ (MARC subfield demarcators) with ""--"", remove `nil` values, and remove duplicates.",//genreform
+Solrizer - xpath query,material_type_ssm,"For each element, replace strings matching /|w{1}/ (MARC subfield demarcators) with ""--"", remove `nil` values, and remove duplicates.",//genreform
+Solrizer - xpath query,name_teim,,name
+Solrizer - xpath query,name_ssm,,name
+Solrizer - xpath query,note_teim,,note
+Solrizer - xpath query,note_ssm,,note
+Solrizer - xpath query,occupation_teim,,occupation
+Solrizer - xpath query,occupation_ssm,,occupation
+Solrizer - xpath query,persname_teim,,persname
+Solrizer - xpath query,persname_ssm,,persname
+Solrizer - xpath query,phystech_teim,,phystech/p
+Solrizer - xpath query,place_ssm,"For each element, replace strings matching /|w{1}/ (MARC subfield demarcators) with ""--"", remove `nil` values, and remove duplicates.",//geogname
+Solrizer - xpath query,place_sim,"For each element, replace strings matching /|w{1}/ (MARC subfield demarcators) with ""--"", remove `nil` values, and remove duplicates.",//geogname
+Solrizer - xpath query,ref_ssi,"First element only, and only if it exists.  Note that there is a ""ref_"" in Terminology but it does produce a Solr field because it has no :index_as and in any case would be overwritten by the `Solrizer.insert_field` call in `SolrEad::Component.to_solr()`",/c/@id
+Solrizer - xpath query,scopecontent_teim,,scopecontent/p
+Solrizer - xpath query,subject_teim,,subject
+Solrizer - xpath query,subject_ssm,,subject
+Solrizer - xpath query,subject_sim,"Take the node sets, flatten them into an array, and remove `nil` values and duplicates.  For  each element replace strings matching /|w{1}/ (MARC subfield demarcators) with ""--"".",//*[local-name()='subject' or local-name()='function' or local-name() = 'occupation']
+Solrizer - xpath query,subject_teim,"Take the node sets, flatten them into an array, and remove `nil` values and duplicates.  For  each element replace strings matching /|w{1}/ (MARC subfield demarcators) with ""--"".",//*[local-name()='subject' or local-name()='function' or local-name() = 'occupation']
+Solrizer - xpath query,title_teim,,title
+Solrizer - xpath query,title_ssm,,title
+Solrizer - xpath query,unitdate_teim,,did/unitdate[not(@type)]
+Solrizer - xpath query,unitdate_bulk_teim,,archdesc[@level='collection']/did/unitdate[@type='bulk']
+Solrizer - xpath query,unitdate_end_sim,"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.",did/unitdate/@normal
+Solrizer - xpath query,unitdate_end_ssm,"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.",did/unitdate/@normal
+Solrizer - xpath query,unitdate_end_si,"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.",did/unitdate/@normal
+Solrizer - xpath query,unitdate_normal_ssm,"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.",did/unitdate/@normal
+Solrizer - xpath query,unitdate_normal_teim,"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.",did/unitdate/@normal
+Solrizer - xpath query,unitdate_normal_sim,"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.",did/unitdate/@normal
+Solrizer - xpath query,unitdate_start_sim,"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.",did/unitdate/@normal
+Solrizer - xpath query,unitdate_start_ssm,"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.",did/unitdate/@normal
+Solrizer - xpath query,unitdate_start_si,"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.",did/unitdate/@normal
+Solrizer - xpath query,unitdate_inclusive_teim,,archdesc[@level='collection']/did/unitdate[@type='inclusive']
+Solrizer - xpath query,unitid_teim,,did/unitid
+Solrizer - xpath query,unitid_ssm,,did/unitid
+Solrizer - xpath query,unittitle_ssm,"For `unittitle_teim`, no special instructions.  For `unittitle_ssm`: sanitize  (see https://jira.nyu.edu/browse/DLFA-209) and change all EAD tags in the <unittitle> text which have `render` attributes to the appropriate HTML tag using this table: https://github.com/awead/solr_ead/blob/v0.7.5/lib/solr_ead/formatting.rb#L5-L23 and remove the `render` attribute from the tag.",did/unittitle
+Solrizer - xpath query,unittitle_teim,"For `unittitle_teim`, no special instructions.  For `unittitle_ssm`: sanitize  (see https://jira.nyu.edu/browse/DLFA-209) and change all EAD tags in the <unittitle> text which have `render` attributes to the appropriate HTML tag using this table: https://github.com/awead/solr_ead/blob/v0.7.5/lib/solr_ead/formatting.rb#L5-L23 and remove the `render` attribute from the tag.",did/unittitle
+Solrizer - composite,creator_ssm,"Get elements for each xpath query in the order listed. Flatten returned node sets into one array, remove duplicates, and remove `nil` values.","creator: //origination[@label='creator']/corpname, //origination[@label='creator']/famname, //origination[@label='creator']/persname"
+Solrizer - composite,creator_sim,"Get elements for each xpath query in the order listed. Flatten returned node sets into one array, remove duplicates, and remove `nil` values.","creator: //origination[@label='creator']/corpname, //origination[@label='creator']/famname, //origination[@label='creator']/persname"
+Solrizer - composite,id,"Append the `id` attribute of the <c> to the <eadid> value.  Example: ""photos_223aspace_ref1""",id: //eadid
+Solrizer - composite,location_ssm,"For each element returned by `//container/@id`, construct a string: ""[CONTAINER TYPE ATTRIBUTE]: [CONTAINER ID ATTRIBUTE], [SUB-CONTAINER INFO]"", where [CONTAINER TYPE ATTRIBUTE] is `//container[@id = '#{id}']/@type`,  [CONTAINER ID ATTRIBUTE] is `//container[@id = '#{id}']`, and [SUB-CONTAINER INFO] is comma-delimited list of strings based on the elements returned by `//container[@parent = '#{id}']`, with each string constructed like this: ""[TYPE ATTRIBUTE OF THE (SUB-)<container>]: [TEXT OF THE (SUB-)<container>]""","location: //container/@id, //container[@id = '#{id}']/@type, //container[@id = '#{id}'], //container[@parent = '#{id}']"
+Solrizer - composite,location_si,"For each element returned by `//container/@id`, construct a string: ""[CONTAINER TYPE ATTRIBUTE]: [CONTAINER ID ATTRIBUTE], [SUB-CONTAINER INFO]"", where [CONTAINER TYPE ATTRIBUTE] is `//container[@id = '#{id}']/@type`,  [CONTAINER ID ATTRIBUTE] is `//container[@id = '#{id}']`, and [SUB-CONTAINER INFO] is comma-delimited list of strings based on the elements returned by `//container[@parent = '#{id}']`, with each string constructed like this: ""[TYPE ATTRIBUTE OF THE (SUB-)<container>]: [TEXT OF THE (SUB-)<container>]""","location: //container/@id, //container[@id = '#{id}']/@type, //container[@id = '#{id}'], //container[@parent = '#{id}']"
+Solrizer - composite,parent_unittitles_ssm,"For each ancestor <c>, starting from the earliest ancestor to the immediate parent, if extract the first <unititle> element and add to array. For <unittitle> value, sanitize  (see https://jira.nyu.edu/browse/DLFA-209) and change all EAD tags in the <unittitle> text which have `render` attributes to the appropriate HTML tag using this table: https://github.com/awead/solr_ead/blob/v0.7.5/lib/solr_ead/formatting.rb#L5-L23 and remove the `render` attribute from the tag.  If there are no <unittitle> elements, collect the first <unitdate> element instead, using the same processing instructions.  If there are no <unitdate> elements, set value to ""[No title available]""","parent_unittitles: /c/did/unittitle, /c/did/unitdate"
+Solrizer - composite,parent_unittitles_teim,"For each ancestor <c>, starting from the earliest ancestor to the immediate parent, if extract the first <unititle> element and add to array. For <unittitle> value, sanitize  (see https://jira.nyu.edu/browse/DLFA-209) and change all EAD tags in the <unittitle> text which have `render` attributes to the appropriate HTML tag using this table: https://github.com/awead/solr_ead/blob/v0.7.5/lib/solr_ead/formatting.rb#L5-L23 and remove the `render` attribute from the tag.  If there are no <unittitle> elements, collect the first <unitdate> element instead, using the same processing instructions.  If there are no <unitdate> elements, set value to ""[No title available]""","parent_unittitles: /c/did/unittitle, /c/did/unitdate"
+Solrizer - composite,series_sim,"For each ancestor <c>, starting from the earliest ancestor to the immediate parent, if extract the first <unititle> element and add to array. For <unittitle> value, sanitize  (see https://jira.nyu.edu/browse/DLFA-209) and change all EAD tags in the <unittitle> text which have `render` attributes to the appropriate HTML tag using this table: https://github.com/awead/solr_ead/blob/v0.7.5/lib/solr_ead/formatting.rb#L5-L23 and remove the `render` attribute from the tag.  If there are no <unittitle> elements, collect the first <unitdate> element instead, using the same processing instructions.  If there are no <unitdate> elements, set value to ""[No title available]""","seriesForFacet: /c/did/unittitle, /c/did/unitdate"
+Solrizer - composite,series_si,"For each ancestor <c>, starting from the earliest ancestor to the immediate parent, if extract the first <unititle> element and add to array. For <unittitle> value, sanitize  (see https://jira.nyu.edu/browse/DLFA-209) and change all EAD tags in the <unittitle> text which have `render` attributes to the appropriate HTML tag using this table: https://github.com/awead/solr_ead/blob/v0.7.5/lib/solr_ead/formatting.rb#L5-L23 and remove the `render` attribute from the tag.  If there are no <unittitle> elements, collect the first <unitdate> element instead, using the same processing instructions.  If there are no <unitdate> elements, set value to ""[No title available]"" These are the ""parent titles"".  Add a comma and a space to these parent titles, then add the `did/unittitle` value -- the processing for this value: sanitize (see https://jira.nyu.edu/browse/DLFA-209) and change all EAD tags in the <unittitle> text which have `render` attributes to the appropriate HTML tag using this table: https://github.com/awead/solr_ead/blob/v0.7.5/lib/solr_ead/formatting.rb#L5-L23 and remove the `render` attribute from the tag. If there are no parent titles, just use this processed `did/unittitle` value.","seriesForSort: /c/did/unittitle, /c/did/unitdate, did/unittitle"
