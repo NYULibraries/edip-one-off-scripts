@@ -1,4 +1,11 @@
 {
+    "`collection_sim` data, if it exists": {
+        "solrFields": [
+            "collection_teim",
+            "collection_ssm",
+            "collection_sim"
+        ]
+    },
     "`true` if there are <c> child nodes, otherwise `false`": {
         "solrFields": [
             "component_children_bsi"
