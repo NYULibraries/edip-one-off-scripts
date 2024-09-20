@@ -1,5 +1,12 @@
 {
-    "`collection_sim` data, if it exists": {
+    "`author_teim` data, if it exists, which strangely does not ever appear to be the case, because it's not defined in the OM Terminology and not included in `additional_component_fields()`.  Note that if it did, it would simply overwrite the existing `author_teim` field with the exact same data, in addition to adding `author_sim` and `author_ssm`.": {
+        "solrFields": [
+            "author_teim",
+            "author_ssm",
+            "author_sim"
+        ]
+    },
+    "`collection_sim` data, if it exists.  Note that in v1 indexer, this simply overwrites the existing `collection_sim` field with the exact same data, in addition to adding `collection_ssm` and  `collection_teim`.": {
         "solrFields": [
             "collection_teim",
             "collection_ssm",
