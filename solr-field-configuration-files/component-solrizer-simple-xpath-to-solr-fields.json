@@ -17,7 +17,8 @@
     "chronlist/chronitem//text()": {
         "solrFields": [
             "chronlist_teim"
-        ]
+        ],
+        "process": "Remove all empty string and `nil` elements from the array"
     },
     "//archdesc/did/unittitle": {
         "solrFields": [
@@ -179,16 +180,23 @@
             "unitdate_bulk_teim"
         ]
     },
+    "did/unitdate/@normal": {
+        "solrFields": [
+            "unitdate_end_sim",
+            "unitdate_end_ssm",
+            "unitdate_end_si",
+            "unitdate_normal_ssm",
+            "unitdate_normal_teim",
+            "unitdate_normal_sim",
+            "unitdate_start_sim",
+            "unitdate_start_ssm",
+            "unitdate_start_si"
+        ],
+        "process": "For each element returned, if the value matches /(\\d{4})\\/(\\d{4})/, take the number on the left of the slash and add to array to be indexed."
+    },
     "archdesc[@level='collection']/did/unitdate[@type='inclusive']": {
         "solrFields": [
             "unitdate_inclusive_teim"
-        ]
-    },
-    "did/unitdate/@normal": {
-        "solrFields": [
-            "unitdate_normal_ssm",
-            "unitdate_normal_teim",
-            "unitdate_normal_sim"
         ]
     },
     "did/unitid": {
