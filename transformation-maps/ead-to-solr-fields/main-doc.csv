@@ -5,7 +5,7 @@ Solrizer - non-xpath,"For each [UNITDATE_NORMAL] date that falls within `start_d
 Solrizer - non-xpath,"Hardcoded ""Archival Collection""",,"format_sim,format_ssm"
 Solrizer - non-xpath,"Hardcoded 0 (number, not string)",,format_ii
 Solrizer - non-xpath,Derived from name of parent directory of EAD file,,"repository_ssm,repository_sim,repository_ssi"
-Solrizer - non-xpath,"If `unitdate` is empty: ""Inclusive,"" plus `unitdate_inclusive` if both either `unitdate_inclusive` or `unitdate_bulk` are non-empty, plus "";"" and `unitdate_bulk` if non-empty.  NOTE: This is likely a bug in v1 indexer -- see https://jira.nyu.edu/browse/DLFA-211?focusedCommentId=8378822&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-8378822.",,unitdate_ssm
+Solrizer - non-xpath,"If `unitdate` is not empty, use `unitdate` values joined in a comma-delimited list, else if `unitdate` is empty: ""Inclusive,"" plus `unitdate_inclusive` if both either `unitdate_inclusive` or `unitdate_bulk` are non-empty, plus "";"" and `unitdate_bulk` if non-empty.  NOTE: This is likely a bug in v1 indexer -- see https://jira.nyu.edu/browse/DLFA-211?focusedCommentId=8378822&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-8378822.",,unitdate_ssm
 Solrizer - xpath query,archdesc[@level='collection']/did/abstract,,"abstract_teim,abstract_ssm"
 Solrizer - xpath query,archdesc[@level='collection']/acqinfo/p,,acqinfo_teim
 Solrizer - xpath query,archdesc[@level='collection']/appraisal/p,,appraisal_teim
@@ -33,10 +33,10 @@ Solrizer - xpath query,archdesc[@level='collection']/scopecontent/p,,scopeconten
 Solrizer - xpath query,[archdesc[@level='collection']/*[name() != 'dsc']//subject,,"subject_teim,subject_ssm"
 Solrizer - xpath query,//*[local-name()='subject' or local-name()='function' or local-name() = 'occupation'],"Take the node sets, flatten them into an array, and remove `nil` values and duplicates.  For  each element replace strings matching /|w{1}/ (MARC subfield demarcators) with ""--"".","subject_sim,subject_teim"
 Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//title,,"title_teim,title_ssm"
-Solrizer - xpath query,archdesc[@level='collection']/did/unitdate[not(@type)],"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.","unitdate_teim,unitdate_end_sim,unitdate_end_ssm,unitdate_end_si,unitdate_start_sim,unitdate_start_ssm,unitdate_start_si"
+Solrizer - xpath query,archdesc[@level='collection']/did/unitdate[not(@type)],,unitdate_teim
 Solrizer - xpath query,archdesc[@level='collection']/did/unitdate[@type='bulk'],,unitdate_bulk_teim
+Solrizer - xpath query,archdesc[@level='collection']/did/unitdate/@normal,"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.","unitdate_end_sim,unitdate_end_ssm,unitdate_end_si,unitdate_normal_ssm,unitdate_normal_teim,unitdate_normal_sim,unitdate_start_sim,unitdate_start_ssm,unitdate_start_si"
 Solrizer - xpath query,archdesc[@level='collection']/did/unitdate[@type='inclusive'],,unitdate_inclusive_teim
-Solrizer - xpath query,archdesc[@level='collection']/did/unitdate/@normal,,"unitdate_normal_ssm,unitdate_normal_teim,unitdate_normal_sim"
 Solrizer - xpath query,archdesc[@level='collection']/did/unitid,,"unitid_teim,unitid_ssm"
 Solrizer - composite,"creator: //origination[@label='creator']/corpname, //origination[@label='creator']/famname, //origination[@label='creator']/persname","Get elements for each xpath query in the order listed. Flatten returned node sets into one array, remove duplicates, and remove `nil` values.","creator_ssm,creator_sim"
 Solrizer - composite,"name: //famname, //persname, //*[local-name()!='repository']/corpname","Get elements for each xpath query in the order listed. Flatten returned node sets into one array, remove `nil` values, and remove duplicates, and for  each element replace strings matching /|w{1}/ (MARC subfield demarcators) with ""--"".","name_sim,name_teim"

@@ -8,7 +8,7 @@ Solrizer - non-xpath,format_ii,,"Hardcoded 0 (number, not string)"
 Solrizer - non-xpath,repository_ssm,,Derived from name of parent directory of EAD file
 Solrizer - non-xpath,repository_sim,,Derived from name of parent directory of EAD file
 Solrizer - non-xpath,repository_ssi,,Derived from name of parent directory of EAD file
-Solrizer - non-xpath,unitdate_ssm,,"If `unitdate` is empty: ""Inclusive,"" plus `unitdate_inclusive` if both either `unitdate_inclusive` or `unitdate_bulk` are non-empty, plus "";"" and `unitdate_bulk` if non-empty.  NOTE: This is likely a bug in v1 indexer -- see https://jira.nyu.edu/browse/DLFA-211?focusedCommentId=8378822&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-8378822."
+Solrizer - non-xpath,unitdate_ssm,,"If `unitdate` is not empty, use `unitdate` values joined in a comma-delimited list, else if `unitdate` is empty: ""Inclusive,"" plus `unitdate_inclusive` if both either `unitdate_inclusive` or `unitdate_bulk` are non-empty, plus "";"" and `unitdate_bulk` if non-empty.  NOTE: This is likely a bug in v1 indexer -- see https://jira.nyu.edu/browse/DLFA-211?focusedCommentId=8378822&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-8378822."
 Solrizer - xpath query,abstract_teim,,archdesc[@level='collection']/did/abstract
 Solrizer - xpath query,abstract_ssm,,archdesc[@level='collection']/did/abstract
 Solrizer - xpath query,acqinfo_teim,,archdesc[@level='collection']/acqinfo/p
@@ -58,18 +58,18 @@ Solrizer - xpath query,subject_sim,"Take the node sets, flatten them into an arr
 Solrizer - xpath query,subject_teim,"Take the node sets, flatten them into an array, and remove `nil` values and duplicates.  For  each element replace strings matching /|w{1}/ (MARC subfield demarcators) with ""--"".",//*[local-name()='subject' or local-name()='function' or local-name() = 'occupation']
 Solrizer - xpath query,title_teim,,archdesc[@level='collection']/*[name() != 'dsc']//title
 Solrizer - xpath query,title_ssm,,archdesc[@level='collection']/*[name() != 'dsc']//title
-Solrizer - xpath query,unitdate_teim,"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.",archdesc[@level='collection']/did/unitdate[not(@type)]
-Solrizer - xpath query,unitdate_end_sim,"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.",archdesc[@level='collection']/did/unitdate[not(@type)]
-Solrizer - xpath query,unitdate_end_ssm,"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.",archdesc[@level='collection']/did/unitdate[not(@type)]
-Solrizer - xpath query,unitdate_end_si,"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.",archdesc[@level='collection']/did/unitdate[not(@type)]
-Solrizer - xpath query,unitdate_start_sim,"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.",archdesc[@level='collection']/did/unitdate[not(@type)]
-Solrizer - xpath query,unitdate_start_ssm,"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.",archdesc[@level='collection']/did/unitdate[not(@type)]
-Solrizer - xpath query,unitdate_start_si,"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.",archdesc[@level='collection']/did/unitdate[not(@type)]
+Solrizer - xpath query,unitdate_teim,,archdesc[@level='collection']/did/unitdate[not(@type)]
 Solrizer - xpath query,unitdate_bulk_teim,,archdesc[@level='collection']/did/unitdate[@type='bulk']
+Solrizer - xpath query,unitdate_end_sim,"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.",archdesc[@level='collection']/did/unitdate/@normal
+Solrizer - xpath query,unitdate_end_ssm,"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.",archdesc[@level='collection']/did/unitdate/@normal
+Solrizer - xpath query,unitdate_end_si,"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.",archdesc[@level='collection']/did/unitdate/@normal
+Solrizer - xpath query,unitdate_normal_ssm,"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.",archdesc[@level='collection']/did/unitdate/@normal
+Solrizer - xpath query,unitdate_normal_teim,"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.",archdesc[@level='collection']/did/unitdate/@normal
+Solrizer - xpath query,unitdate_normal_sim,"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.",archdesc[@level='collection']/did/unitdate/@normal
+Solrizer - xpath query,unitdate_start_sim,"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.",archdesc[@level='collection']/did/unitdate/@normal
+Solrizer - xpath query,unitdate_start_ssm,"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.",archdesc[@level='collection']/did/unitdate/@normal
+Solrizer - xpath query,unitdate_start_si,"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.",archdesc[@level='collection']/did/unitdate/@normal
 Solrizer - xpath query,unitdate_inclusive_teim,,archdesc[@level='collection']/did/unitdate[@type='inclusive']
-Solrizer - xpath query,unitdate_normal_ssm,,archdesc[@level='collection']/did/unitdate/@normal
-Solrizer - xpath query,unitdate_normal_teim,,archdesc[@level='collection']/did/unitdate/@normal
-Solrizer - xpath query,unitdate_normal_sim,,archdesc[@level='collection']/did/unitdate/@normal
 Solrizer - xpath query,unitid_teim,,archdesc[@level='collection']/did/unitid
 Solrizer - xpath query,unitid_ssm,,archdesc[@level='collection']/did/unitid
 Solrizer - composite,creator_ssm,"Get elements for each xpath query in the order listed. Flatten returned node sets into one array, remove duplicates, and remove `nil` values.","creator: //origination[@label='creator']/corpname, //origination[@label='creator']/famname, //origination[@label='creator']/persname"
