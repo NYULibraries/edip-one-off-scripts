@@ -59,6 +59,11 @@ function addSolrizerCompositeSolrFields( solrFieldDefinitions, compositeSolrFiel
 }
 
 function addNonSolrizerSolrFields( solrFieldDefinitions, directToSolrFields ) {
+    // `componentSolrFields` currently doesn't have `.nonSolrizer` configuration.
+    if ( ! solrFieldDefinitions.nonSolrizer ) {
+        return;
+    }
+
     Object.keys( solrFieldDefinitions.nonSolrizer ).sort().forEach( solrFieldName => {
         const solrField = solrFieldDefinitions.nonSolrizer[ solrFieldName ];
         if ( !directToSolrFields[ solrField.source ] ) {
