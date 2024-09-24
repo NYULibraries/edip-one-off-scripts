@@ -10,6 +10,8 @@ import * as url from 'url';
 
 import Papa from 'papaparse';
 
+import { generateSolrFieldConfigurationFiles } from './lib/generate-solr-field-configuration.mjs';
+
 import { createRequire } from "module";
 
 const require = createRequire( import.meta.url );
@@ -322,6 +324,8 @@ function writeTransformationMapFiles(
 }
 
 function main() {
+    generateSolrFieldConfigurationFiles();
+
     const {
         mainDocEadToSolrFieldsCsvMap,
         mainDocSolrFieldsToEadCsvMap,
