@@ -10,7 +10,12 @@ const require = createRequire( import.meta.url );
 const __dirname = url.fileURLToPath( new URL( '.', import.meta.url ) );
 
 const ROOT = path.join( __dirname );
-const ISO_639_2_DATA_FILE = path.join( ROOT, 'data-files', 'ISO-639-2_utf-8.txt' );
+
+const ISO_639_2_DATA_FILE_CURRENT_OFFICIAL =
+    path.join( ROOT, 'data-files', 'ISO-639-2_utf-8.txt' );
+
+const ISO_639_2_DATA_FILE_V1_INDEXER =
+    path.join( ROOT, 'data-files', 'ISO-639-2_utf-8_ruby-gem.txt' );
 
 function addToMap( codeA, codeB, codeC, language, langcodeMap ) {
     if ( codeA === '' ) {
@@ -47,8 +52,14 @@ function makeLangcodeMap( iso639Part2Data ) {
     return langcodeMap;
 }
 
+let dataFile = ISO_639_2_DATA_FILE_CURRENT_OFFICIAL;
+if ( process.argv[ 2 ].toLowerCase() === 'v1-indexer' ) {
+    console.error( 'Using v1 indexer ISO-639-2 data file.' )
+    dataFile = ISO_639_2_DATA_FILE_V1_INDEXER;
+}
+
 const iso639Part2Data = Papa.parse(
-    readFileSync( ISO_639_2_DATA_FILE, { encoding: 'utf-8' } )
+    readFileSync( dataFile, { encoding: 'utf-8' } )
 );
 
 const langcodeMap = makeLangcodeMap( iso639Part2Data );

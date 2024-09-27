@@ -1,0 +1,1 @@
+curl -s https://raw.githubusercontent.com/xwmx/iso-639/169e152b4af5ca4a7876a3c7e37fcd272c3e577f/lib/data/ISO-639-2_utf-8.txt | gsed -r 's/\xef|\xbb|\xbf//g'> ISO-639-2_utf-8_ruby-gem.txt
