@@ -1,6 +1,6 @@
-// There's a lot of duplication of code in the main doc and component processing
-// because main doc was implemented first and then component processing  was
-// implemented based on main doc.  For the time being, the same processing works
+// There's a lot of duplication of code in the collection doc and component processing
+// because collection doc was implemented first and then component processing  was
+// implemented based on collection doc.  For the time being, the same processing works
 // reasonably well for both, but there's a possibility of divergence in the future,
 // so for now, keep them separate and independent.
 
@@ -36,14 +36,14 @@ const COMPONENT_SOLRIZER_NON_XPATH_SOLR_FIELDS_CONFIG =
 const COMPONENT_SOLRIZER_SIMPLE_SOLR_FIELDS_CONFIG =
     require( path.join( SOLR_FIELD_CONFIGURATION_FILES, 'component-solrizer-simple-xpath-to-solr-fields.json' ) );
 
-const MAIN_DOC_NON_SOLRIZER_SOLR_FIELDS_CONFIG =
-    require( path.join( SOLR_FIELD_CONFIGURATION_FILES, 'main-doc-non-solrizer-solr-fields.json' ) );
-const MAIN_DOC_SOLRIZER_COMPOSITE_SOLR_FIELDS_CONFIG =
-    require( path.join( SOLR_FIELD_CONFIGURATION_FILES, 'main-doc-solrizer-composite-solr-fields.json' ) );
-const MAIN_DOC_SOLRIZER_NON_XPATH_SOLR_FIELDS_CONFIG =
-    require( path.join( SOLR_FIELD_CONFIGURATION_FILES, 'main-doc-solrizer-non-xpath-to-solr-fields.json' ) );
-const MAIN_DOC_SOLRIZER_SIMPLE_SOLR_FIELDS_CONFIG =
-    require( path.join( SOLR_FIELD_CONFIGURATION_FILES, 'main-doc-solrizer-simple-xpath-to-solr-fields.json' ) );
+const COLLECTION_DOC_NON_SOLRIZER_SOLR_FIELDS_CONFIG =
+    require( path.join( SOLR_FIELD_CONFIGURATION_FILES, 'collection-doc-non-solrizer-solr-fields.json' ) );
+const COLLECTION_DOC_SOLRIZER_COMPOSITE_SOLR_FIELDS_CONFIG =
+    require( path.join( SOLR_FIELD_CONFIGURATION_FILES, 'collection-doc-solrizer-composite-solr-fields.json' ) );
+const COLLECTION_DOC_SOLRIZER_NON_XPATH_SOLR_FIELDS_CONFIG =
+    require( path.join( SOLR_FIELD_CONFIGURATION_FILES, 'collection-doc-solrizer-non-xpath-to-solr-fields.json' ) );
+const COLLECTION_DOC_SOLRIZER_SIMPLE_SOLR_FIELDS_CONFIG =
+    require( path.join( SOLR_FIELD_CONFIGURATION_FILES, 'collection-doc-solrizer-simple-xpath-to-solr-fields.json' ) );
 
 const CSV_FILE_HEADER_EAD_TO_SOLR_FIELD = [ 'SOURCE TYPE', 'SOURCE', 'PROCESSING', 'SOLR FIELDS' ];
 const CSV_FILE_HEADER_TO_SOLR_FIELD_TO_EAD = [ 'SOURCE TYPE', 'SOLR_FIELD', 'PROCESSING', 'SOURCE' ];
@@ -161,23 +161,23 @@ function getComponentSolrFieldsToEadCsvMapData() {
     return componentSolrFieldsToEadCsvMapData;
 }
 
-function getMainDocCsvMaps() {
-    const mainDocEadToSolrFieldsCsvMapData = getMainDocEadToSolrFieldsCsvMapData();
-    const mainDocSolrFieldsToEadCsvMapData = getMainDocSolrFieldsToEadCsvMapData();
+function getCollectionDocCsvMaps() {
+    const collectionDocEadToSolrFieldsCsvMapData = getCollectionDocEadToSolrFieldsCsvMapData();
+    const collectionDocSolrFieldsToEadCsvMapData = getCollectionDocSolrFieldsToEadCsvMapData();
 
     return {
-        mainDocEadToSolrFieldsCsvMap : {
+        collectionDocEadToSolrFieldsCsvMap : {
             fields : CSV_FILE_HEADER_EAD_TO_SOLR_FIELD,
-            data   : mainDocEadToSolrFieldsCsvMapData,
+            data   : collectionDocEadToSolrFieldsCsvMapData,
         },
-        mainDocSolrFieldsToEadCsvMap : {
+        collectionDocSolrFieldsToEadCsvMap : {
             fields : CSV_FILE_HEADER_TO_SOLR_FIELD_TO_EAD,
-            data   : mainDocSolrFieldsToEadCsvMapData,
+            data   : collectionDocSolrFieldsToEadCsvMapData,
         }
     };
 }
 
-function getMainDocEadToSolrFieldsCsvMapData() {
+function getCollectionDocEadToSolrFieldsCsvMapData() {
     function composite( sourceType, configFile ) {
         const data = [];
 
@@ -203,25 +203,25 @@ function getMainDocEadToSolrFieldsCsvMapData() {
         return data;
     }
 
-    const mainDocEadToSolrFieldsCsvMapData = [];
-    mainDocEadToSolrFieldsCsvMapData.push(
-        ...direct( 'Non-Solrizer', MAIN_DOC_NON_SOLRIZER_SOLR_FIELDS_CONFIG )
+    const collectionDocEadToSolrFieldsCsvMapData = [];
+    collectionDocEadToSolrFieldsCsvMapData.push(
+        ...direct( 'Non-Solrizer', COLLECTION_DOC_NON_SOLRIZER_SOLR_FIELDS_CONFIG )
     );
-    mainDocEadToSolrFieldsCsvMapData.push(
-        ...direct( 'Solrizer - non-xpath', MAIN_DOC_SOLRIZER_NON_XPATH_SOLR_FIELDS_CONFIG )
+    collectionDocEadToSolrFieldsCsvMapData.push(
+        ...direct( 'Solrizer - non-xpath', COLLECTION_DOC_SOLRIZER_NON_XPATH_SOLR_FIELDS_CONFIG )
     );
-    mainDocEadToSolrFieldsCsvMapData.push(
-        ...direct( 'Solrizer - xpath query', MAIN_DOC_SOLRIZER_SIMPLE_SOLR_FIELDS_CONFIG )
-    );
-
-    mainDocEadToSolrFieldsCsvMapData.push(
-        ...composite( 'Solrizer - composite', MAIN_DOC_SOLRIZER_COMPOSITE_SOLR_FIELDS_CONFIG )
+    collectionDocEadToSolrFieldsCsvMapData.push(
+        ...direct( 'Solrizer - xpath query', COLLECTION_DOC_SOLRIZER_SIMPLE_SOLR_FIELDS_CONFIG )
     );
 
-    return mainDocEadToSolrFieldsCsvMapData;
+    collectionDocEadToSolrFieldsCsvMapData.push(
+        ...composite( 'Solrizer - composite', COLLECTION_DOC_SOLRIZER_COMPOSITE_SOLR_FIELDS_CONFIG )
+    );
+
+    return collectionDocEadToSolrFieldsCsvMapData;
 }
 
-function getMainDocSolrFieldsToEadCsvMapData() {
+function getCollectionDocSolrFieldsToEadCsvMapData() {
     function composite( sourceType, configFile ) {
         const data = [];
 
@@ -256,22 +256,22 @@ function getMainDocSolrFieldsToEadCsvMapData() {
         return data;
     }
 
-    const mainDocSolrFieldsToEadCsvMapData = [];
-    mainDocSolrFieldsToEadCsvMapData.push(
-        ...direct( 'Non-Solrizer', MAIN_DOC_NON_SOLRIZER_SOLR_FIELDS_CONFIG )
+    const collectionDocSolrFieldsToEadCsvMapData = [];
+    collectionDocSolrFieldsToEadCsvMapData.push(
+        ...direct( 'Non-Solrizer', COLLECTION_DOC_NON_SOLRIZER_SOLR_FIELDS_CONFIG )
     );
-    mainDocSolrFieldsToEadCsvMapData.push(
-        ...direct( 'Solrizer - non-xpath', MAIN_DOC_SOLRIZER_NON_XPATH_SOLR_FIELDS_CONFIG )
+    collectionDocSolrFieldsToEadCsvMapData.push(
+        ...direct( 'Solrizer - non-xpath', COLLECTION_DOC_SOLRIZER_NON_XPATH_SOLR_FIELDS_CONFIG )
     );
-    mainDocSolrFieldsToEadCsvMapData.push(
-        ...direct( 'Solrizer - xpath query', MAIN_DOC_SOLRIZER_SIMPLE_SOLR_FIELDS_CONFIG )
-    );
-
-    mainDocSolrFieldsToEadCsvMapData.push(
-        ...composite( 'Solrizer - composite', MAIN_DOC_SOLRIZER_COMPOSITE_SOLR_FIELDS_CONFIG )
+    collectionDocSolrFieldsToEadCsvMapData.push(
+        ...direct( 'Solrizer - xpath query', COLLECTION_DOC_SOLRIZER_SIMPLE_SOLR_FIELDS_CONFIG )
     );
 
-    return mainDocSolrFieldsToEadCsvMapData;
+    collectionDocSolrFieldsToEadCsvMapData.push(
+        ...composite( 'Solrizer - composite', COLLECTION_DOC_SOLRIZER_COMPOSITE_SOLR_FIELDS_CONFIG )
+    );
+
+    return collectionDocSolrFieldsToEadCsvMapData;
 }
 
 function getPapaParseConfig() {
@@ -291,22 +291,22 @@ function getPapaParseConfig() {
 }
 
 function writeTransformationMapFiles(
-    mainDocEadToSolrFieldsCsvMap,
-    mainDocSolrFieldsToEadCsvMap,
+    collectionDocEadToSolrFieldsCsvMap,
+    collectionDocSolrFieldsToEadCsvMap,
     componentEadToSolrFieldsCsvMap,
     componentSolrFieldsToEadCsvMap,
 ) {
     const papaParseConfig = getPapaParseConfig();
 
     writeFileSync(
-        path.join( EAD_TO_SOLR_FIELDS_DIR, 'main-doc.csv' ),
-        Papa.unparse( mainDocEadToSolrFieldsCsvMap, papaParseConfig ),
+        path.join( EAD_TO_SOLR_FIELDS_DIR, 'collection-doc.csv' ),
+        Papa.unparse( collectionDocEadToSolrFieldsCsvMap, papaParseConfig ),
         { encoding : 'utf8' },
     );
 
     writeFileSync(
-        path.join( SOLR_FIELDS_TO_EAD_DIR, 'main-doc.csv' ),
-        Papa.unparse( mainDocSolrFieldsToEadCsvMap, papaParseConfig ),
+        path.join( SOLR_FIELDS_TO_EAD_DIR, 'collection-doc.csv' ),
+        Papa.unparse( collectionDocSolrFieldsToEadCsvMap, papaParseConfig ),
         { encoding : 'utf8' },
     );
 
@@ -327,9 +327,9 @@ function main() {
     generateSolrFieldConfigurationFiles();
 
     const {
-        mainDocEadToSolrFieldsCsvMap,
-        mainDocSolrFieldsToEadCsvMap,
-    } = getMainDocCsvMaps();
+        collectionDocEadToSolrFieldsCsvMap,
+        collectionDocSolrFieldsToEadCsvMap,
+    } = getCollectionDocCsvMaps();
 
     const {
         componentEadToSolrFieldsCsvMap,
@@ -337,8 +337,8 @@ function main() {
     } = getComponentCsvMaps();
 
     writeTransformationMapFiles(
-        mainDocEadToSolrFieldsCsvMap,
-        mainDocSolrFieldsToEadCsvMap,
+        collectionDocEadToSolrFieldsCsvMap,
+        collectionDocSolrFieldsToEadCsvMap,
         componentEadToSolrFieldsCsvMap,
         componentSolrFieldsToEadCsvMap,
     );
