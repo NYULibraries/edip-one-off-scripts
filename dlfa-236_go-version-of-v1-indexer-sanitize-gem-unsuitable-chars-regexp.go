@@ -30,7 +30,7 @@ var sanitizeRegexp = regexp.MustCompile(sanitizeRegexpString)
 func main() {
 	testStrings := []string{
 		// The U+2013 En Dash character after "Civil Rights" should not be removed,
-		// but the U+009D OSC character should be removed.
+		// but the U+009D OSC characters in all of these <unittitle> tags should be removed.
 		"<unittitle>Civil Rights – Monroe, North Carolina \"KISSING CASE\": David Fuzzy\" Simpson and Hanover Thompson, Mrs.Jennie Simpson, Mrs.Evelyn Thompson, Dr.A.E.Perry, Robert F.Williams, Mrs.Mary Ruth Reid Assault Case, Rev TH Harris</unittitle>",
 		"<unittitle>\"MOVE\"</unittitle>",
 		"<unittitle>\"Human Rights\"</unittitle>",
