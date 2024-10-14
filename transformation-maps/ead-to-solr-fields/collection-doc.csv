@@ -14,7 +14,7 @@ Solrizer - xpath query,archdesc[@level='collection']/bioghist/p,,bioghist_teim
 Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//chronlist/chronitem//text(),,chronlist_teim
 Solrizer - xpath query,archdesc[@level='collection']/did/unittitle,"For `unittitle_teim`, no special instructions.  For `unittitle_ssm`: sanitize  (see https://jira.nyu.edu/browse/DLFA-209) and change all EAD tags in the <unittitle> text which have `render` attributes to the appropriate HTML tag using this table: https://github.com/awead/solr_ead/blob/v0.7.5/lib/solr_ead/formatting.rb#L5-L23 and remove the `render` attribute from the tag.","collection_sim,collection_ssm,collection_teim,heading_ssm,unittitle_teim,unittitle_ssm"
 Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//corpname,,"corpname_teim,corpname_ssm"
-Solrizer - xpath query,archdesc[@level='collection']/did/origination[@label='creator']/*[#{creator_fields_to_xpath}],,"creator_teim,creator_ssm"
+Solrizer - xpath query,archdesc[@level='collection']/did/origination[@label='creator']/*[name() = 'corpname' or name() = 'famname' or name() = 'persname'],,"creator_teim,creator_ssm"
 Solrizer - xpath query,archdesc[@level='collection']/custodhist/p,,custodhist_teim
 Solrizer - xpath query,eadid,,ead_ssi
 Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//famname,,"famname_teim,famname_ssm"

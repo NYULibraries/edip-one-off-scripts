@@ -25,8 +25,8 @@ Solrizer - xpath query,unittitle_teim,"For `unittitle_teim`, no special instruct
 Solrizer - xpath query,unittitle_ssm,"For `unittitle_teim`, no special instructions.  For `unittitle_ssm`: sanitize  (see https://jira.nyu.edu/browse/DLFA-209) and change all EAD tags in the <unittitle> text which have `render` attributes to the appropriate HTML tag using this table: https://github.com/awead/solr_ead/blob/v0.7.5/lib/solr_ead/formatting.rb#L5-L23 and remove the `render` attribute from the tag.",archdesc[@level='collection']/did/unittitle
 Solrizer - xpath query,corpname_teim,,archdesc[@level='collection']/*[name() != 'dsc']//corpname
 Solrizer - xpath query,corpname_ssm,,archdesc[@level='collection']/*[name() != 'dsc']//corpname
-Solrizer - xpath query,creator_teim,,archdesc[@level='collection']/did/origination[@label='creator']/*[#{creator_fields_to_xpath}]
-Solrizer - xpath query,creator_ssm,,archdesc[@level='collection']/did/origination[@label='creator']/*[#{creator_fields_to_xpath}]
+Solrizer - xpath query,creator_teim,,archdesc[@level='collection']/did/origination[@label='creator']/*[name() = 'corpname' or name() = 'famname' or name() = 'persname']
+Solrizer - xpath query,creator_ssm,,archdesc[@level='collection']/did/origination[@label='creator']/*[name() = 'corpname' or name() = 'famname' or name() = 'persname']
 Solrizer - xpath query,custodhist_teim,,archdesc[@level='collection']/custodhist/p
 Solrizer - xpath query,ead_ssi,,eadid
 Solrizer - xpath query,famname_teim,,archdesc[@level='collection']/*[name() != 'dsc']//famname

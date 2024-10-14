@@ -48,7 +48,7 @@
             "corpname_ssm"
         ]
     },
-    "archdesc[@level='collection']/did/origination[@label='creator']/*[#{creator_fields_to_xpath}]": {
+    "archdesc[@level='collection']/did/origination[@label='creator']/*[name() = 'corpname' or name() = 'famname' or name() = 'persname']": {
         "solrFields": [
             "creator_teim",
             "creator_ssm"
