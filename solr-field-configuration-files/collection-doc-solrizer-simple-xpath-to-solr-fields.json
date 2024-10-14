@@ -142,7 +142,7 @@
             "scopecontent_teim"
         ]
     },
-    "[archdesc[@level='collection']/*[name() != 'dsc']//subject": {
+    "archdesc[@level='collection']/*[name() != 'dsc']//subject": {
         "solrFields": [
             "subject_teim",
             "subject_ssm"

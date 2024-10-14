@@ -52,8 +52,8 @@ Solrizer - xpath query,persname_ssm,,archdesc[@level='collection']/*[name() != '
 Solrizer - xpath query,phystech_teim,,archdesc[@level='collection']/phystech/p
 Solrizer - xpath query,place_sim,"For each element, replace strings matching /|w{1}/ (MARC subfield demarcators) with ""--"", remove `nil` values, and remove duplicates.",//geogname
 Solrizer - xpath query,scopecontent_teim,,archdesc[@level='collection']/scopecontent/p
-Solrizer - xpath query,subject_teim,,[archdesc[@level='collection']/*[name() != 'dsc']//subject
-Solrizer - xpath query,subject_ssm,,[archdesc[@level='collection']/*[name() != 'dsc']//subject
+Solrizer - xpath query,subject_teim,,archdesc[@level='collection']/*[name() != 'dsc']//subject
+Solrizer - xpath query,subject_ssm,,archdesc[@level='collection']/*[name() != 'dsc']//subject
 Solrizer - xpath query,subject_sim,"Take the node sets, flatten them into an array, and remove `nil` values and duplicates.  For  each element replace strings matching /|w{1}/ (MARC subfield demarcators) with ""--"".",//*[local-name()='subject' or local-name()='function' or local-name() = 'occupation']
 Solrizer - xpath query,subject_teim,"Take the node sets, flatten them into an array, and remove `nil` values and duplicates.  For  each element replace strings matching /|w{1}/ (MARC subfield demarcators) with ""--"".",//*[local-name()='subject' or local-name()='function' or local-name() = 'occupation']
 Solrizer - xpath query,title_teim,,archdesc[@level='collection']/*[name() != 'dsc']//title

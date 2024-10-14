@@ -30,7 +30,7 @@ Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//persnam
 Solrizer - xpath query,archdesc[@level='collection']/phystech/p,,phystech_teim
 Solrizer - xpath query,//geogname,"For each element, replace strings matching /|w{1}/ (MARC subfield demarcators) with ""--"", remove `nil` values, and remove duplicates.",place_sim
 Solrizer - xpath query,archdesc[@level='collection']/scopecontent/p,,scopecontent_teim
-Solrizer - xpath query,[archdesc[@level='collection']/*[name() != 'dsc']//subject,,"subject_teim,subject_ssm"
+Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//subject,,"subject_teim,subject_ssm"
 Solrizer - xpath query,//*[local-name()='subject' or local-name()='function' or local-name() = 'occupation'],"Take the node sets, flatten them into an array, and remove `nil` values and duplicates.  For  each element replace strings matching /|w{1}/ (MARC subfield demarcators) with ""--"".","subject_sim,subject_teim"
 Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//title,,"title_teim,title_ssm"
 Solrizer - xpath query,archdesc[@level='collection']/did/unitdate[not(@type)],,unitdate_teim
