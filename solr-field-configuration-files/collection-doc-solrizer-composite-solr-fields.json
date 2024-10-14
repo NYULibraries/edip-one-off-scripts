@@ -1,6 +1,6 @@
 {
     "creator": {
-        "process": "Get elements for each xpath query in the order listed. Flatten returned node sets into one array, remove duplicates, and remove `nil` values.",
+        "process": "Get elements for each xpath query in the order listed. Flatten returned node sets into one array, and remove `nil` values.",
         "solrFields": [
             "creator_ssm",
             "creator_sim"
