@@ -1,6 +1,6 @@
 {
     "creator": {
-        "process": "Get elements for each xpath query in the order listed. Flatten returned node sets into one array, and remove `nil` values.",
+        "process": "Get elements for each xpath query in the order listed. Flatten returned node sets into one array, and remove `nil` values.  Note that these xpath queries are case-sensitive.  For the new indexer, we will replace `@label='creator'` with XPath 1.0 compliant `translate(@label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='creator'` to enable matching for \"creator\" and \"Creator\" (necessary for fixing https://jira.nyu.edu/browse/FADESIGN-843)",
         "solrFields": [
             "creator_ssm",
             "creator_sim"

@@ -52,7 +52,8 @@
         "solrFields": [
             "creator_teim",
             "creator_ssm"
-        ]
+        ],
+        "process": " Note that these xpath queries are case-sensitive. For the new indexer, we will replace `@label='creator'` + with XPath 1.0 compliant `translate(@label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='creator'` to enable matching for \"creator\" and \"Creator\" (necessary for fixing https://jira.nyu.edu/browse/FADESIGN-843)"
     },
     "archdesc[@level='collection']/custodhist/p": {
         "solrFields": [

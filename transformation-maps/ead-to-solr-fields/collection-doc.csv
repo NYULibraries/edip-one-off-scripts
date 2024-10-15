@@ -1,5 +1,5 @@
 SOURCE TYPE,SOURCE,PROCESSING,SOLR FIELDS
-Non-Solrizer,First token of <eadid>,,id
+Non-Solrizer,First element of <eadid> xpath query results array,,id
 Solrizer - non-xpath,"Hardcoded ""Online Access"" if //dao is not empty",,dao_sim
 Solrizer - non-xpath,"For each [UNITDATE_NORMAL] date that falls within `start_date` and `end_date` ranges found in v1 indexer `DATE_RANGES` here: https://github.com/NYULibraries/ead_indexer/blob/f1bc142dfe1507dbd173bfa126168fa52bba9871/lib/ead_indexer/behaviors/dates.rb#L4-L15, add to array.  If there are no in-range values, then value is an array with a single string ""undated & other"".",,date_range_sim
 Solrizer - non-xpath,"Hardcoded ""Archival Collection""",,"format_sim,format_ssm"
@@ -14,7 +14,7 @@ Solrizer - xpath query,archdesc[@level='collection']/bioghist/p,,bioghist_teim
 Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//chronlist/chronitem//text(),,chronlist_teim
 Solrizer - xpath query,archdesc[@level='collection']/did/unittitle,"For `unittitle_teim`, no special instructions.  For `unittitle_ssm`: sanitize  (see https://jira.nyu.edu/browse/DLFA-209) and change all EAD tags in the <unittitle> text which have `render` attributes to the appropriate HTML tag using this table: https://github.com/awead/solr_ead/blob/v0.7.5/lib/solr_ead/formatting.rb#L5-L23 and remove the `render` attribute from the tag.","collection_sim,collection_ssm,collection_teim,heading_ssm,unittitle_teim,unittitle_ssm"
 Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//corpname,,"corpname_teim,corpname_ssm"
-Solrizer - xpath query,archdesc[@level='collection']/did/origination[@label='creator']/*[name() = 'corpname' or name() = 'famname' or name() = 'persname'],,"creator_teim,creator_ssm"
+Solrizer - xpath query,archdesc[@level='collection']/did/origination[@label='creator']/*[name() = 'corpname' or name() = 'famname' or name() = 'persname']," Note that these xpath queries are case-sensitive. For the new indexer, we will replace `@label='creator'` + with XPath 1.0 compliant `translate(@label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='creator'` to enable matching for ""creator"" and ""Creator"" (necessary for fixing https://jira.nyu.edu/browse/FADESIGN-843)","creator_teim,creator_ssm"
 Solrizer - xpath query,archdesc[@level='collection']/custodhist/p,,custodhist_teim
 Solrizer - xpath query,eadid,,ead_ssi
 Solrizer - xpath query,archdesc[@level='collection']/*[name() != 'dsc']//famname,,"famname_teim,famname_ssm"
@@ -38,5 +38,5 @@ Solrizer - xpath query,archdesc[@level='collection']/did/unitdate[@type='bulk'],
 Solrizer - xpath query,archdesc[@level='collection']/did/unitdate/@normal,"For each element returned, if the value matches /(\d{4})\/(\d{4})/, take the number on the left of the slash and add to array to be indexed.","unitdate_end_sim,unitdate_end_ssm,unitdate_end_si,unitdate_normal_ssm,unitdate_normal_teim,unitdate_normal_sim,unitdate_start_sim,unitdate_start_ssm,unitdate_start_si"
 Solrizer - xpath query,archdesc[@level='collection']/did/unitdate[@type='inclusive'],,unitdate_inclusive_teim
 Solrizer - xpath query,archdesc[@level='collection']/did/unitid,,"unitid_teim,unitid_ssm"
-Solrizer - composite,"creator: //origination[@label='creator']/corpname, //origination[@label='creator']/famname, //origination[@label='creator']/persname","Get elements for each xpath query in the order listed. Flatten returned node sets into one array, and remove `nil` values.","creator_ssm,creator_sim"
+Solrizer - composite,"creator: //origination[@label='creator']/corpname, //origination[@label='creator']/famname, //origination[@label='creator']/persname","Get elements for each xpath query in the order listed. Flatten returned node sets into one array, and remove `nil` values.  Note that these xpath queries are case-sensitive.  For the new indexer, we will replace `@label='creator'` with XPath 1.0 compliant `translate(@label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='creator'` to enable matching for ""creator"" and ""Creator"" (necessary for fixing https://jira.nyu.edu/browse/FADESIGN-843)","creator_ssm,creator_sim"
 Solrizer - composite,"name: //famname, //persname, //*[local-name()!='repository']/corpname","Get elements for each xpath query in the order listed. Flatten returned node sets into one array, remove `nil` values, and remove duplicates, and for  each element replace strings matching /|w{1}/ (MARC subfield demarcators) with ""--"".","name_sim,name_teim"

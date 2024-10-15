@@ -1,5 +1,5 @@
 {
-    "First token of <eadid>": {
+    "First element of <eadid> xpath query results array": {
         "solrFields": [
             "id"
         ]
