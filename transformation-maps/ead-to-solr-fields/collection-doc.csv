@@ -5,7 +5,7 @@ Solrizer - non-xpath,"For each [UNITDATE_NORMAL] date that falls within `start_d
 Solrizer - non-xpath,"Hardcoded ""Archival Collection""",,"format_sim,format_ssm"
 Solrizer - non-xpath,"Hardcoded 0 (number, not string)",,format_ii
 Solrizer - non-xpath,Derived from name of parent directory of EAD file,,"repository_ssm,repository_sim,repository_ssi"
-Solrizer - non-xpath,"If `unitdate` is not empty, use `unitdate` values joined in a comma-delimited list, else if `unitdate` is empty: ""Inclusive,"" plus `unitdate_inclusive` if both either `unitdate_inclusive` or `unitdate_bulk` are non-empty, plus "";"" and `unitdate_bulk` if non-empty.  NOTE: This is likely a bug in v1 indexer -- see https://jira.nyu.edu/browse/DLFA-211?focusedCommentId=8378822&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-8378822.",,unitdate_ssm
+Solrizer - non-xpath,"If `unitdate` is not empty, use `unitdate` values joined in a space-delimited list, else if `unitdate` is empty: ""Inclusive,"" plus `unitdate_inclusive` if both either `unitdate_inclusive` or `unitdate_bulk` are non-empty, plus "";"" and `unitdate_bulk` if non-empty.  NOTE: This is likely a bug in v1 indexer -- see https://jira.nyu.edu/browse/DLFA-211?focusedCommentId=8378822&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-8378822.",,unitdate_ssm
 Solrizer - xpath query,archdesc[@level='collection']/did/abstract,,"abstract_teim,abstract_ssm"
 Solrizer - xpath query,archdesc[@level='collection']/acqinfo/p,,acqinfo_teim
 Solrizer - xpath query,archdesc[@level='collection']/appraisal/p,,appraisal_teim

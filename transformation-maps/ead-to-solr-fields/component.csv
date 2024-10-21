@@ -7,7 +7,7 @@ Solrizer - non-xpath,"If `level` matches /\Aseries|subseries/) then use ""Archiv
 Solrizer - non-xpath,"Parent <c> `id` attribute if it is defined, omit this Solr field if it is not defined.",,parent_ssi
 Solrizer - non-xpath,`id` attributes of all ancestor <c> elements ordered from earliest ancestor to immediate parent.,,parent_ssm
 Solrizer - non-xpath,Derived from name of parent directory of EAD file,,"repository_ssm,repository_sim,repository_ssi"
-Solrizer - non-xpath,"If `unitdate` is not empty, use `unitdate` values joined in a comma-delimited list, else if `unitdate` is empty: ""Inclusive,"" plus `unitdate_inclusive` if both either `unitdate_inclusive` or `unitdate_bulk` are non-empty, plus "";"" and `unitdate_bulk` if non-empty.  NOTE: This is likely a bug in v1 indexer -- see https://jira.nyu.edu/browse/DLFA-211?focusedCommentId=8378822&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-8378822.",,unitdate_ssm
+Solrizer - non-xpath,"If `unitdate` is not empty, use `unitdate` values joined in a space-delimited list, else if `unitdate` is empty: ""Inclusive,"" plus `unitdate_inclusive` if both either `unitdate_inclusive` or `unitdate_bulk` are non-empty, plus "";"" and `unitdate_bulk` if non-empty.  NOTE: This is likely a bug in v1 indexer -- see https://jira.nyu.edu/browse/DLFA-211?focusedCommentId=8378822&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-8378822.",,unitdate_ssm
 Solrizer - xpath query,address/p,,address_teim
 Solrizer - xpath query,appraisal/p,,appraisal_teim
 Solrizer - xpath query,bioghist/p,,bioghist_teim
