@@ -192,7 +192,7 @@
             "unitdate_start_ssm",
             "unitdate_start_si"
         ],
-        "process": "For each element returned, if the value matches /(\\d{4})\\/(\\d{4})/, take the number on the left of the slash and add to array to be indexed."
+        "process": "For `unitdate_normal` fields, no extra processing is done.  The processing for `unitdate_start` and `unitdate_end`: for each element returned, if the value matches /(\\d{4})\\/(\\d{4})/, take the number on the left of the slash for `unitdate_start` and the number on the right of the slash for `unitdate_end` and add to array to be indexed."
     },
     "archdesc[@level='collection']/did/unitdate[@type='inclusive']": {
         "solrFields": [
