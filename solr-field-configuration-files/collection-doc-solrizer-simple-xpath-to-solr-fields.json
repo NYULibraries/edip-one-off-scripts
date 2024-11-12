@@ -29,7 +29,8 @@
     "archdesc[@level='collection']/*[name() != 'dsc']//chronlist/chronitem//text()": {
         "solrFields": [
             "chronlist_teim"
-        ]
+        ],
+        "process": "Strip leading and trailing whitespace, where whitespace is defined by https://ruby-doc.org/core-2.5.5/String.html#method-i-strip: null, horizontal tab, line feed, vertical tab, form feed, carriage return, space"
     },
     "archdesc[@level='collection']/did/unittitle": {
         "solrFields": [

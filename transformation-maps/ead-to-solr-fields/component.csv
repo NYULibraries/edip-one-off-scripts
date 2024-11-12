@@ -11,7 +11,7 @@ Solrizer - non-xpath,"If `unitdate` is not empty, use `unitdate` values joined i
 Solrizer - xpath query,address/p,,address_teim
 Solrizer - xpath query,appraisal/p,,appraisal_teim
 Solrizer - xpath query,bioghist/p,,bioghist_teim
-Solrizer - xpath query,chronlist/chronitem//text(),Remove all empty string and `nil` elements from the array,chronlist_teim
+Solrizer - xpath query,chronlist/chronitem//text(),"Remove all empty string and `nil` elements from the array, and strip leading and trailing whitespace, where whitespace is defined by https://ruby-doc.org/core-2.5.5/String.html#method-i-strip: null, horizontal tab, line feed, vertical tab, form feed, carriage return, space",chronlist_teim
 Solrizer - xpath query,//archdesc/did/unittitle,,"collection_sim,collection_ssm,collection_teim"
 Solrizer - xpath query,//archdesc/did/unitid,,"collection_unitid_ssm,collection_unitid_teim"
 Solrizer - xpath query,corpname,,"corpname_teim,corpname_ssm"

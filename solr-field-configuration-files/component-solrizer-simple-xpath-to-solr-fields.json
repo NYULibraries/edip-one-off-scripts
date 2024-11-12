@@ -18,7 +18,7 @@
         "solrFields": [
             "chronlist_teim"
         ],
-        "process": "Remove all empty string and `nil` elements from the array"
+        "process": "Remove all empty string and `nil` elements from the array, and strip leading and trailing whitespace, where whitespace is defined by https://ruby-doc.org/core-2.5.5/String.html#method-i-strip: null, horizontal tab, line feed, vertical tab, form feed, carriage return, space"
     },
     "//archdesc/did/unittitle": {
         "solrFields": [
