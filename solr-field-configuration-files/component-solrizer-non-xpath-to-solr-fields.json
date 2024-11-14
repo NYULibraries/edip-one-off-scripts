@@ -1,4 +1,11 @@
 {
+    "Value of `author_teim` from the collection doc": {
+        "solrFields": [
+            "author_teim",
+            "author_ssm",
+            "author_sim"
+        ]
+    },
     "`true` if there are <c> child nodes, otherwise `false`": {
         "solrFields": [
             "component_children_bsi"
