@@ -1,6 +1,5 @@
 #!/usr/local/bin/bash
 
-FAKE_ID='DELETEME'
 UPDATE_URL='http://localhost:8983/solr/findingaids/update?wt=json&indent=true'
 
 URL+=('http://localhost:8983/')
@@ -90,7 +89,7 @@ function adds() {
     BODY+=('<?xml version="1.0" encoding="UTF-8"?>
             <add>
               <doc>
-                <field name="id">${FAKE_ID}</field>
+                <field name="id">DELETEME</field>
                 <field name="subject_sim">SUBJECT_SIM</field>
               </doc>
             </add>')
@@ -127,7 +126,7 @@ function deletes() {
                   </doc>
                 </add>')
     BODY+=('<delete>
-              <id>${FAKE_ID}</id>
+              <id>DELETEME</id>
             </delete>')
 
     # Add then delete
@@ -138,8 +137,15 @@ function deletes() {
               </doc>
             </add>')
     BODY+=('<delete>
-              <query>id:${FAKE_ID}</query>
+              <query>id:DELETEME</query>
             </delete>')
+
+    for body in "${BODY[@]}"; do
+        cmd="curl --include --silent '$UPDATE_URL' -H \"Content-Type: text/xml\" --data-binary '$body'"
+        echo -e "==============\n$cmd\n--------------"
+        eval $cmd
+        echo -e "==============\n"
+    done
 }
 
 function commits() {
@@ -160,7 +166,7 @@ function commits() {
 
     # Delete then commit
     BODY+=('<delete>
-              <id>${FAKE_ID}</id>
+              <id>DELETEME</id>
             </delete>')
     BODY+=('<commit/>')
 

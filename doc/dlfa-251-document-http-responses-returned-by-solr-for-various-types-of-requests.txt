@@ -1,0 +1,1723 @@
+==============
+curl --include --silent 'http://localhost:8983/'
+--------------
+HTTP/1.1 404 Not Found
+Content-Type: text/html
+Content-Length: 831
+
+<HTML>
+<HEAD>
+<TITLE>Error 404 - Not Found</TITLE>
+<BODY>
+<H2>Error 404 - Not Found.</H2>
+No context on this server matched or handled this request.<BR>Contexts known to this server are: <ul><li><a href="/solr">/solr&nbsp;--->&nbsp;o.e.j.w.WebAppContext{/solr,file:/Users/david/applications/solr-4.10.2/example/solr-webapp/webapp/},/Users/david/applications/solr-4.10.2/example/webapps/solr.war</a></li>
+
+<!-- Padding for IE                  -->
+<!-- Padding for IE                  -->
+<!-- Padding for IE                  -->
+<!-- Padding for IE                  -->
+<!-- Padding for IE                  -->
+<!-- Padding for IE                  -->
+<!-- Padding for IE                  -->
+<!-- Padding for IE                  -->
+<!-- Padding for IE                  -->
+<!-- Padding for IE                  -->
+</BODY>
+</HTML>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/non-existent'
+--------------
+HTTP/1.1 404 Not Found
+Cache-Control: must-revalidate,no-cache,no-store
+Content-Type: text/html;charset=ISO-8859-1
+Content-Length: 1279
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1"/>
+<title>Error 404 Not Found</title>
+</head>
+<body>
+<h2>HTTP ERROR: 404</h2>
+<p>Problem accessing /non-existent. Reason:
+<pre>    Not Found</pre></p>
+<hr /><i><small>Powered by Jetty://</small></i>
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+</body>
+</html>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr'
+--------------
+HTTP/1.1 302 Found
+Location: http://localhost:8983/solr/
+Content-Length: 0
+
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/'
+--------------
+HTTP/1.1 200 OK
+Content-Type: text/html;charset=UTF-8
+Transfer-Encoding: chunked
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<!--
+Licensed to the Apache Software Foundation (ASF) under one or more
+contributor license agreements.  See the NOTICE file distributed with
+this work for additional information regarding copyright ownership.
+The ASF licenses this file to You under the Apache License, Version 2.0
+(the "License"); you may not use this file except in compliance with
+the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<head>
+    
+  <title>Solr Admin</title>
+    
+  <link rel="icon" type="image/ico" href="img/favicon.ico?_=4.10.2">
+
+  <link rel="stylesheet" type="text/css" href="css/styles/common.css?_=4.10.2">
+  <link rel="stylesheet" type="text/css" href="css/styles/analysis.css?_=4.10.2">
+  <link rel="stylesheet" type="text/css" href="css/styles/cloud.css?_=4.10.2">
+  <link rel="stylesheet" type="text/css" href="css/styles/cores.css?_=4.10.2">
+  <link rel="stylesheet" type="text/css" href="css/styles/dashboard.css?_=4.10.2">
+  <link rel="stylesheet" type="text/css" href="css/styles/dataimport.css?_=4.10.2">
+  <link rel="stylesheet" type="text/css" href="css/styles/files.css?_=4.10.2">
+  <link rel="stylesheet" type="text/css" href="css/styles/index.css?_=4.10.2">
+  <link rel="stylesheet" type="text/css" href="css/styles/java-properties.css?_=4.10.2">
+  <link rel="stylesheet" type="text/css" href="css/styles/logging.css?_=4.10.2">
+  <link rel="stylesheet" type="text/css" href="css/styles/menu.css?_=4.10.2">
+  <link rel="stylesheet" type="text/css" href="css/styles/plugins.css?_=4.10.2">
+  <link rel="stylesheet" type="text/css" href="css/styles/documents.css?_=4.10.2">
+  <link rel="stylesheet" type="text/css" href="css/styles/query.css?_=4.10.2">
+  <link rel="stylesheet" type="text/css" href="css/styles/replication.css?_=4.10.2">
+  <link rel="stylesheet" type="text/css" href="css/styles/schema-browser.css?_=4.10.2">
+  <link rel="stylesheet" type="text/css" href="css/styles/threads.css?_=4.10.2">
+  <link rel="stylesheet" type="text/css" href="css/chosen.css?_=4.10.2">
+
+  <meta http-equiv="x-ua-compatible" content="IE=9">
+    
+  <script type="text/javascript">
+    
+  var app_config = {};
+    
+  app_config.solr_path = '\/solr';
+  app_config.core_admin_path = '\/admin\/cores';
+    
+  </script>
+    
+</head>
+<body>
+    
+  <div id="wrapper">
+    
+    <div id="header">
+            
+      <a href="./" id="solr"><span>Apache SOLR</span></a>
+
+      <p id="environment">&nbsp;</p>
+
+    </div>
+
+    <div id="main" class="clearfix">
+    
+      <div id="init-failures">
+
+          <h2>SolrCore Initialization Failures</h2>
+          <ul></ul>
+          <p>Please check your logs for more information</p>
+                
+      </div>
+
+      <div id="content-wrapper">
+        <div id="content">
+                  
+          &nbsp;
+                  
+        </div>
+      </div>
+            
+      <div id="menu-wrapper">
+        <div>
+                  
+          <ul id="menu">
+
+            <li id="index" class="global"><p><a href="#/">Dashboard</a></p></li>
+
+            <li id="logging" class="global"><p><a href="#/~logging">Logging</a></p>
+              <ul>
+                <li class="level"><a href="#/~logging/level">Level</a></li>
+              </ul>
+            </li>
+
+            <li id="cloud" class="global optional"><p><a href="#/~cloud">Cloud</a></p>
+              <ul>
+                <li class="tree"><a href="#/~cloud?view=tree">Tree</a></li>
+                <li class="graph"><a href="#/~cloud">Graph</a></li>
+                <li class="rgraph"><a href="#/~cloud?view=rgraph">Graph (Radial)</a></li>
+                <li class="dump"><a href="#/~cloud">Dump</a></li>
+              </ul>
+            </li>
+
+            <li id="cores" class="global"><p><a href="#/~cores">Core Admin</a></p></li>
+
+            <li id="java-properties" class="global"><p><a href="#/~java-properties">Java Properties</a></li>
+
+            <li id="threads" class="global"><p><a href="#/~threads">Thread Dump</a></p></li>
+            
+          </ul>
+
+          <div id="core-selector">
+            <div id="has-cores">
+              <select data-placeholder="Core Selector"></select>
+            </div>
+            <p id="has-no-cores"><a href="#/~cores">
+              No cores available
+              <span>Go and create one</span>
+            </a></p>
+          </div>
+          <div id="core-menu">
+            <ul></ul>
+          </div>
+                  
+        </div>
+      </div>
+            
+      <div id="meta">
+                
+        <ul>
+                    
+          <li class="documentation"><a href="http://lucene.apache.org/solr/"><span>Documentation</span></a></li>
+          <li class="issues"><a href="http://issues.apache.org/jira/browse/SOLR"><span>Issue Tracker</span></a></li>
+          <li class="irc"><a href="http://webchat.freenode.net/?channels=#solr"><span>IRC Channel</span></a></li>
+          <li class="mailinglist"><a href="http://wiki.apache.org/solr/UsingMailingLists"><span>Community forum</span></a></li>
+          <li class="wiki-query-syntax"><a href="http://wiki.apache.org/solr/SolrQuerySyntax"><span>Solr Query Syntax</span></a></li>
+                    
+        </ul>
+                
+      </div>
+            
+    </div>
+    
+  </div>
+
+  <div id="connection_status">
+
+    <span>Connection lost &hellip;</span>
+
+  </div>
+  
+  <script type="text/javascript"> var require = { urlArgs: '_=4.10.2' }; </script>
+  <script src="js/require.js?_=4.10.2" data-main="js/main"></script>
+
+</body>
+</html>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/non-existent-core'
+--------------
+HTTP/1.1 404 Not Found
+Content-Type: text/html;charset=ISO-8859-1
+Cache-Control: must-revalidate,no-cache,no-store
+Content-Length: 1387
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+<title>Error 404 Not Found</title>
+</head>
+<body><h2>HTTP ERROR 404</h2>
+<p>Problem accessing /solr/non-existent-core. Reason:
+<pre>    Not Found</pre></p><hr /><i><small>Powered by Jetty://</small></i><br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+
+</body>
+</html>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/non-existent-core/'
+--------------
+HTTP/1.1 404 Not Found
+Content-Type: text/html;charset=ISO-8859-1
+Cache-Control: must-revalidate,no-cache,no-store
+Content-Length: 1388
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+<title>Error 404 Not Found</title>
+</head>
+<body><h2>HTTP ERROR 404</h2>
+<p>Problem accessing /solr/non-existent-core/. Reason:
+<pre>    Not Found</pre></p><hr /><i><small>Powered by Jetty://</small></i><br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+
+</body>
+</html>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids'
+--------------
+HTTP/1.1 404 Not Found
+Content-Type: text/html;charset=ISO-8859-1
+Cache-Control: must-revalidate,no-cache,no-store
+Content-Length: 1381
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+<title>Error 404 Not Found</title>
+</head>
+<body><h2>HTTP ERROR 404</h2>
+<p>Problem accessing /solr/findingaids. Reason:
+<pre>    Not Found</pre></p><hr /><i><small>Powered by Jetty://</small></i><br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+
+</body>
+</html>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/'
+--------------
+HTTP/1.1 404 Not Found
+Content-Type: text/html;charset=ISO-8859-1
+Cache-Control: must-revalidate,no-cache,no-store
+Content-Length: 1382
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+<title>Error 404 Not Found</title>
+</head>
+<body><h2>HTTP ERROR 404</h2>
+<p>Problem accessing /solr/findingaids/. Reason:
+<pre>    Not Found</pre></p><hr /><i><small>Powered by Jetty://</small></i><br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+
+</body>
+</html>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/non-existent-api-endpoint'
+--------------
+HTTP/1.1 404 Not Found
+Content-Type: text/html;charset=ISO-8859-1
+Cache-Control: must-revalidate,no-cache,no-store
+Content-Length: 1407
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+<title>Error 404 Not Found</title>
+</head>
+<body><h2>HTTP ERROR 404</h2>
+<p>Problem accessing /solr/findingaids/non-existent-api-endpoint. Reason:
+<pre>    Not Found</pre></p><hr /><i><small>Powered by Jetty://</small></i><br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+
+</body>
+</html>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/non-existent-api-endpoint/'
+--------------
+HTTP/1.1 404 Not Found
+Content-Type: text/html;charset=ISO-8859-1
+Cache-Control: must-revalidate,no-cache,no-store
+Content-Length: 1408
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+<title>Error 404 Not Found</title>
+</head>
+<body><h2>HTTP ERROR 404</h2>
+<p>Problem accessing /solr/findingaids/non-existent-api-endpoint/. Reason:
+<pre>    Not Found</pre></p><hr /><i><small>Powered by Jetty://</small></i><br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+
+</body>
+</html>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/select'
+--------------
+HTTP/1.1 200 OK
+Content-Type: application/xml; charset=UTF-8
+Transfer-Encoding: chunked
+
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+<lst name="responseHeader"><int name="status">0</int><int name="QTime">12</int><lst name="params"/></lst><result name="response" numFound="1110595" start="0"><doc><str name="id">mss_542aspace_9351fb3ab8904bbd2dfd3403d9b9e199</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>170 Sax [on cassette]</str></arr><arr name="unitid_ssm"><str>cuid20665</str><str>/repositories/3/archival_objects/799357</str></arr><arr name="unitdate_normal_ssm"><str>1976/1995</str></arr><arr name="dao_ssm"><str>170 Sax [on cassette]</str></arr><str name="ref_ssi">aspace_9351fb3ab8904bbd2dfd3403d9b9e199</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 30</str></arr><arr name="heading_ssm"><str>170 Sax [on cassette]</str></arr><arr name="unitdate_start_ssm"><str>1976</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1976-1995</str></arr><long name="_version_">1802080641891696640</long><date name="timestamp">2024-06-17T04:20:24.265Z</date></doc><doc><str name="id">mss_542aspace_d2b723a48de3796b6d0ec2c367f9d4b8</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>WSQ II</str></arr><arr name="unitid_ssm"><str>cuid20666</str><str>/repositories/3/archival_objects/799358</str></arr><arr name="unitdate_normal_ssm"><str>1976/1995</str></arr><arr name="dao_ssm"><str>WSQ II</str></arr><str name="ref_ssi">aspace_d2b723a48de3796b6d0ec2c367f9d4b8</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 31</str></arr><arr name="heading_ssm"><str>WSQ II</str></arr><arr name="unitdate_start_ssm"><str>1976</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1976-1995</str></arr><long name="_version_">1802080641928396800</long><date name="timestamp">2024-06-17T04:20:24.3Z</date></doc><doc><str name="id">mss_542aspace_9efd1691d439d3f50c33b4c8f71f1476</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>Julius Hemphill 5/31/85 [1 of 2]</str></arr><arr name="unitid_ssm"><str>cuid20667</str><str>/repositories/3/archival_objects/799359</str></arr><arr name="unitdate_normal_ssm"><str>1985/1995</str></arr><arr name="dao_ssm"><str>Julius Hemphill 5/31/85 [1 of 2]</str></arr><str name="ref_ssi">aspace_9efd1691d439d3f50c33b4c8f71f1476</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 32</str></arr><arr name="heading_ssm"><str>Julius Hemphill 5/31/85 [1 of 2]</str></arr><arr name="unitdate_start_ssm"><str>1985</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1985-1995</str></arr><long name="_version_">1802080641964048384</long><date name="timestamp">2024-06-17T04:20:24.334Z</date></doc><doc><str name="id">mss_542aspace_917b9fcbf4b75a66738f321ceac4cb27</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>Julius Hemphill 5-31-85 [2 of 2]</str></arr><arr name="unitid_ssm"><str>cuid20668</str><str>/repositories/3/archival_objects/799360</str></arr><arr name="unitdate_normal_ssm"><str>1985/1995</str></arr><arr name="dao_ssm"><str>Julius Hemphill 5-31-85 [2 of 2]</str></arr><str name="ref_ssi">aspace_917b9fcbf4b75a66738f321ceac4cb27</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 33</str></arr><arr name="heading_ssm"><str>Julius Hemphill 5-31-85 [2 of 2]</str></arr><arr name="unitdate_start_ssm"><str>1985</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1985-1995</str></arr><long name="_version_">1802080642001797120</long><date name="timestamp">2024-06-17T04:20:24.37Z</date></doc><doc><str name="id">mss_542aspace_711057e9ca50a99c7f35baf1f6876d1b</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>HEMPHILL and JAFFE CLARK; WADUD; CARROLL - BOSTON TAPE 2</str></arr><arr name="unitid_ssm"><str>cuid20669</str><str>/repositories/3/archival_objects/799361</str></arr><arr name="unitdate_normal_ssm"><str>1985/1995</str></arr><arr name="dao_ssm"><str>HEMPHILL and JAFFE CLARK; WADUD; CARROLL - BOSTON TAPE 2</str></arr><str name="ref_ssi">aspace_711057e9ca50a99c7f35baf1f6876d1b</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 34</str></arr><arr name="heading_ssm"><str>HEMPHILL and JAFFE CLARK; WADUD; CARROLL - BOSTON TAPE 2</str></arr><arr name="unitdate_start_ssm"><str>1985</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1985-1995</str></arr><long name="_version_">1802080642031157248</long><date name="timestamp">2024-06-17T04:20:24.398Z</date></doc><doc><str name="id">mss_542aspace_996f84064aafaad742d6edd91a9c167a</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>HEMPHILL and JAFFE CLARK; WADUD; CARROLL - BOSTON #1</str></arr><arr name="unitid_ssm"><str>cuid20670</str><str>/repositories/3/archival_objects/799362</str></arr><arr name="unitdate_normal_ssm"><str>1985/1995</str></arr><arr name="dao_ssm"><str>HEMPHILL and JAFFE CLARK; WADUD; CARROLL - BOSTON #1</str></arr><str name="ref_ssi">aspace_996f84064aafaad742d6edd91a9c167a</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 35</str></arr><arr name="heading_ssm"><str>HEMPHILL and JAFFE CLARK; WADUD; CARROLL - BOSTON #1</str></arr><arr name="unitdate_start_ssm"><str>1985</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1985-1995</str></arr><long name="_version_">1802080642057371648</long><date name="timestamp">2024-06-17T04:20:24.423Z</date></doc><doc><str name="id">mss_542aspace_044ff2978fef2350e550365d83259890</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>JAH-BAND</str></arr><arr name="unitid_ssm"><str>cuid20671</str><str>/repositories/3/archival_objects/799363</str></arr><arr name="unitdate_normal_ssm"><str>1976/1995</str></arr><arr name="dao_ssm"><str>JAH-BAND</str></arr><str name="ref_ssi">aspace_044ff2978fef2350e550365d83259890</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 36</str></arr><arr name="heading_ssm"><str>JAH-BAND</str></arr><arr name="unitdate_start_ssm"><str>1976</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1976-1995</str></arr><long name="_version_">1802080642087780352</long><date name="timestamp">2024-06-17T04:20:24.452Z</date></doc><doc><str name="id">mss_542aspace_55dadf9aca72133282f8239a294877cd</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>Hemphill Quartet Live at Ft. Washington Men's Shelter</str></arr><arr name="unitid_ssm"><str>cuid20672</str><str>/repositories/3/archival_objects/799364</str></arr><arr name="unitdate_normal_ssm"><str>1986/1995</str></arr><arr name="dao_ssm"><str>Hemphill Quartet Live at Ft. Washington Men's Shelter</str></arr><str name="ref_ssi">aspace_55dadf9aca72133282f8239a294877cd</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 37</str></arr><arr name="heading_ssm"><str>Hemphill Quartet Live at Ft. Washington Men's Shelter</str></arr><arr name="unitdate_start_ssm"><str>1986</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1986-1995</str></arr><long name="_version_">1802080642116091904</long><date name="timestamp">2024-06-17T04:20:24.478Z</date></doc><doc><str name="id">mss_542aspace_419ac2838188693ec4ca6ffba4237df5</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>Julius Hemphill with the Barbary Coast Jazz Ensemble</str></arr><arr name="unitid_ssm"><str>cuid20673</str><str>/repositories/3/archival_objects/799365</str></arr><arr name="unitdate_normal_ssm"><str>1986/1995</str></arr><arr name="dao_ssm"><str>Julius Hemphill with the Barbary Coast Jazz Ensemble</str></arr><str name="ref_ssi">aspace_419ac2838188693ec4ca6ffba4237df5</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 38</str></arr><arr name="heading_ssm"><str>Julius Hemphill with the Barbary Coast Jazz Ensemble</str></arr><arr name="unitdate_start_ssm"><str>1986</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1986-1995</str></arr><long name="_version_">1802080642147549184</long><date name="timestamp">2024-06-17T04:20:24.509Z</date></doc><doc><str name="id">mss_542aspace_d993be0e2961b6922b6008e02c538a0e</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>Practice JAH 2 1/2 "Ch" Vandoren</str></arr><arr name="unitid_ssm"><str>cuid20674</str><str>/repositories/3/archival_objects/799366</str></arr><arr name="unitdate_normal_ssm"><str>1976/1995</str></arr><arr name="dao_ssm"><str>Practice JAH 2 1/2 "Ch" Vandoren</str></arr><str name="ref_ssi">aspace_d993be0e2961b6922b6008e02c538a0e</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 39</str></arr><arr name="heading_ssm"><str>Practice JAH 2 1/2 "Ch" Vandoren</str></arr><arr name="unitdate_start_ssm"><str>1976</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1976-1995</str></arr><long name="_version_">1802080642187395072</long><date name="timestamp">2024-06-17T04:20:24.547Z</date></doc></result>
+</response>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/select?'
+--------------
+HTTP/1.1 200 OK
+Content-Type: application/xml; charset=UTF-8
+Transfer-Encoding: chunked
+
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+<lst name="responseHeader"><int name="status">0</int><int name="QTime">0</int><lst name="params"/></lst><result name="response" numFound="1110595" start="0"><doc><str name="id">mss_542aspace_9351fb3ab8904bbd2dfd3403d9b9e199</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>170 Sax [on cassette]</str></arr><arr name="unitid_ssm"><str>cuid20665</str><str>/repositories/3/archival_objects/799357</str></arr><arr name="unitdate_normal_ssm"><str>1976/1995</str></arr><arr name="dao_ssm"><str>170 Sax [on cassette]</str></arr><str name="ref_ssi">aspace_9351fb3ab8904bbd2dfd3403d9b9e199</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 30</str></arr><arr name="heading_ssm"><str>170 Sax [on cassette]</str></arr><arr name="unitdate_start_ssm"><str>1976</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1976-1995</str></arr><long name="_version_">1802080641891696640</long><date name="timestamp">2024-06-17T04:20:24.265Z</date></doc><doc><str name="id">mss_542aspace_d2b723a48de3796b6d0ec2c367f9d4b8</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>WSQ II</str></arr><arr name="unitid_ssm"><str>cuid20666</str><str>/repositories/3/archival_objects/799358</str></arr><arr name="unitdate_normal_ssm"><str>1976/1995</str></arr><arr name="dao_ssm"><str>WSQ II</str></arr><str name="ref_ssi">aspace_d2b723a48de3796b6d0ec2c367f9d4b8</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 31</str></arr><arr name="heading_ssm"><str>WSQ II</str></arr><arr name="unitdate_start_ssm"><str>1976</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1976-1995</str></arr><long name="_version_">1802080641928396800</long><date name="timestamp">2024-06-17T04:20:24.3Z</date></doc><doc><str name="id">mss_542aspace_9efd1691d439d3f50c33b4c8f71f1476</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>Julius Hemphill 5/31/85 [1 of 2]</str></arr><arr name="unitid_ssm"><str>cuid20667</str><str>/repositories/3/archival_objects/799359</str></arr><arr name="unitdate_normal_ssm"><str>1985/1995</str></arr><arr name="dao_ssm"><str>Julius Hemphill 5/31/85 [1 of 2]</str></arr><str name="ref_ssi">aspace_9efd1691d439d3f50c33b4c8f71f1476</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 32</str></arr><arr name="heading_ssm"><str>Julius Hemphill 5/31/85 [1 of 2]</str></arr><arr name="unitdate_start_ssm"><str>1985</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1985-1995</str></arr><long name="_version_">1802080641964048384</long><date name="timestamp">2024-06-17T04:20:24.334Z</date></doc><doc><str name="id">mss_542aspace_917b9fcbf4b75a66738f321ceac4cb27</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>Julius Hemphill 5-31-85 [2 of 2]</str></arr><arr name="unitid_ssm"><str>cuid20668</str><str>/repositories/3/archival_objects/799360</str></arr><arr name="unitdate_normal_ssm"><str>1985/1995</str></arr><arr name="dao_ssm"><str>Julius Hemphill 5-31-85 [2 of 2]</str></arr><str name="ref_ssi">aspace_917b9fcbf4b75a66738f321ceac4cb27</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 33</str></arr><arr name="heading_ssm"><str>Julius Hemphill 5-31-85 [2 of 2]</str></arr><arr name="unitdate_start_ssm"><str>1985</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1985-1995</str></arr><long name="_version_">1802080642001797120</long><date name="timestamp">2024-06-17T04:20:24.37Z</date></doc><doc><str name="id">mss_542aspace_711057e9ca50a99c7f35baf1f6876d1b</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>HEMPHILL and JAFFE CLARK; WADUD; CARROLL - BOSTON TAPE 2</str></arr><arr name="unitid_ssm"><str>cuid20669</str><str>/repositories/3/archival_objects/799361</str></arr><arr name="unitdate_normal_ssm"><str>1985/1995</str></arr><arr name="dao_ssm"><str>HEMPHILL and JAFFE CLARK; WADUD; CARROLL - BOSTON TAPE 2</str></arr><str name="ref_ssi">aspace_711057e9ca50a99c7f35baf1f6876d1b</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 34</str></arr><arr name="heading_ssm"><str>HEMPHILL and JAFFE CLARK; WADUD; CARROLL - BOSTON TAPE 2</str></arr><arr name="unitdate_start_ssm"><str>1985</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1985-1995</str></arr><long name="_version_">1802080642031157248</long><date name="timestamp">2024-06-17T04:20:24.398Z</date></doc><doc><str name="id">mss_542aspace_996f84064aafaad742d6edd91a9c167a</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>HEMPHILL and JAFFE CLARK; WADUD; CARROLL - BOSTON #1</str></arr><arr name="unitid_ssm"><str>cuid20670</str><str>/repositories/3/archival_objects/799362</str></arr><arr name="unitdate_normal_ssm"><str>1985/1995</str></arr><arr name="dao_ssm"><str>HEMPHILL and JAFFE CLARK; WADUD; CARROLL - BOSTON #1</str></arr><str name="ref_ssi">aspace_996f84064aafaad742d6edd91a9c167a</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 35</str></arr><arr name="heading_ssm"><str>HEMPHILL and JAFFE CLARK; WADUD; CARROLL - BOSTON #1</str></arr><arr name="unitdate_start_ssm"><str>1985</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1985-1995</str></arr><long name="_version_">1802080642057371648</long><date name="timestamp">2024-06-17T04:20:24.423Z</date></doc><doc><str name="id">mss_542aspace_044ff2978fef2350e550365d83259890</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>JAH-BAND</str></arr><arr name="unitid_ssm"><str>cuid20671</str><str>/repositories/3/archival_objects/799363</str></arr><arr name="unitdate_normal_ssm"><str>1976/1995</str></arr><arr name="dao_ssm"><str>JAH-BAND</str></arr><str name="ref_ssi">aspace_044ff2978fef2350e550365d83259890</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 36</str></arr><arr name="heading_ssm"><str>JAH-BAND</str></arr><arr name="unitdate_start_ssm"><str>1976</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1976-1995</str></arr><long name="_version_">1802080642087780352</long><date name="timestamp">2024-06-17T04:20:24.452Z</date></doc><doc><str name="id">mss_542aspace_55dadf9aca72133282f8239a294877cd</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>Hemphill Quartet Live at Ft. Washington Men's Shelter</str></arr><arr name="unitid_ssm"><str>cuid20672</str><str>/repositories/3/archival_objects/799364</str></arr><arr name="unitdate_normal_ssm"><str>1986/1995</str></arr><arr name="dao_ssm"><str>Hemphill Quartet Live at Ft. Washington Men's Shelter</str></arr><str name="ref_ssi">aspace_55dadf9aca72133282f8239a294877cd</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 37</str></arr><arr name="heading_ssm"><str>Hemphill Quartet Live at Ft. Washington Men's Shelter</str></arr><arr name="unitdate_start_ssm"><str>1986</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1986-1995</str></arr><long name="_version_">1802080642116091904</long><date name="timestamp">2024-06-17T04:20:24.478Z</date></doc><doc><str name="id">mss_542aspace_419ac2838188693ec4ca6ffba4237df5</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>Julius Hemphill with the Barbary Coast Jazz Ensemble</str></arr><arr name="unitid_ssm"><str>cuid20673</str><str>/repositories/3/archival_objects/799365</str></arr><arr name="unitdate_normal_ssm"><str>1986/1995</str></arr><arr name="dao_ssm"><str>Julius Hemphill with the Barbary Coast Jazz Ensemble</str></arr><str name="ref_ssi">aspace_419ac2838188693ec4ca6ffba4237df5</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 38</str></arr><arr name="heading_ssm"><str>Julius Hemphill with the Barbary Coast Jazz Ensemble</str></arr><arr name="unitdate_start_ssm"><str>1986</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1986-1995</str></arr><long name="_version_">1802080642147549184</long><date name="timestamp">2024-06-17T04:20:24.509Z</date></doc><doc><str name="id">mss_542aspace_d993be0e2961b6922b6008e02c538a0e</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>Practice JAH 2 1/2 "Ch" Vandoren</str></arr><arr name="unitid_ssm"><str>cuid20674</str><str>/repositories/3/archival_objects/799366</str></arr><arr name="unitdate_normal_ssm"><str>1976/1995</str></arr><arr name="dao_ssm"><str>Practice JAH 2 1/2 "Ch" Vandoren</str></arr><str name="ref_ssi">aspace_d993be0e2961b6922b6008e02c538a0e</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 39</str></arr><arr name="heading_ssm"><str>Practice JAH 2 1/2 "Ch" Vandoren</str></arr><arr name="unitdate_start_ssm"><str>1976</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1976-1995</str></arr><long name="_version_">1802080642187395072</long><date name="timestamp">2024-06-17T04:20:24.547Z</date></doc></result>
+</response>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/select?non-existent'
+--------------
+HTTP/1.1 200 OK
+Content-Type: application/xml; charset=UTF-8
+Transfer-Encoding: chunked
+
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+<lst name="responseHeader"><int name="status">0</int><int name="QTime">0</int><lst name="params"><str name="non-existent"/></lst></lst><result name="response" numFound="1110595" start="0"><doc><str name="id">mss_542aspace_9351fb3ab8904bbd2dfd3403d9b9e199</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>170 Sax [on cassette]</str></arr><arr name="unitid_ssm"><str>cuid20665</str><str>/repositories/3/archival_objects/799357</str></arr><arr name="unitdate_normal_ssm"><str>1976/1995</str></arr><arr name="dao_ssm"><str>170 Sax [on cassette]</str></arr><str name="ref_ssi">aspace_9351fb3ab8904bbd2dfd3403d9b9e199</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 30</str></arr><arr name="heading_ssm"><str>170 Sax [on cassette]</str></arr><arr name="unitdate_start_ssm"><str>1976</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1976-1995</str></arr><long name="_version_">1802080641891696640</long><date name="timestamp">2024-06-17T04:20:24.265Z</date></doc><doc><str name="id">mss_542aspace_d2b723a48de3796b6d0ec2c367f9d4b8</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>WSQ II</str></arr><arr name="unitid_ssm"><str>cuid20666</str><str>/repositories/3/archival_objects/799358</str></arr><arr name="unitdate_normal_ssm"><str>1976/1995</str></arr><arr name="dao_ssm"><str>WSQ II</str></arr><str name="ref_ssi">aspace_d2b723a48de3796b6d0ec2c367f9d4b8</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 31</str></arr><arr name="heading_ssm"><str>WSQ II</str></arr><arr name="unitdate_start_ssm"><str>1976</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1976-1995</str></arr><long name="_version_">1802080641928396800</long><date name="timestamp">2024-06-17T04:20:24.3Z</date></doc><doc><str name="id">mss_542aspace_9efd1691d439d3f50c33b4c8f71f1476</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>Julius Hemphill 5/31/85 [1 of 2]</str></arr><arr name="unitid_ssm"><str>cuid20667</str><str>/repositories/3/archival_objects/799359</str></arr><arr name="unitdate_normal_ssm"><str>1985/1995</str></arr><arr name="dao_ssm"><str>Julius Hemphill 5/31/85 [1 of 2]</str></arr><str name="ref_ssi">aspace_9efd1691d439d3f50c33b4c8f71f1476</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 32</str></arr><arr name="heading_ssm"><str>Julius Hemphill 5/31/85 [1 of 2]</str></arr><arr name="unitdate_start_ssm"><str>1985</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1985-1995</str></arr><long name="_version_">1802080641964048384</long><date name="timestamp">2024-06-17T04:20:24.334Z</date></doc><doc><str name="id">mss_542aspace_917b9fcbf4b75a66738f321ceac4cb27</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>Julius Hemphill 5-31-85 [2 of 2]</str></arr><arr name="unitid_ssm"><str>cuid20668</str><str>/repositories/3/archival_objects/799360</str></arr><arr name="unitdate_normal_ssm"><str>1985/1995</str></arr><arr name="dao_ssm"><str>Julius Hemphill 5-31-85 [2 of 2]</str></arr><str name="ref_ssi">aspace_917b9fcbf4b75a66738f321ceac4cb27</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 33</str></arr><arr name="heading_ssm"><str>Julius Hemphill 5-31-85 [2 of 2]</str></arr><arr name="unitdate_start_ssm"><str>1985</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1985-1995</str></arr><long name="_version_">1802080642001797120</long><date name="timestamp">2024-06-17T04:20:24.37Z</date></doc><doc><str name="id">mss_542aspace_711057e9ca50a99c7f35baf1f6876d1b</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>HEMPHILL and JAFFE CLARK; WADUD; CARROLL - BOSTON TAPE 2</str></arr><arr name="unitid_ssm"><str>cuid20669</str><str>/repositories/3/archival_objects/799361</str></arr><arr name="unitdate_normal_ssm"><str>1985/1995</str></arr><arr name="dao_ssm"><str>HEMPHILL and JAFFE CLARK; WADUD; CARROLL - BOSTON TAPE 2</str></arr><str name="ref_ssi">aspace_711057e9ca50a99c7f35baf1f6876d1b</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 34</str></arr><arr name="heading_ssm"><str>HEMPHILL and JAFFE CLARK; WADUD; CARROLL - BOSTON TAPE 2</str></arr><arr name="unitdate_start_ssm"><str>1985</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1985-1995</str></arr><long name="_version_">1802080642031157248</long><date name="timestamp">2024-06-17T04:20:24.398Z</date></doc><doc><str name="id">mss_542aspace_996f84064aafaad742d6edd91a9c167a</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>HEMPHILL and JAFFE CLARK; WADUD; CARROLL - BOSTON #1</str></arr><arr name="unitid_ssm"><str>cuid20670</str><str>/repositories/3/archival_objects/799362</str></arr><arr name="unitdate_normal_ssm"><str>1985/1995</str></arr><arr name="dao_ssm"><str>HEMPHILL and JAFFE CLARK; WADUD; CARROLL - BOSTON #1</str></arr><str name="ref_ssi">aspace_996f84064aafaad742d6edd91a9c167a</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 35</str></arr><arr name="heading_ssm"><str>HEMPHILL and JAFFE CLARK; WADUD; CARROLL - BOSTON #1</str></arr><arr name="unitdate_start_ssm"><str>1985</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1985-1995</str></arr><long name="_version_">1802080642057371648</long><date name="timestamp">2024-06-17T04:20:24.423Z</date></doc><doc><str name="id">mss_542aspace_044ff2978fef2350e550365d83259890</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>JAH-BAND</str></arr><arr name="unitid_ssm"><str>cuid20671</str><str>/repositories/3/archival_objects/799363</str></arr><arr name="unitdate_normal_ssm"><str>1976/1995</str></arr><arr name="dao_ssm"><str>JAH-BAND</str></arr><str name="ref_ssi">aspace_044ff2978fef2350e550365d83259890</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 36</str></arr><arr name="heading_ssm"><str>JAH-BAND</str></arr><arr name="unitdate_start_ssm"><str>1976</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1976-1995</str></arr><long name="_version_">1802080642087780352</long><date name="timestamp">2024-06-17T04:20:24.452Z</date></doc><doc><str name="id">mss_542aspace_55dadf9aca72133282f8239a294877cd</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>Hemphill Quartet Live at Ft. Washington Men's Shelter</str></arr><arr name="unitid_ssm"><str>cuid20672</str><str>/repositories/3/archival_objects/799364</str></arr><arr name="unitdate_normal_ssm"><str>1986/1995</str></arr><arr name="dao_ssm"><str>Hemphill Quartet Live at Ft. Washington Men's Shelter</str></arr><str name="ref_ssi">aspace_55dadf9aca72133282f8239a294877cd</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 37</str></arr><arr name="heading_ssm"><str>Hemphill Quartet Live at Ft. Washington Men's Shelter</str></arr><arr name="unitdate_start_ssm"><str>1986</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1986-1995</str></arr><long name="_version_">1802080642116091904</long><date name="timestamp">2024-06-17T04:20:24.478Z</date></doc><doc><str name="id">mss_542aspace_419ac2838188693ec4ca6ffba4237df5</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>Julius Hemphill with the Barbary Coast Jazz Ensemble</str></arr><arr name="unitid_ssm"><str>cuid20673</str><str>/repositories/3/archival_objects/799365</str></arr><arr name="unitdate_normal_ssm"><str>1986/1995</str></arr><arr name="dao_ssm"><str>Julius Hemphill with the Barbary Coast Jazz Ensemble</str></arr><str name="ref_ssi">aspace_419ac2838188693ec4ca6ffba4237df5</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 38</str></arr><arr name="heading_ssm"><str>Julius Hemphill with the Barbary Coast Jazz Ensemble</str></arr><arr name="unitdate_start_ssm"><str>1986</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1986-1995</str></arr><long name="_version_">1802080642147549184</long><date name="timestamp">2024-06-17T04:20:24.509Z</date></doc><doc><str name="id">mss_542aspace_d993be0e2961b6922b6008e02c538a0e</str><str name="ead_ssi">mss_542</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Julius Hemphill Papers</str></arr><arr name="collection_unitid_ssm"><str>MSS.542</str></arr><arr name="unittitle_ssm"><str>Practice JAH 2 1/2 "Ch" Vandoren</str></arr><arr name="unitid_ssm"><str>cuid20674</str><str>/repositories/3/archival_objects/799366</str></arr><arr name="unitdate_normal_ssm"><str>1976/1995</str></arr><arr name="dao_ssm"><str>Practice JAH 2 1/2 "Ch" Vandoren</str></arr><str name="ref_ssi">aspace_d993be0e2961b6922b6008e02c538a0e</str><str name="repository_ssi">fales</str><arr name="repository_ssm"><str>fales</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>Box: 9, audiocassette: 39</str></arr><arr name="heading_ssm"><str>Practice JAH 2 1/2 "Ch" Vandoren</str></arr><arr name="unitdate_start_ssm"><str>1976</str></arr><arr name="unitdate_end_ssm"><str>1995</str></arr><arr name="unitdate_ssm"><str>Inclusive, 1976-1995</str></arr><long name="_version_">1802080642187395072</long><date name="timestamp">2024-06-17T04:20:24.547Z</date></doc></result>
+</response>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/select?q=ead_ssi:mos_2021'
+--------------
+HTTP/1.1 200 OK
+Content-Type: application/xml; charset=UTF-8
+Transfer-Encoding: chunked
+
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+<lst name="responseHeader"><int name="status">0</int><int name="QTime">0</int><lst name="params"><str name="q">ead_ssi:mos_2021</str></lst></lst><result name="response" numFound="30" start="0"><doc><arr name="author_ssm"><str>Megan O'Shea</str></arr><arr name="unittitle_ssm"><str>Megan O'Shea's "&lt;em&gt;One&lt;/em&gt; Resource to  Rule Them All"</str></arr><arr name="unitid_ssm"><str>MOS.2021</str></arr><arr name="abstract_ssm"><str>This is the abstract. It has a
+          title in it.</str></arr><arr name="creator_ssm"><str> Megan O'Shea</str><str>Belfrage family</str><str> Weatherly Stephan</str><str>80 Washington Square East
+              Galleries</str><str>9 to 5, National
+                Association of Working Women (U.S.)</str><str>Yivo Institute for Jewish
+                  Research</str><str>World Trade Center
+                    (New York, N.Y.)</str><str>Workers' Party of
+                      Ireland</str><str>Belfrage family</str><str>Blaustein
+            Family</str><str>Chen family</str><str>Pinsof
+                  family</str><str>Draper
+                  family</str><str>Blaustein
+                    Family</str><str> Megan O'Shea</str><str> Weatherly Stephan</str><str>Aaron,
+            Florence</str><str>Adams, B.
+                O.</str><str>Zwillinger,
+                Rhonda</str><str>Yonge, Charlotte Mary,
+                    1823-1901</str><str>Alum, Rolando
+                    A.</str></arr><arr name="unitdate_normal_ssm"><str>2016/2021</str><str>2020/2021</str></arr><arr name="corpname_ssm"><str>Tamiment Library and Robert F. Wagner Labor Archives</str><str>Tamiment Library</str><str>New York University</str><str>Tamiment Library</str><str>Harper Collins,</str><str>Tamiment Library</str><str>United States. Congress. House. |b Committee on Education and Labor</str><str>United States. Congress. House. |b Committee on Education and Labor. |b Select Subcommittee on Education</str><str>United States. Congress. House. |x Leadership</str></arr><arr name="famname_ssm"><str>Belfrage family</str><str>Tisch family |g [MISCELLANEOUS INFORMATION]</str><str>Tisch family |g [EVEN MORE MISCELLANEOUS INFORMATION]</str></arr><arr name="function_ssm"><str>War Powers Conference</str></arr><arr name="genreform_ssm"><str>Oral histories (literary works)</str><str>Court records |z New York (State)</str><str>Motion pictures |x Production and direction.</str><str>Court records |z New York (State) |z Kings County</str><str>Court records |z New York (State) |z Queens County</str><str>Land titles |z New York (State) |z Kings County</str><str>Cooking |v Periodicals</str><str>Cooking -- Periodicals</str><str>Oral histories (literary works)</str></arr><arr name="geogname_ssm"><str>Boston (Mass.) -- Intellectual life -- 20th century.</str><str>New York (N.Y.) |x History</str><str>New York (N.Y.) |x Intellectual life |y 20th century</str><str>New York (N.Y.) |x Intellectual life</str><str>New York (N.Y.) |x Mass transit.</str><str>New York (N.Y.) |x Museums.</str><str>New York (N.Y.) |x Officials and employees |v Portraits.</str><str>New York (N.Y.) |x Officials and employees.</str><str>New York (N.Y.) |x Officials and employees</str><str>New York (N.Y.) |x Politics and government</str><str>New York (N.Y.) |x Religious life and customs</str><str>New York (N.Y.) |x Social conditions |y 20th century.</str><str>New York (N.Y.) |x Social conditions</str><str>New York (N.Y.) |x Social life and customs |x Pictorial works.</str><str>New York (N.Y.) |x Social life and customs |y 20th century.</str><str>New York (N.Y.) |x Social life and customs</str><str>New York (N.Y.) -- Social life and customs</str></arr><arr name="name_ssm"><str>name</str><str>Rolodex</str><str>New York City</str></arr><arr name="occupation_ssm"><str>Fulbright scholars.</str><str>Fulbright scholars.</str></arr><arr name="persname_ssm"><str> Megan O'Shea</str><str>Debs, Eugene V. (Eugene Victor), 1855-1926</str><str> Weatherly Stephan</str><str>Weatherly Stephan</str><str>Governor Mario M. Cuomo</str><str>Debs, Eugene V. (Eugene Victor), 1855-1926</str><str>Brophy, John, 1883-1963. -- |v Portraits</str><str>Carey, James B. -- |v Portraits</str></arr><arr name="subject_ssm"><str>Irish American women -- History -- 19th century.</str><str>Irish American women -- History -- 19th century.</str></arr><arr name="title_ssm"><str>title</str><str>Civil Service Law</str><str>Journal
+              of Archival Organization</str><str>Essais sur l'histoire d'Haiti</str><str>High Rise.</str><str>Essais sur l'histoire d'Haiti</str><str>New York Nichibei.</str></arr><arr name="collection_ssm"><str>Megan O'Shea's "One Resource to  Rule Them All"</str></arr><str name="id">mos_2021</str><str name="ead_ssi">mos_2021</str><str name="repository_ssi">always-gitignore</str><arr name="repository_ssm"><str>always-gitignore</str></arr><arr name="format_ssm"><str>Archival Collection</str></arr><arr name="material_type_ssm"><str>Oral histories (literary works)</str><str>Court records -- New York (State)</str><str>Motion pictures -- Production and direction.</str><str>Court records -- New York (State) -- Kings County</str><str>Court records -- New York (State) -- Queens County</str><str>Land titles -- New York (State) -- Kings County</str><str>Cooking -- Periodicals</str></arr><arr name="heading_ssm"><str>Megan O'Shea's "One Resource to  Rule Them All"</str></arr><arr name="unitdate_start_ssm"><str>2016</str><str>2020</str></arr><arr name="unitdate_end_ssm"><str>2021</str></arr><arr name="unitdate_ssm"><str>Inclusive, 2016-2021, undated ; 2020-2021, undated</str></arr><long name="_version_">1818025369645613056</long><date name="timestamp">2024-12-10T04:15:01.601Z</date></doc><doc><str name="id">mos_2021aspace_499449c48c751a22b7c222d3ce2c2879</str><str name="ead_ssi">mos_2021</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">true</bool><arr name="collection_ssm"><str>Megan O'Shea's "One Resource to  Rule Them All"</str></arr><arr name="collection_unitid_ssm"><str>MOS.2021</str></arr><arr name="unittitle_ssm"><str>&lt;em&gt;Level 2&lt;/em&gt; Series I. Megan
+              O'Shea
+            Rolodex on New York University Here is a
+              title</str></arr><arr name="unitid_ssm"><str>mos_2021_2</str></arr><arr name="creator_ssm"><str>80 Washington Square East
+              Galleries</str><str>Blaustein
+            Family</str><str>Aaron,
+            Florence</str><str>80 Washington Square East
+              Galleries</str><str>Blaustein
+            Family</str><str>Aaron,
+            Florence</str></arr><arr name="unitdate_normal_ssm"><str>2015/2016</str></arr><arr name="corpname_ssm"><str>New York University</str><str>80 Washington Square East
+              Galleries</str><str>Tamiment Library</str><str>Level 2 Index term 1</str><str>Tamiment Library</str></arr><arr name="famname_ssm"><str>Blaustein
+            Family</str><str>Belfrage family</str></arr><arr name="function_ssm"><str>War Powers Conference</str></arr><arr name="genreform_ssm"><str>Oral histories (literary works)</str><str>Oral histories (literary works)</str><str>Oral histories (literary works)</str><str>Oral histories (literary works)</str><str>Oral histories (literary works)</str></arr><arr name="geogname_ssm"><str>Boston (Mass.) -- Intellectual life -- 20th century.</str></arr><arr name="name_ssm"><str>Rolodex</str><str>Rolodex</str><str>Rolodex</str><str>Rolodex</str><str>Rolodex</str><str>Level 2 Index term 2</str></arr><arr name="occupation_ssm"><str>Fulbright scholars.</str><str>Fulbright scholars.</str><str>Fulbright scholars.</str><str>Fulbright scholars.</str><str>Fulbright scholars.</str></arr><arr name="persname_ssm"><str>Megan
+              O'Shea</str><str>Aaron,
+            Florence</str></arr><arr name="subject_ssm"><str>Irish American women -- History -- 19th century.</str><str>Irish American women -- History -- 19th century.</str><str>Irish American women -- History -- 19th century.</str><str>Irish American women -- History -- 19th century.</str><str>Level 2 Index term 3</str><str>Irish American women -- History -- 19th century.</str></arr><arr name="title_ssm"><str>title</str><str>boldtitle </str><str>Essais sur l'histoire d'Haiti</str></arr><arr name="dao_ssm"><str>This is a digital object</str></arr><str name="ref_ssi">aspace_499449c48c751a22b7c222d3ce2c2879</str><str name="repository_ssi">always-gitignore</str><arr name="repository_ssm"><str>always-gitignore</str></arr><arr name="format_ssm"><str>Archival Series</str></arr><arr name="location_ssm"><str>box: 1, folder: 1</str></arr><arr name="place_ssm"><str>Boston (Mass.) -- Intellectual life -- 20th century.</str></arr><arr name="material_type_ssm"><str>Oral histories (literary works)</str></arr><arr name="heading_ssm"><str>Level 2 Series I. Megan
+              O'Shea
+            Rolodex on New York University Here is a
+              title</str></arr><arr name="unitdate_start_ssm"><str>2015</str></arr><arr name="unitdate_end_ssm"><str>2016</str></arr><arr name="unitdate_ssm"><str>Inclusive, 2015-2016</str></arr><long name="_version_">1818025369748373504</long><date name="timestamp">2024-12-10T04:15:01.702Z</date></doc><doc><str name="id">mos_2021aspace_68fd22d28746c12f37e250728431c61d</str><str name="ead_ssi">mos_2021</str><str name="parent_ssi">aspace_499449c48c751a22b7c222d3ce2c2879</str><arr name="parent_ssm"><str>aspace_499449c48c751a22b7c222d3ce2c2879</str></arr><arr name="parent_unittitles_ssm"><str>Level 2 Series I. Megan
+              O'Shea
+            Rolodex on New York University Here is a
+              title</str></arr><arr name="component_level_isim"><int>2</int></arr><bool name="component_children_bsi">true</bool><arr name="collection_ssm"><str>Megan O'Shea's "One Resource to  Rule Them All"</str></arr><arr name="collection_unitid_ssm"><str>MOS.2021</str></arr><arr name="unittitle_ssm"><str>&lt;em&gt;Level 3&lt;/em&gt; Series I. Megan
+                O'Shea
+              Rolodex on New York University Here is a
+                title</str></arr><arr name="unitid_ssm"><str>mos_2021_3</str></arr><arr name="creator_ssm"><str>9 to 5, National
+                Association of Working Women (U.S.)</str><str>Chen family</str><str>Adams, B.
+                O.</str><str>9 to 5, National
+                Association of Working Women (U.S.)</str><str>Chen family</str><str>Adams, B.
+                O.</str></arr><arr name="unitdate_normal_ssm"><str>2021/2021</str></arr><arr name="corpname_ssm"><str>New York University</str><str>9 to 5, National
+                Association of Working Women (U.S.)</str><str>Tamiment Library</str><str>Level 3 Index item</str><str>Tamiment Library</str></arr><arr name="famname_ssm"><str>Chen family</str><str>Belfrage family</str></arr><arr name="function_ssm"><str>War Powers Conference</str></arr><arr name="genreform_ssm"><str>Oral histories (literary works)</str><str>Oral histories (literary works)</str><str>Oral histories (literary works)</str><str>Oral histories (literary works)</str><str>Oral histories (literary works)</str></arr><arr name="geogname_ssm"><str>Boston (Mass.) -- Intellectual life -- 20th century.</str></arr><arr name="name_ssm"><str>Rolodex</str><str>Rolodex</str><str>Rolodex</str><str>Rolodex</str><str>Rolodex</str></arr><arr name="occupation_ssm"><str>Fulbright scholars.</str><str>Fulbright scholars.</str><str>Fulbright scholars.</str><str>Fulbright scholars.</str><str>Fulbright scholars.</str></arr><arr name="persname_ssm"><str>Megan
+                O'Shea</str><str>Adams, B.
+                O.</str></arr><arr name="subject_ssm"><str>Irish American women -- History -- 19th century.</str><str>Irish American women -- History -- 19th century.</str><str>Irish American women -- History -- 19th century.</str><str>Irish American women -- History -- 19th century.</str><str>Irish American women -- History -- 19th century.</str></arr><arr name="title_ssm"><str>title</str><str>bold title</str><str>Essais sur l'histoire d'Haiti</str></arr><arr name="dao_ssm"><str>This is a digital object</str></arr><str name="ref_ssi">aspace_68fd22d28746c12f37e250728431c61d</str><str name="repository_ssi">always-gitignore</str><arr name="repository_ssm"><str>always-gitignore</str></arr><arr name="format_ssm"><str>Archival Series</str></arr><arr name="location_ssm"><str>box: 1, folder: 1</str></arr><arr name="place_ssm"><str>Boston (Mass.) -- Intellectual life -- 20th century.</str></arr><arr name="material_type_ssm"><str>Oral histories (literary works)</str></arr><arr name="heading_ssm"><str>Level 3 Series I. Megan
+                O'Shea
+              Rolodex on New York University Here is a
+                title</str></arr><arr name="unitdate_start_ssm"><str>2021</str></arr><arr name="unitdate_end_ssm"><str>2021</str></arr><arr name="unitdate_ssm"><str>Inclusive, 2021</str></arr><long name="_version_">1818025369878396928</long><date name="timestamp">2024-12-10T04:15:01.827Z</date></doc><doc><str name="id">mos_2021aspace_f35efa0f6a068b57a2d396067e4f7427</str><str name="ead_ssi">mos_2021</str><str name="parent_ssi">aspace_68fd22d28746c12f37e250728431c61d</str><arr name="parent_ssm"><str>aspace_499449c48c751a22b7c222d3ce2c2879</str><str>aspace_68fd22d28746c12f37e250728431c61d</str></arr><arr name="parent_unittitles_ssm"><str>Level 2 Series I. Megan
+              O'Shea
+            Rolodex on New York University Here is a
+              title</str><str>Level 3 Series I. Megan
+                O'Shea
+              Rolodex on New York University Here is a
+                title</str></arr><arr name="component_level_isim"><int>3</int></arr><bool name="component_children_bsi">true</bool><arr name="collection_ssm"><str>Megan O'Shea's "One Resource to  Rule Them All"</str></arr><arr name="collection_unitid_ssm"><str>MOS.2021</str></arr><arr name="unittitle_ssm"><str>&lt;em&gt;Level 4&lt;/em&gt; Series I. Megan
+                  O'Shea
+                Rolodex on New York University Here is a
+                  title</str></arr><arr name="unitid_ssm"><str>mos_2021_4</str></arr><arr name="creator_ssm"><str>Yivo Institute for Jewish
+                  Research</str><str>Pinsof
+                  family</str><str>Zwillinger,
+                Rhonda</str><str>Yivo Institute for Jewish
+                  Research</str><str>Pinsof
+                  family</str><str>Zwillinger,
+                Rhonda</str></arr><arr name="unitdate_normal_ssm"><str>2017/2019</str></arr><arr name="corpname_ssm"><str>New York University</str><str>Yivo Institute for Jewish
+                  Research</str><str>Tamiment Library</str><str>Level 4 Index item</str><str>Tamiment Library</str></arr><arr name="famname_ssm"><str>Pinsof
+                  family</str><str>Belfrage family</str></arr><arr name="function_ssm"><str>War Powers Conference</str></arr><arr name="genreform_ssm"><str>Oral histories (literary works)</str><str>Oral histories (literary works)</str><str>Oral histories (literary works)</str><str>Oral histories (literary works)</str><str>Oral histories (literary works)</str></arr><arr name="geogname_ssm"><str>Boston (Mass.) -- Intellectual life -- 20th
+                century.</str></arr><arr name="name_ssm"><str>Rolodex</str><str>Rolodex</str><str>Rolodex</str><str>Rolodex</str><str>Rolodex</str></arr><arr name="occupation_ssm"><str>Fulbright scholars.</str><str>Fulbright scholars.</str><str>Fulbright scholars.</str><str>Fulbright scholars.</str><str>Fulbright scholars.</str></arr><arr name="persname_ssm"><str>Megan
+                  O'Shea</str><str>Zwillinger,
+                Rhonda</str></arr><arr name="subject_ssm"><str>Irish American women -- History -- 19th century.</str><str>Irish American women -- History -- 19th
+                century.</str><str>Irish American women -- History -- 19th
+                century.</str><str>Irish American women -- History -- 19th
+                century.</str><str>Irish American women -- History -- 19th century.</str></arr><arr name="title_ssm"><str>title</str><str>Abstract</str><str>bold title</str><str>Essais sur l'histoire d'Haiti</str></arr><arr name="dao_ssm"><str>This is a digital object</str></arr><str name="ref_ssi">aspace_f35efa0f6a068b57a2d396067e4f7427</str><str name="repository_ssi">always-gitignore</str><arr name="repository_ssm"><str>always-gitignore</str></arr><arr name="format_ssm"><str>Archival Series</str></arr><arr name="location_ssm"><str>box: 1, folder: 1</str></arr><arr name="place_ssm"><str>Boston (Mass.) -- Intellectual life -- 20th
+                century.</str></arr><arr name="material_type_ssm"><str>Oral histories (literary works)</str></arr><arr name="heading_ssm"><str>Level 4 Series I. Megan
+                  O'Shea
+                Rolodex on New York University Here is a
+                  title</str></arr><arr name="unitdate_start_ssm"><str>2017</str></arr><arr name="unitdate_end_ssm"><str>2019</str></arr><arr name="unitdate_ssm"><str>Inclusive, 2017-2019</str></arr><long name="_version_">1818025369997934592</long><date name="timestamp">2024-12-10T04:15:01.941Z</date></doc><doc><str name="id">mos_2021aspace_a8e8b321d84febb7aee747f54e624fc4</str><str name="ead_ssi">mos_2021</str><str name="parent_ssi">aspace_f35efa0f6a068b57a2d396067e4f7427</str><arr name="parent_ssm"><str>aspace_499449c48c751a22b7c222d3ce2c2879</str><str>aspace_68fd22d28746c12f37e250728431c61d</str><str>aspace_f35efa0f6a068b57a2d396067e4f7427</str></arr><arr name="parent_unittitles_ssm"><str>Level 2 Series I. Megan
+              O'Shea
+            Rolodex on New York University Here is a
+              title</str><str>Level 3 Series I. Megan
+                O'Shea
+              Rolodex on New York University Here is a
+                title</str><str>Level 4 Series I. Megan
+                  O'Shea
+                Rolodex on New York University Here is a
+                  title</str></arr><arr name="component_level_isim"><int>4</int></arr><bool name="component_children_bsi">true</bool><arr name="collection_ssm"><str>Megan O'Shea's "One Resource to  Rule Them All"</str></arr><arr name="collection_unitid_ssm"><str>MOS.2021</str></arr><arr name="unittitle_ssm"><str>&lt;em&gt;Level 5&lt;/em&gt; Series I. Megan
+                    O'Shea
+                  Rolodex
+                  on New York University Here is a
+                  title</str></arr><arr name="unitid_ssm"><str>mos_2021_5</str></arr><arr name="creator_ssm"><str>World Trade Center
+                    (New York, N.Y.)</str><str>Draper
+                  family</str><str>Yonge, Charlotte Mary,
+                    1823-1901</str><str>World Trade Center
+                    (New York, N.Y.)</str><str>Draper
+                  family</str><str>Yonge, Charlotte Mary,
+                    1823-1901</str></arr><arr name="unitdate_normal_ssm"><str>2015/2019</str></arr><arr name="corpname_ssm"><str>New York University</str><str>World Trade Center
+                    (New York, N.Y.)</str><str>Tamiment Library</str><str>Level 5 Index Item</str><str>Tamiment Library</str></arr><arr name="famname_ssm"><str>Draper
+                  family</str><str>Belfrage family</str></arr><arr name="function_ssm"><str>War Powers Conference</str></arr><arr name="genreform_ssm"><str>Oral histories (literary works)</str><str>Oral histories (literary works)</str><str>Oral histories (literary works)</str><str>Oral histories (literary works)</str><str>Oral histories (literary works)</str></arr><arr name="geogname_ssm"><str>Boston (Mass.) -- Intellectual life -- 20th
+                  century.</str></arr><arr name="name_ssm"><str>Rolodex</str><str>Rolodex</str><str>Rolodex</str><str>Rolodex</str><str>Rolodex</str></arr><arr name="occupation_ssm"><str>Fulbright scholars.</str><str>Fulbright scholars.</str><str>Fulbright scholars.</str><str>Fulbright scholars.</str><str>Fulbright scholars.</str></arr><arr name="persname_ssm"><str>Megan
+                    O'Shea</str><str>Yonge, Charlotte Mary,
+                    1823-1901</str></arr><arr name="subject_ssm"><str>Irish American women -- History -- 19th century.</str><str>Irish American women -- History -- 19th
+                  century.</str><str>Irish American women -- History -- 19th
+                  century.</str><str>Irish American women -- History -- 19th
+                  century.</str><str>Irish American women -- History -- 19th century.</str></arr><arr name="title_ssm"><str>title</str><str>Abstract</str><str>bold title</str><str>Essais sur l'histoire d'Haiti</str></arr><arr name="dao_ssm"><str>This is a digital object</str></arr><str name="ref_ssi">aspace_a8e8b321d84febb7aee747f54e624fc4</str><str name="repository_ssi">always-gitignore</str><arr name="repository_ssm"><str>always-gitignore</str></arr><arr name="format_ssm"><str>Archival Series</str></arr><arr name="location_ssm"><str>box: 1, folder: 1</str></arr><arr name="place_ssm"><str>Boston (Mass.) -- Intellectual life -- 20th
+                  century.</str></arr><arr name="material_type_ssm"><str>Oral histories (literary works)</str></arr><arr name="heading_ssm"><str>Level 5 Series I. Megan
+                    O'Shea
+                  Rolodex
+                  on New York University Here is a
+                  title</str></arr><arr name="unitdate_start_ssm"><str>2015</str></arr><arr name="unitdate_end_ssm"><str>2019</str></arr><arr name="unitdate_ssm"><str>Inclusive, 2015-2019</str></arr><long name="_version_">1818025370124812288</long><date name="timestamp">2024-12-10T04:15:02.061Z</date></doc><doc><str name="id">mos_2021aspace_bb018068fcbef8e42d90b29434d476d6</str><str name="ead_ssi">mos_2021</str><str name="parent_ssi">aspace_a8e8b321d84febb7aee747f54e624fc4</str><arr name="parent_ssm"><str>aspace_499449c48c751a22b7c222d3ce2c2879</str><str>aspace_68fd22d28746c12f37e250728431c61d</str><str>aspace_f35efa0f6a068b57a2d396067e4f7427</str><str>aspace_a8e8b321d84febb7aee747f54e624fc4</str></arr><arr name="parent_unittitles_ssm"><str>Level 2 Series I. Megan
+              O'Shea
+            Rolodex on New York University Here is a
+              title</str><str>Level 3 Series I. Megan
+                O'Shea
+              Rolodex on New York University Here is a
+                title</str><str>Level 4 Series I. Megan
+                  O'Shea
+                Rolodex on New York University Here is a
+                  title</str><str>Level 5 Series I. Megan
+                    O'Shea
+                  Rolodex
+                  on New York University Here is a
+                  title</str></arr><arr name="component_level_isim"><int>5</int></arr><bool name="component_children_bsi">true</bool><arr name="collection_ssm"><str>Megan O'Shea's "One Resource to  Rule Them All"</str></arr><arr name="collection_unitid_ssm"><str>MOS.2021</str></arr><arr name="unittitle_ssm"><str>&lt;em&gt;Level 6&lt;/em&gt; Series I. Megan
+                      O'Shea
+                    Rolodex on New York University Here is a
+                      title</str></arr><arr name="unitid_ssm"><str>mos_2021_6</str></arr><arr name="creator_ssm"><str>Workers' Party of
+                      Ireland</str><str>Blaustein
+                    Family</str><str>Alum, Rolando
+                    A.</str><str>Workers' Party of
+                      Ireland</str><str>Blaustein
+                    Family</str><str>Alum, Rolando
+                    A.</str></arr><arr name="unitdate_normal_ssm"><str>2020/2020</str></arr><arr name="corpname_ssm"><str>New York University</str><str>Workers' Party of
+                      Ireland</str><str>Tamiment Library</str><str>Level 6 Index item</str><str>Tamiment Library</str></arr><arr name="famname_ssm"><str>Blaustein
+                    Family</str><str>Belfrage family</str></arr><arr name="function_ssm"><str>War Powers Conference</str></arr><arr name="genreform_ssm"><str>Oral histories (literary works)</str><str>Oral histories (literary works)</str><str>Oral histories (literary works)</str><str>Oral histories (literary works)</str><str>Oral histories (literary works)</str></arr><arr name="geogname_ssm"><str>Boston (Mass.) -- Intellectual life -- 20th
+                    century.</str></arr><arr name="name_ssm"><str>Rolodex</str><str>Rolodex</str><str>Rolodex</str><str>Rolodex</str><str>Rolodex</str></arr><arr name="occupation_ssm"><str>Fulbright scholars.</str><str>Fulbright scholars.</str><str>Fulbright scholars.</str><str>Fulbright scholars.</str><str>Fulbright scholars.</str></arr><arr name="persname_ssm"><str>Megan
+                      O'Shea</str><str>Alum, Rolando
+                    A.</str></arr><arr name="subject_ssm"><str>Irish American women -- History -- 19th
+                      century.</str><str>Irish American women -- History -- 19th
+                      century.</str><str>Irish American women -- History -- 19th
+                      century.</str><str>Irish American women -- History -- 19th
+                      century.</str><str>Irish American women -- History -- 19th century.</str></arr><arr name="title_ssm"><str>title</str><str>Abstract</str><str>title</str><str>Essais sur l'histoire d'Haiti</str></arr><arr name="dao_ssm"><str>This is a digital object</str></arr><str name="ref_ssi">aspace_bb018068fcbef8e42d90b29434d476d6</str><str name="repository_ssi">always-gitignore</str><arr name="repository_ssm"><str>always-gitignore</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>box: 1, folder: 337</str></arr><arr name="place_ssm"><str>Boston (Mass.) -- Intellectual life -- 20th
+                    century.</str></arr><arr name="material_type_ssm"><str>Oral histories (literary works)</str></arr><arr name="heading_ssm"><str>Level 6 Series I. Megan
+                      O'Shea
+                    Rolodex on New York University Here is a
+                      title</str></arr><arr name="unitdate_start_ssm"><str>2020</str></arr><arr name="unitdate_end_ssm"><str>2020</str></arr><arr name="unitdate_ssm"><str>Inclusive, 2020</str></arr><long name="_version_">1818025370211844096</long><date name="timestamp">2024-12-10T04:15:02.146Z</date></doc><doc><str name="id">mos_2021aspace_71626d77bd977b19462b7319b0d4a5fb</str><str name="ead_ssi">mos_2021</str><str name="parent_ssi">aspace_bb018068fcbef8e42d90b29434d476d6</str><arr name="parent_ssm"><str>aspace_499449c48c751a22b7c222d3ce2c2879</str><str>aspace_68fd22d28746c12f37e250728431c61d</str><str>aspace_f35efa0f6a068b57a2d396067e4f7427</str><str>aspace_a8e8b321d84febb7aee747f54e624fc4</str><str>aspace_bb018068fcbef8e42d90b29434d476d6</str></arr><arr name="parent_unittitles_ssm"><str>Level 2 Series I. Megan
+              O'Shea
+            Rolodex on New York University Here is a
+              title</str><str>Level 3 Series I. Megan
+                O'Shea
+              Rolodex on New York University Here is a
+                title</str><str>Level 4 Series I. Megan
+                  O'Shea
+                Rolodex on New York University Here is a
+                  title</str><str>Level 5 Series I. Megan
+                    O'Shea
+                  Rolodex
+                  on New York University Here is a
+                  title</str><str>Level 6 Series I. Megan
+                      O'Shea
+                    Rolodex on New York University Here is a
+                      title</str></arr><arr name="component_level_isim"><int>6</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Megan O'Shea's "One Resource to  Rule Them All"</str></arr><arr name="collection_unitid_ssm"><str>MOS.2021</str></arr><arr name="unittitle_ssm"><str>A File Nested Within a File, No Container</str></arr><arr name="unitdate_normal_ssm"><str>1981-08-31/1981-08-31</str></arr><str name="ref_ssi">aspace_71626d77bd977b19462b7319b0d4a5fb</str><str name="repository_ssi">always-gitignore</str><arr name="repository_ssm"><str>always-gitignore</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="heading_ssm"><str>A File Nested Within a File, No Container</str></arr><arr name="unitdate_ssm"><str>1981-08-31</str></arr><long name="_version_">1818025370315653120</long><date name="timestamp">2024-12-10T04:15:02.24Z</date></doc><doc><str name="id">mos_2021aspace_b3c9c88449f4f8e8a4bf801cf619517b</str><str name="ead_ssi">mos_2021</str><str name="parent_ssi">aspace_499449c48c751a22b7c222d3ce2c2879</str><arr name="parent_ssm"><str>aspace_499449c48c751a22b7c222d3ce2c2879</str></arr><arr name="parent_unittitles_ssm"><str>Level 2 Series I. Megan
+              O'Shea
+            Rolodex on New York University Here is a
+              title</str></arr><arr name="component_level_isim"><int>2</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Megan O'Shea's "One Resource to  Rule Them All"</str></arr><arr name="collection_unitid_ssm"><str>MOS.2021</str></arr><arr name="unittitle_ssm"><str>&lt;strong&gt;This is an item&lt;/strong&gt; Here is a title.
+              There is also a name.</str></arr><arr name="name_ssm"><str>name</str></arr><arr name="title_ssm"><str>title</str></arr><arr name="dao_ssm"><str>This is a digital object</str></arr><str name="ref_ssi">aspace_b3c9c88449f4f8e8a4bf801cf619517b</str><str name="repository_ssi">always-gitignore</str><arr name="repository_ssm"><str>always-gitignore</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="location_ssm"><str>box: 1</str></arr><arr name="heading_ssm"><str>This is an item Here is a title.
+              There is also a name.</str></arr><long name="_version_">1818025370415267840</long><date name="timestamp">2024-12-10T04:15:02.339Z</date></doc><doc><str name="id">mos_2021aspace_319857d7c2d36228d3335abb88396b2b</str><str name="ead_ssi">mos_2021</str><str name="parent_ssi">aspace_499449c48c751a22b7c222d3ce2c2879</str><arr name="parent_ssm"><str>aspace_499449c48c751a22b7c222d3ce2c2879</str></arr><arr name="parent_unittitles_ssm"><str>Level 2 Series I. Megan
+              O'Shea
+            Rolodex on New York University Here is a
+              title</str></arr><arr name="component_level_isim"><int>2</int></arr><bool name="component_children_bsi">false</bool><arr name="collection_ssm"><str>Megan O'Shea's "One Resource to  Rule Them All"</str></arr><arr name="collection_unitid_ssm"><str>MOS.2021</str></arr><arr name="unittitle_ssm"><str>The Dreaded Other Level</str></arr><arr name="unitdate_normal_ssm"><str>1981-09-02/1981-09-02</str></arr><str name="ref_ssi">aspace_319857d7c2d36228d3335abb88396b2b</str><str name="repository_ssi">always-gitignore</str><arr name="repository_ssm"><str>always-gitignore</str></arr><arr name="format_ssm"><str>Archival Object</str></arr><arr name="heading_ssm"><str>The Dreaded Other Level</str></arr><arr name="unitdate_ssm"><str>1981-09-02</str></arr><long name="_version_">1818025370457210880</long><date name="timestamp">2024-12-10T04:15:02.379Z</date></doc><doc><str name="id">mos_2021additional-daos</str><str name="ead_ssi">mos_2021</str><arr name="component_level_isim"><int>1</int></arr><bool name="component_children_bsi">true</bool><arr name="collection_ssm"><str>Megan O'Shea's "One Resource to  Rule Them All"</str></arr><arr name="collection_unitid_ssm"><str>MOS.2021</str></arr><arr name="unittitle_ssm"><str>Series II. Additional Digital Objects</str></arr><str name="ref_ssi">additional-daos</str><str name="repository_ssi">always-gitignore</str><arr name="repository_ssm"><str>always-gitignore</str></arr><arr name="format_ssm"><str>Archival Series</str></arr><arr name="heading_ssm"><str>Series II. Additional Digital Objects</str></arr><long name="_version_">1818025370502299648</long><date name="timestamp">2024-12-10T04:15:02.422Z</date></doc></result>
+</response>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update'
+--------------
+HTTP/1.1 400 Bad Request
+Cache-Control: no-cache, no-store
+Pragma: no-cache
+Expires: Sat, 01 Jan 2000 01:00:00 GMT
+Last-Modified: Fri, 13 Dec 2024 04:07:07 GMT
+ETag: "193be32e991"
+Content-Type: application/xml; charset=UTF-8
+Transfer-Encoding: chunked
+
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+<lst name="responseHeader"><int name="status">400</int><int name="QTime">0</int></lst><lst name="error"><str name="msg">missing content stream</str><int name="code">400</int></lst>
+</response>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?'
+--------------
+HTTP/1.1 400 Bad Request
+Cache-Control: no-cache, no-store
+Pragma: no-cache
+Expires: Sat, 01 Jan 2000 01:00:00 GMT
+Last-Modified: Fri, 13 Dec 2024 04:07:07 GMT
+ETag: "193be32e9a7"
+Content-Type: application/xml; charset=UTF-8
+Transfer-Encoding: chunked
+
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+<lst name="responseHeader"><int name="status">400</int><int name="QTime">0</int></lst><lst name="error"><str name="msg">missing content stream</str><int name="code">400</int></lst>
+</response>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=ruby'
+--------------
+HTTP/1.1 400 Bad Request
+Cache-Control: no-cache, no-store
+Pragma: no-cache
+Expires: Sat, 01 Jan 2000 01:00:00 GMT
+Last-Modified: Fri, 13 Dec 2024 04:07:07 GMT
+ETag: "193be32e9bd"
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{'responseHeader'=>{'status'=>400,'QTime'=>1},'error'=>{'msg'=>'missing content stream','code'=>400}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json'
+--------------
+HTTP/1.1 400 Bad Request
+Cache-Control: no-cache, no-store
+Pragma: no-cache
+Expires: Sat, 01 Jan 2000 01:00:00 GMT
+Last-Modified: Fri, 13 Dec 2024 04:07:07 GMT
+ETag: "193be32e9d5"
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{"responseHeader":{"status":400,"QTime":0},"error":{"msg":"missing content stream","code":400}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/' -H "Content-Type: text/xml" --data-binary ''
+--------------
+HTTP/1.1 404 Not Found
+Cache-Control: must-revalidate,no-cache,no-store
+Content-Type: text/html;charset=ISO-8859-1
+Content-Length: 1267
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1"/>
+<title>Error 404 Not Found</title>
+</head>
+<body>
+<h2>HTTP ERROR: 404</h2>
+<p>Problem accessing /. Reason:
+<pre>    Not Found</pre></p>
+<hr /><i><small>Powered by Jetty://</small></i>
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+</body>
+</html>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/non-existent' -H "Content-Type: text/xml" --data-binary ''
+--------------
+HTTP/1.1 404 Not Found
+Cache-Control: must-revalidate,no-cache,no-store
+Content-Type: text/html;charset=ISO-8859-1
+Content-Length: 1279
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1"/>
+<title>Error 404 Not Found</title>
+</head>
+<body>
+<h2>HTTP ERROR: 404</h2>
+<p>Problem accessing /non-existent. Reason:
+<pre>    Not Found</pre></p>
+<hr /><i><small>Powered by Jetty://</small></i>
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+</body>
+</html>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr' -H "Content-Type: text/xml" --data-binary ''
+--------------
+HTTP/1.1 302 Found
+Location: http://localhost:8983/solr/
+Content-Length: 0
+
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/' -H "Content-Type: text/xml" --data-binary ''
+--------------
+HTTP/1.1 405 HTTP method POST is not supported by this URL
+Content-Type: text/html;charset=ISO-8859-1
+Cache-Control: must-revalidate,no-cache,no-store
+Content-Length: 1452
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+<title>Error 405 HTTP method POST is not supported by this URL</title>
+</head>
+<body><h2>HTTP ERROR 405</h2>
+<p>Problem accessing /solr/admin.html. Reason:
+<pre>    HTTP method POST is not supported by this URL</pre></p><hr /><i><small>Powered by Jetty://</small></i><br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+
+</body>
+</html>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/non-existent-core' -H "Content-Type: text/xml" --data-binary ''
+--------------
+HTTP/1.1 404 Not Found
+Content-Type: text/html;charset=ISO-8859-1
+Cache-Control: must-revalidate,no-cache,no-store
+Content-Length: 1387
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+<title>Error 404 Not Found</title>
+</head>
+<body><h2>HTTP ERROR 404</h2>
+<p>Problem accessing /solr/non-existent-core. Reason:
+<pre>    Not Found</pre></p><hr /><i><small>Powered by Jetty://</small></i><br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+
+</body>
+</html>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/non-existent-core/' -H "Content-Type: text/xml" --data-binary ''
+--------------
+HTTP/1.1 404 Not Found
+Content-Type: text/html;charset=ISO-8859-1
+Cache-Control: must-revalidate,no-cache,no-store
+Content-Length: 1388
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+<title>Error 404 Not Found</title>
+</head>
+<body><h2>HTTP ERROR 404</h2>
+<p>Problem accessing /solr/non-existent-core/. Reason:
+<pre>    Not Found</pre></p><hr /><i><small>Powered by Jetty://</small></i><br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+
+</body>
+</html>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids' -H "Content-Type: text/xml" --data-binary ''
+--------------
+HTTP/1.1 404 Not Found
+Content-Type: text/html;charset=ISO-8859-1
+Cache-Control: must-revalidate,no-cache,no-store
+Content-Length: 1381
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+<title>Error 404 Not Found</title>
+</head>
+<body><h2>HTTP ERROR 404</h2>
+<p>Problem accessing /solr/findingaids. Reason:
+<pre>    Not Found</pre></p><hr /><i><small>Powered by Jetty://</small></i><br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+
+</body>
+</html>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/' -H "Content-Type: text/xml" --data-binary ''
+--------------
+HTTP/1.1 404 Not Found
+Content-Type: text/html;charset=ISO-8859-1
+Cache-Control: must-revalidate,no-cache,no-store
+Content-Length: 1382
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+<title>Error 404 Not Found</title>
+</head>
+<body><h2>HTTP ERROR 404</h2>
+<p>Problem accessing /solr/findingaids/. Reason:
+<pre>    Not Found</pre></p><hr /><i><small>Powered by Jetty://</small></i><br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+
+</body>
+</html>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/non-existent-api-endpoint' -H "Content-Type: text/xml" --data-binary ''
+--------------
+HTTP/1.1 404 Not Found
+Content-Type: text/html;charset=ISO-8859-1
+Cache-Control: must-revalidate,no-cache,no-store
+Content-Length: 1407
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+<title>Error 404 Not Found</title>
+</head>
+<body><h2>HTTP ERROR 404</h2>
+<p>Problem accessing /solr/findingaids/non-existent-api-endpoint. Reason:
+<pre>    Not Found</pre></p><hr /><i><small>Powered by Jetty://</small></i><br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+
+</body>
+</html>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/non-existent-api-endpoint/' -H "Content-Type: text/xml" --data-binary ''
+--------------
+HTTP/1.1 404 Not Found
+Content-Type: text/html;charset=ISO-8859-1
+Cache-Control: must-revalidate,no-cache,no-store
+Content-Length: 1408
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+<title>Error 404 Not Found</title>
+</head>
+<body><h2>HTTP ERROR 404</h2>
+<p>Problem accessing /solr/findingaids/non-existent-api-endpoint/. Reason:
+<pre>    Not Found</pre></p><hr /><i><small>Powered by Jetty://</small></i><br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+<br/>                                                
+
+</body>
+</html>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/select' -H "Content-Type: text/xml" --data-binary ''
+--------------
+HTTP/1.1 400 Bad Request
+Content-Type: application/xml; charset=UTF-8
+Transfer-Encoding: chunked
+
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+<lst name="responseHeader"><int name="status">400</int><int name="QTime">0</int><lst name="params"/></lst><lst name="error"><str name="msg">Search requests cannot accept content streams</str><int name="code">400</int></lst>
+</response>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/select?' -H "Content-Type: text/xml" --data-binary ''
+--------------
+HTTP/1.1 400 Bad Request
+Content-Type: application/xml; charset=UTF-8
+Transfer-Encoding: chunked
+
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+<lst name="responseHeader"><int name="status">400</int><int name="QTime">1</int><lst name="params"/></lst><lst name="error"><str name="msg">Search requests cannot accept content streams</str><int name="code">400</int></lst>
+</response>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/select?non-existent' -H "Content-Type: text/xml" --data-binary ''
+--------------
+HTTP/1.1 400 Bad Request
+Content-Type: application/xml; charset=UTF-8
+Transfer-Encoding: chunked
+
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+<lst name="responseHeader"><int name="status">400</int><int name="QTime">0</int><lst name="params"><str name="non-existent"/></lst></lst><lst name="error"><str name="msg">Search requests cannot accept content streams</str><int name="code">400</int></lst>
+</response>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/select?q=ead_ssi:mos_2021' -H "Content-Type: text/xml" --data-binary ''
+--------------
+HTTP/1.1 400 Bad Request
+Content-Type: application/xml; charset=UTF-8
+Transfer-Encoding: chunked
+
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+<lst name="responseHeader"><int name="status">400</int><int name="QTime">0</int><lst name="params"><str name="q">ead_ssi:mos_2021</str></lst></lst><lst name="error"><str name="msg">Search requests cannot accept content streams</str><int name="code">400</int></lst>
+</response>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update' -H "Content-Type: text/xml" --data-binary ''
+--------------
+HTTP/1.1 400 Bad Request
+Content-Type: application/xml; charset=UTF-8
+Transfer-Encoding: chunked
+
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+<lst name="responseHeader"><int name="status">400</int><int name="QTime">0</int></lst><lst name="error"><str name="msg">Unexpected EOF in prolog
+ at [row,col {unknown-source}]: [1,0]</str><int name="code">400</int></lst>
+</response>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?' -H "Content-Type: text/xml" --data-binary ''
+--------------
+HTTP/1.1 400 Bad Request
+Content-Type: application/xml; charset=UTF-8
+Transfer-Encoding: chunked
+
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+<lst name="responseHeader"><int name="status">400</int><int name="QTime">0</int></lst><lst name="error"><str name="msg">Unexpected EOF in prolog
+ at [row,col {unknown-source}]: [1,0]</str><int name="code">400</int></lst>
+</response>
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=ruby' -H "Content-Type: text/xml" --data-binary ''
+--------------
+HTTP/1.1 400 Bad Request
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{'responseHeader'=>{'status'=>400,'QTime'=>0},'error'=>{'msg'=>'Unexpected EOF in prolog
+ at [row,col {unknown-source}]: [1,0]','code'=>400}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json' -H "Content-Type: text/xml" --data-binary ''
+--------------
+HTTP/1.1 400 Bad Request
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{"responseHeader":{"status":400,"QTime":0},"error":{"msg":"Unexpected EOF in prolog\n at [row,col {unknown-source}]: [1,0]","code":400}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json&indent=true' -H "Content-Type: text/xml" --data-binary 'Invalid XML'
+--------------
+HTTP/1.1 400 Bad Request
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{
+  "responseHeader":{
+    "status":400,
+    "QTime":0},
+  "error":{
+    "msg":"Unexpected character 'I' (code 73) in prolog; expected '<'\n at [row,col {unknown-source}]: [1,1]",
+    "code":400}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json&indent=true' -H "Content-Type: text/xml" --data-binary '<xml></xml>'
+--------------
+HTTP/1.1 200 OK
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json&indent=true' -H "Content-Type: text/xml" --data-binary '<?xml version="1.0" encoding="UTF-8"?>'
+--------------
+HTTP/1.1 400 Bad Request
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{
+  "responseHeader":{
+    "status":400,
+    "QTime":0},
+  "error":{
+    "msg":"Unexpected EOF in prolog\n at [row,col {unknown-source}]: [1,38]",
+    "code":400}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json&indent=true' -H "Content-Type: text/xml" --data-binary '<?xml version="1.0" encoding="UTF-8"?>
+            <add>
+            </add>'
+--------------
+HTTP/1.1 200 OK
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json&indent=true' -H "Content-Type: text/xml" --data-binary '<?xml version="1.0" encoding="UTF-8"?>
+            <add>
+              <doc>
+              </doc>
+            </add>'
+--------------
+HTTP/1.1 400 Bad Request
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{
+  "responseHeader":{
+    "status":400,
+    "QTime":0},
+  "error":{
+    "msg":"Document is missing mandatory uniqueKey field: id",
+    "code":400}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json&indent=true' -H "Content-Type: text/xml" --data-binary '<?xml version="1.0" encoding="UTF-8"?>
+            <add>
+              <doc>
+                <field></field>
+              </doc>
+            </add>'
+--------------
+HTTP/1.1 400 Bad Request
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{
+  "responseHeader":{
+    "status":400,
+    "QTime":0},
+  "error":{
+    "msg":"Document is missing mandatory uniqueKey field: id",
+    "code":400}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json&indent=true' -H "Content-Type: text/xml" --data-binary '<?xml version="1.0" encoding="UTF-8"?>
+            <add>
+              <doc>
+                <field name="non-existent"></field>
+              </doc>
+            </add>'
+--------------
+HTTP/1.1 400 Bad Request
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{
+  "responseHeader":{
+    "status":400,
+    "QTime":0},
+  "error":{
+    "msg":"Document is missing mandatory uniqueKey field: id",
+    "code":400}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json&indent=true' -H "Content-Type: text/xml" --data-binary '<?xml version="1.0" encoding="UTF-8"?>
+            <add>
+              <doc>
+                <field name="subject_sim">SUBJECT_SIM</field>
+              </doc>
+            </add>'
+--------------
+HTTP/1.1 400 Bad Request
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{
+  "responseHeader":{
+    "status":400,
+    "QTime":0},
+  "error":{
+    "msg":"Document is missing mandatory uniqueKey field: id",
+    "code":400}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json&indent=true' -H "Content-Type: text/xml" --data-binary '<?xml version="1.0" encoding="UTF-8"?>
+            <add>
+              <doc>
+                <field name="id"></field>
+              </doc>
+            </add>'
+--------------
+HTTP/1.1 200 OK
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":2}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json&indent=true' -H "Content-Type: text/xml" --data-binary '<?xml version="1.0" encoding="UTF-8"?>
+            <add>
+              <doc>
+                <field name="id">DELETEME</field>
+              </doc>
+            </add>'
+--------------
+HTTP/1.1 200 OK
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":1}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json&indent=true' -H "Content-Type: text/xml" --data-binary '<?xml version="1.0" encoding="UTF-8"?>
+            <add>
+              <doc>
+                <field name="id">DELETEME</field>
+                <field name="subject_sim">SUBJECT_SIM</field>
+              </doc>
+            </add>'
+--------------
+HTTP/1.1 200 OK
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":1}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json&indent=true' -H "Content-Type: text/xml" --data-binary '<delete>
+            </delete>'
+--------------
+HTTP/1.1 200 OK
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json&indent=true' -H "Content-Type: text/xml" --data-binary '<delete>
+              <id>NON-EXISTENT-ID</id>
+            </delete>'
+--------------
+HTTP/1.1 200 OK
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json&indent=true' -H "Content-Type: text/xml" --data-binary '<delete>
+               <non-existent></non-existent>
+            </delete>'
+--------------
+HTTP/1.1 400 Bad Request
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{
+  "responseHeader":{
+    "status":400,
+    "QTime":0},
+  "error":{
+    "msg":"XML element <delete> has invalid XML child element: non-existent",
+    "code":400}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json&indent=true' -H "Content-Type: text/xml" --data-binary '<delete>
+               <query></query>
+            </delete>'
+--------------
+HTTP/1.1 500 Server Error
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{
+  "responseHeader":{
+    "status":500,
+    "QTime":0},
+  "error":{
+    "trace":"java.lang.NullPointerException\n\tat org.apache.lucene.search.BooleanClause.hashCode(BooleanClause.java:99)\n\tat java.util.AbstractList.hashCode(AbstractList.java:541)\n\tat org.apache.lucene.search.BooleanQuery.hashCode(BooleanQuery.java:656)\n\tat java.util.HashMap.hash(HashMap.java:339)\n\tat java.util.HashMap.put(HashMap.java:612)\n\tat org.apache.lucene.index.BufferedUpdates.addQuery(BufferedUpdates.java:198)\n\tat org.apache.lucene.index.DocumentsWriterDeleteQueue$QueryArrayNode.apply(DocumentsWriterDeleteQueue.java:369)\n\tat org.apache.lucene.index.DocumentsWriterDeleteQueue$DeleteSlice.apply(DocumentsWriterDeleteQueue.java:284)\n\tat org.apache.lucene.index.DocumentsWriterDeleteQueue.tryApplyGlobalSlice(DocumentsWriterDeleteQueue.java:204)\n\tat org.apache.lucene.index.DocumentsWriterDeleteQueue.addDelete(DocumentsWriterDeleteQueue.java:106)\n\tat org.apache.lucene.index.DocumentsWriter.deleteQueries(DocumentsWriter.java:141)\n\tat org.apache.lucene.index.IndexWriter.deleteDocuments(IndexWriter.java:1465)\n\tat org.apache.solr.update.DirectUpdateHandler2.deleteByQuery(DirectUpdateHandler2.java:409)\n\tat org.apache.solr.update.processor.RunUpdateProcessor.processDelete(RunUpdateProcessorFactory.java:80)\n\tat org.apache.solr.update.processor.UpdateRequestProcessor.processDelete(UpdateRequestProcessor.java:55)\n\tat org.apache.solr.update.processor.DistributedUpdateProcessor.doLocalDelete(DistributedUpdateProcessor.java:931)\n\tat org.apache.solr.update.processor.DistributedUpdateProcessor.doDeleteByQuery(DistributedUpdateProcessor.java:1433)\n\tat org.apache.solr.update.processor.DistributedUpdateProcessor.processDelete(DistributedUpdateProcessor.java:1226)\n\tat org.apache.solr.update.processor.LogUpdateProcessor.processDelete(LogUpdateProcessorFactory.java:121)\n\tat org.apache.solr.handler.loader.XMLLoader.processDelete(XMLLoader.java:349)\n\tat org.apache.solr.handler.loader.XMLLoader.processUpdate(XMLLoader.java:278)\n\tat org.apache.solr.handler.loader.XMLLoader.load(XMLLoader.java:174)\n\tat org.apache.solr.handler.UpdateRequestHandler$1.load(UpdateRequestHandler.java:99)\n\tat org.apache.solr.handler.ContentStreamHandlerBase.handleRequestBody(ContentStreamHandlerBase.java:74)\n\tat org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:135)\n\tat org.apache.solr.core.SolrCore.execute(SolrCore.java:1967)\n\tat org.apache.solr.servlet.SolrDispatchFilter.execute(SolrDispatchFilter.java:777)\n\tat org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:418)\n\tat org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:207)\n\tat org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1419)\n\tat org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:455)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)\n\tat org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:557)\n\tat org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)\n\tat org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1075)\n\tat org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:384)\n\tat org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)\n\tat org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1009)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)\n\tat org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:255)\n\tat org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154)\n\tat org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)\n\tat org.eclipse.jetty.server.Server.handle(Server.java:368)\n\tat org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:489)\n\tat org.eclipse.jetty.server.BlockingHttpConnection.handleRequest(BlockingHttpConnection.java:53)\n\tat org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:953)\n\tat org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:1014)\n\tat org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:861)\n\tat org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)\n\tat org.eclipse.jetty.server.BlockingHttpConnection.handle(BlockingHttpConnection.java:72)\n\tat org.eclipse.jetty.server.bio.SocketConnector$ConnectorEndPoint.run(SocketConnector.java:264)\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)\n\tat java.lang.Thread.run(Thread.java:748)\n",
+    "code":500}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json&indent=true' -H "Content-Type: text/xml" --data-binary '<delete>
+               <query>nonexistent:value</query>
+            </delete>'
+--------------
+HTTP/1.1 400 Bad Request
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{
+  "responseHeader":{
+    "status":400,
+    "QTime":1},
+  "error":{
+    "msg":"undefined field nonexistent",
+    "code":400}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json&indent=true' -H "Content-Type: text/xml" --data-binary '<?xml version="1.0" encoding="UTF-8"?>
+                <add>
+                  <doc>
+                    <field name="id">DELETEME</field>
+                  </doc>
+                </add>'
+--------------
+HTTP/1.1 500 Server Error
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{
+  "responseHeader":{
+    "status":500,
+    "QTime":0},
+  "error":{
+    "msg":"Exception writing document id DELETEME to the index; possible analysis error.",
+    "trace":"org.apache.solr.common.SolrException: Exception writing document id DELETEME to the index; possible analysis error.\n\tat org.apache.solr.update.DirectUpdateHandler2.addDoc(DirectUpdateHandler2.java:168)\n\tat org.apache.solr.update.processor.RunUpdateProcessor.processAdd(RunUpdateProcessorFactory.java:69)\n\tat org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:51)\n\tat org.apache.solr.update.processor.DistributedUpdateProcessor.doLocalAdd(DistributedUpdateProcessor.java:926)\n\tat org.apache.solr.update.processor.DistributedUpdateProcessor.versionAdd(DistributedUpdateProcessor.java:1080)\n\tat org.apache.solr.update.processor.DistributedUpdateProcessor.processAdd(DistributedUpdateProcessor.java:692)\n\tat org.apache.solr.update.processor.LogUpdateProcessor.processAdd(LogUpdateProcessorFactory.java:100)\n\tat org.apache.solr.handler.loader.XMLLoader.processUpdate(XMLLoader.java:247)\n\tat org.apache.solr.handler.loader.XMLLoader.load(XMLLoader.java:174)\n\tat org.apache.solr.handler.UpdateRequestHandler$1.load(UpdateRequestHandler.java:99)\n\tat org.apache.solr.handler.ContentStreamHandlerBase.handleRequestBody(ContentStreamHandlerBase.java:74)\n\tat org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:135)\n\tat org.apache.solr.core.SolrCore.execute(SolrCore.java:1967)\n\tat org.apache.solr.servlet.SolrDispatchFilter.execute(SolrDispatchFilter.java:777)\n\tat org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:418)\n\tat org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:207)\n\tat org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1419)\n\tat org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:455)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)\n\tat org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:557)\n\tat org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)\n\tat org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1075)\n\tat org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:384)\n\tat org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)\n\tat org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1009)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)\n\tat org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:255)\n\tat org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154)\n\tat org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)\n\tat org.eclipse.jetty.server.Server.handle(Server.java:368)\n\tat org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:489)\n\tat org.eclipse.jetty.server.BlockingHttpConnection.handleRequest(BlockingHttpConnection.java:53)\n\tat org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:953)\n\tat org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:1014)\n\tat org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:861)\n\tat org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)\n\tat org.eclipse.jetty.server.BlockingHttpConnection.handle(BlockingHttpConnection.java:72)\n\tat org.eclipse.jetty.server.bio.SocketConnector$ConnectorEndPoint.run(SocketConnector.java:264)\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)\n\tat java.lang.Thread.run(Thread.java:748)\nCaused by: java.lang.NullPointerException\n\tat org.apache.lucene.search.BooleanClause.hashCode(BooleanClause.java:99)\n\tat java.util.AbstractList.hashCode(AbstractList.java:541)\n\tat org.apache.lucene.search.BooleanQuery.hashCode(BooleanQuery.java:656)\n\tat java.util.HashMap.hash(HashMap.java:339)\n\tat java.util.HashMap.put(HashMap.java:612)\n\tat org.apache.lucene.index.BufferedUpdates.addQuery(BufferedUpdates.java:198)\n\tat org.apache.lucene.index.DocumentsWriterDeleteQueue$QueryArrayNode.apply(DocumentsWriterDeleteQueue.java:369)\n\tat org.apache.lucene.index.DocumentsWriterDeleteQueue$DeleteSlice.apply(DocumentsWriterDeleteQueue.java:284)\n\tat org.apache.lucene.index.DocumentsWriterDeleteQueue.tryApplyGlobalSlice(DocumentsWriterDeleteQueue.java:204)\n\tat org.apache.lucene.index.DocumentsWriterDeleteQueue.add(DocumentsWriterDeleteQueue.java:138)\n\tat org.apache.lucene.index.DocumentsWriterPerThread.finishDocument(DocumentsWriterPerThread.java:337)\n\tat org.apache.lucene.index.DocumentsWriterPerThread.updateDocument(DocumentsWriterPerThread.java:255)\n\tat org.apache.lucene.index.DocumentsWriter.updateDocument(DocumentsWriter.java:454)\n\tat org.apache.lucene.index.IndexWriter.updateDocument(IndexWriter.java:1511)\n\tat org.apache.solr.update.DirectUpdateHandler2.addDoc0(DirectUpdateHandler2.java:240)\n\tat org.apache.solr.update.DirectUpdateHandler2.addDoc(DirectUpdateHandler2.java:164)\n\t... 40 more\n",
+    "code":500}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json&indent=true' -H "Content-Type: text/xml" --data-binary '<delete>
+              <id>DELETEME</id>
+            </delete>'
+--------------
+HTTP/1.1 500 Server Error
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{
+  "responseHeader":{
+    "status":500,
+    "QTime":0},
+  "error":{
+    "trace":"java.lang.NullPointerException\n\tat org.apache.lucene.search.BooleanClause.hashCode(BooleanClause.java:99)\n\tat java.util.AbstractList.hashCode(AbstractList.java:541)\n\tat org.apache.lucene.search.BooleanQuery.hashCode(BooleanQuery.java:656)\n\tat java.util.HashMap.hash(HashMap.java:339)\n\tat java.util.HashMap.put(HashMap.java:612)\n\tat org.apache.lucene.index.BufferedUpdates.addQuery(BufferedUpdates.java:198)\n\tat org.apache.lucene.index.DocumentsWriterDeleteQueue$QueryArrayNode.apply(DocumentsWriterDeleteQueue.java:369)\n\tat org.apache.lucene.index.DocumentsWriterDeleteQueue$DeleteSlice.apply(DocumentsWriterDeleteQueue.java:284)\n\tat org.apache.lucene.index.DocumentsWriterDeleteQueue.tryApplyGlobalSlice(DocumentsWriterDeleteQueue.java:204)\n\tat org.apache.lucene.index.DocumentsWriterDeleteQueue.addDelete(DocumentsWriterDeleteQueue.java:111)\n\tat org.apache.lucene.index.DocumentsWriter.deleteTerms(DocumentsWriter.java:152)\n\tat org.apache.lucene.index.IndexWriter.deleteDocuments(IndexWriter.java:1445)\n\tat org.apache.solr.update.DirectUpdateHandler2.delete(DirectUpdateHandler2.java:329)\n\tat org.apache.solr.update.processor.RunUpdateProcessor.processDelete(RunUpdateProcessorFactory.java:77)\n\tat org.apache.solr.update.processor.UpdateRequestProcessor.processDelete(UpdateRequestProcessor.java:55)\n\tat org.apache.solr.update.processor.DistributedUpdateProcessor.doLocalDelete(DistributedUpdateProcessor.java:931)\n\tat org.apache.solr.update.processor.DistributedUpdateProcessor.versionDelete(DistributedUpdateProcessor.java:1659)\n\tat org.apache.solr.update.processor.DistributedUpdateProcessor.processDelete(DistributedUpdateProcessor.java:1239)\n\tat org.apache.solr.update.processor.LogUpdateProcessor.processDelete(LogUpdateProcessorFactory.java:121)\n\tat org.apache.solr.handler.loader.XMLLoader.processDelete(XMLLoader.java:349)\n\tat org.apache.solr.handler.loader.XMLLoader.processUpdate(XMLLoader.java:278)\n\tat org.apache.solr.handler.loader.XMLLoader.load(XMLLoader.java:174)\n\tat org.apache.solr.handler.UpdateRequestHandler$1.load(UpdateRequestHandler.java:99)\n\tat org.apache.solr.handler.ContentStreamHandlerBase.handleRequestBody(ContentStreamHandlerBase.java:74)\n\tat org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:135)\n\tat org.apache.solr.core.SolrCore.execute(SolrCore.java:1967)\n\tat org.apache.solr.servlet.SolrDispatchFilter.execute(SolrDispatchFilter.java:777)\n\tat org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:418)\n\tat org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:207)\n\tat org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1419)\n\tat org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:455)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)\n\tat org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:557)\n\tat org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)\n\tat org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1075)\n\tat org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:384)\n\tat org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)\n\tat org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1009)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)\n\tat org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:255)\n\tat org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154)\n\tat org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)\n\tat org.eclipse.jetty.server.Server.handle(Server.java:368)\n\tat org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:489)\n\tat org.eclipse.jetty.server.BlockingHttpConnection.handleRequest(BlockingHttpConnection.java:53)\n\tat org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:953)\n\tat org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:1014)\n\tat org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:861)\n\tat org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)\n\tat org.eclipse.jetty.server.BlockingHttpConnection.handle(BlockingHttpConnection.java:72)\n\tat org.eclipse.jetty.server.bio.SocketConnector$ConnectorEndPoint.run(SocketConnector.java:264)\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)\n\tat java.lang.Thread.run(Thread.java:748)\n",
+    "code":500}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json&indent=true' -H "Content-Type: text/xml" --data-binary '<?xml version="1.0" encoding="UTF-8"?>
+            <add>
+              <doc>
+                <field name="id">DELETEME</field>
+              </doc>
+            </add>'
+--------------
+HTTP/1.1 500 Server Error
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{
+  "responseHeader":{
+    "status":500,
+    "QTime":1},
+  "error":{
+    "msg":"Exception writing document id DELETEME to the index; possible analysis error.",
+    "trace":"org.apache.solr.common.SolrException: Exception writing document id DELETEME to the index; possible analysis error.\n\tat org.apache.solr.update.DirectUpdateHandler2.addDoc(DirectUpdateHandler2.java:168)\n\tat org.apache.solr.update.processor.RunUpdateProcessor.processAdd(RunUpdateProcessorFactory.java:69)\n\tat org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:51)\n\tat org.apache.solr.update.processor.DistributedUpdateProcessor.doLocalAdd(DistributedUpdateProcessor.java:926)\n\tat org.apache.solr.update.processor.DistributedUpdateProcessor.versionAdd(DistributedUpdateProcessor.java:1080)\n\tat org.apache.solr.update.processor.DistributedUpdateProcessor.processAdd(DistributedUpdateProcessor.java:692)\n\tat org.apache.solr.update.processor.LogUpdateProcessor.processAdd(LogUpdateProcessorFactory.java:100)\n\tat org.apache.solr.handler.loader.XMLLoader.processUpdate(XMLLoader.java:247)\n\tat org.apache.solr.handler.loader.XMLLoader.load(XMLLoader.java:174)\n\tat org.apache.solr.handler.UpdateRequestHandler$1.load(UpdateRequestHandler.java:99)\n\tat org.apache.solr.handler.ContentStreamHandlerBase.handleRequestBody(ContentStreamHandlerBase.java:74)\n\tat org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:135)\n\tat org.apache.solr.core.SolrCore.execute(SolrCore.java:1967)\n\tat org.apache.solr.servlet.SolrDispatchFilter.execute(SolrDispatchFilter.java:777)\n\tat org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:418)\n\tat org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:207)\n\tat org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1419)\n\tat org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:455)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)\n\tat org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:557)\n\tat org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)\n\tat org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1075)\n\tat org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:384)\n\tat org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)\n\tat org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1009)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)\n\tat org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:255)\n\tat org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154)\n\tat org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)\n\tat org.eclipse.jetty.server.Server.handle(Server.java:368)\n\tat org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:489)\n\tat org.eclipse.jetty.server.BlockingHttpConnection.handleRequest(BlockingHttpConnection.java:53)\n\tat org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:953)\n\tat org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:1014)\n\tat org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:861)\n\tat org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)\n\tat org.eclipse.jetty.server.BlockingHttpConnection.handle(BlockingHttpConnection.java:72)\n\tat org.eclipse.jetty.server.bio.SocketConnector$ConnectorEndPoint.run(SocketConnector.java:264)\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)\n\tat java.lang.Thread.run(Thread.java:748)\nCaused by: java.lang.NullPointerException\n\tat org.apache.lucene.search.BooleanClause.hashCode(BooleanClause.java:99)\n\tat java.util.AbstractList.hashCode(AbstractList.java:541)\n\tat org.apache.lucene.search.BooleanQuery.hashCode(BooleanQuery.java:656)\n\tat java.util.HashMap.hash(HashMap.java:339)\n\tat java.util.HashMap.put(HashMap.java:612)\n\tat org.apache.lucene.index.BufferedUpdates.addQuery(BufferedUpdates.java:198)\n\tat org.apache.lucene.index.DocumentsWriterDeleteQueue$QueryArrayNode.apply(DocumentsWriterDeleteQueue.java:369)\n\tat org.apache.lucene.index.DocumentsWriterDeleteQueue$DeleteSlice.apply(DocumentsWriterDeleteQueue.java:284)\n\tat org.apache.lucene.index.DocumentsWriterDeleteQueue.tryApplyGlobalSlice(DocumentsWriterDeleteQueue.java:204)\n\tat org.apache.lucene.index.DocumentsWriterDeleteQueue.add(DocumentsWriterDeleteQueue.java:138)\n\tat org.apache.lucene.index.DocumentsWriterPerThread.finishDocument(DocumentsWriterPerThread.java:337)\n\tat org.apache.lucene.index.DocumentsWriterPerThread.updateDocument(DocumentsWriterPerThread.java:255)\n\tat org.apache.lucene.index.DocumentsWriter.updateDocument(DocumentsWriter.java:454)\n\tat org.apache.lucene.index.IndexWriter.updateDocument(IndexWriter.java:1511)\n\tat org.apache.solr.update.DirectUpdateHandler2.addDoc0(DirectUpdateHandler2.java:240)\n\tat org.apache.solr.update.DirectUpdateHandler2.addDoc(DirectUpdateHandler2.java:164)\n\t... 40 more\n",
+    "code":500}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json&indent=true' -H "Content-Type: text/xml" --data-binary '<delete>
+              <query>id:DELETEME</query>
+            </delete>'
+--------------
+HTTP/1.1 500 Server Error
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{
+  "responseHeader":{
+    "status":500,
+    "QTime":1},
+  "error":{
+    "trace":"java.lang.NullPointerException\n\tat org.apache.lucene.search.BooleanClause.hashCode(BooleanClause.java:99)\n\tat java.util.AbstractList.hashCode(AbstractList.java:541)\n\tat org.apache.lucene.search.BooleanQuery.hashCode(BooleanQuery.java:656)\n\tat java.util.HashMap.hash(HashMap.java:339)\n\tat java.util.HashMap.put(HashMap.java:612)\n\tat org.apache.lucene.index.BufferedUpdates.addQuery(BufferedUpdates.java:198)\n\tat org.apache.lucene.index.DocumentsWriterDeleteQueue$QueryArrayNode.apply(DocumentsWriterDeleteQueue.java:369)\n\tat org.apache.lucene.index.DocumentsWriterDeleteQueue$DeleteSlice.apply(DocumentsWriterDeleteQueue.java:284)\n\tat org.apache.lucene.index.DocumentsWriterDeleteQueue.tryApplyGlobalSlice(DocumentsWriterDeleteQueue.java:204)\n\tat org.apache.lucene.index.DocumentsWriterDeleteQueue.addDelete(DocumentsWriterDeleteQueue.java:106)\n\tat org.apache.lucene.index.DocumentsWriter.deleteQueries(DocumentsWriter.java:141)\n\tat org.apache.lucene.index.IndexWriter.deleteDocuments(IndexWriter.java:1465)\n\tat org.apache.solr.update.DirectUpdateHandler2.deleteByQuery(DirectUpdateHandler2.java:409)\n\tat org.apache.solr.update.processor.RunUpdateProcessor.processDelete(RunUpdateProcessorFactory.java:80)\n\tat org.apache.solr.update.processor.UpdateRequestProcessor.processDelete(UpdateRequestProcessor.java:55)\n\tat org.apache.solr.update.processor.DistributedUpdateProcessor.doLocalDelete(DistributedUpdateProcessor.java:931)\n\tat org.apache.solr.update.processor.DistributedUpdateProcessor.doDeleteByQuery(DistributedUpdateProcessor.java:1433)\n\tat org.apache.solr.update.processor.DistributedUpdateProcessor.processDelete(DistributedUpdateProcessor.java:1226)\n\tat org.apache.solr.update.processor.LogUpdateProcessor.processDelete(LogUpdateProcessorFactory.java:121)\n\tat org.apache.solr.handler.loader.XMLLoader.processDelete(XMLLoader.java:349)\n\tat org.apache.solr.handler.loader.XMLLoader.processUpdate(XMLLoader.java:278)\n\tat org.apache.solr.handler.loader.XMLLoader.load(XMLLoader.java:174)\n\tat org.apache.solr.handler.UpdateRequestHandler$1.load(UpdateRequestHandler.java:99)\n\tat org.apache.solr.handler.ContentStreamHandlerBase.handleRequestBody(ContentStreamHandlerBase.java:74)\n\tat org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:135)\n\tat org.apache.solr.core.SolrCore.execute(SolrCore.java:1967)\n\tat org.apache.solr.servlet.SolrDispatchFilter.execute(SolrDispatchFilter.java:777)\n\tat org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:418)\n\tat org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:207)\n\tat org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1419)\n\tat org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:455)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)\n\tat org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:557)\n\tat org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)\n\tat org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1075)\n\tat org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:384)\n\tat org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)\n\tat org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1009)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)\n\tat org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:255)\n\tat org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154)\n\tat org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)\n\tat org.eclipse.jetty.server.Server.handle(Server.java:368)\n\tat org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:489)\n\tat org.eclipse.jetty.server.BlockingHttpConnection.handleRequest(BlockingHttpConnection.java:53)\n\tat org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:953)\n\tat org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:1014)\n\tat org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:861)\n\tat org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)\n\tat org.eclipse.jetty.server.BlockingHttpConnection.handle(BlockingHttpConnection.java:72)\n\tat org.eclipse.jetty.server.bio.SocketConnector$ConnectorEndPoint.run(SocketConnector.java:264)\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)\n\tat java.lang.Thread.run(Thread.java:748)\n",
+    "code":500}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json&indent=true' -H "Content-Type: text/xml" --data-binary '<commit/>'
+--------------
+HTTP/1.1 500 Server Error
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{
+  "responseHeader":{
+    "status":500,
+    "QTime":0},
+  "error":{
+    "trace":"java.lang.NullPointerException\n\tat org.apache.lucene.search.BooleanClause.hashCode(BooleanClause.java:99)\n\tat java.util.AbstractList.hashCode(AbstractList.java:541)\n\tat org.apache.lucene.search.BooleanQuery.hashCode(BooleanQuery.java:656)\n\tat java.util.HashMap.hash(HashMap.java:339)\n\tat java.util.HashMap.put(HashMap.java:612)\n\tat org.apache.lucene.index.BufferedUpdates.addQuery(BufferedUpdates.java:198)\n\tat org.apache.lucene.index.DocumentsWriterDeleteQueue$QueryArrayNode.apply(DocumentsWriterDeleteQueue.java:369)\n\tat org.apache.lucene.index.DocumentsWriterDeleteQueue$DeleteSlice.apply(DocumentsWriterDeleteQueue.java:284)\n\tat org.apache.lucene.index.DocumentsWriterPerThread.prepareFlush(DocumentsWriterPerThread.java:395)\n\tat org.apache.lucene.index.DocumentsWriterFlushQueue.addFlushTicket(DocumentsWriterFlushQueue.java:70)\n\tat org.apache.lucene.index.DocumentsWriter.doFlush(DocumentsWriter.java:504)\n\tat org.apache.lucene.index.DocumentsWriter.flushAllThreads(DocumentsWriter.java:621)\n\tat org.apache.lucene.index.IndexWriter.prepareCommitInternal(IndexWriter.java:2942)\n\tat org.apache.lucene.index.IndexWriter.commitInternal(IndexWriter.java:3097)\n\tat org.apache.lucene.index.IndexWriter.commit(IndexWriter.java:3064)\n\tat org.apache.solr.update.DirectUpdateHandler2.commit(DirectUpdateHandler2.java:582)\n\tat org.apache.solr.update.processor.RunUpdateProcessor.processCommit(RunUpdateProcessorFactory.java:95)\n\tat org.apache.solr.update.processor.UpdateRequestProcessor.processCommit(UpdateRequestProcessor.java:64)\n\tat org.apache.solr.update.processor.DistributedUpdateProcessor.doLocalCommit(DistributedUpdateProcessor.java:1707)\n\tat org.apache.solr.update.processor.DistributedUpdateProcessor.processCommit(DistributedUpdateProcessor.java:1684)\n\tat org.apache.solr.update.processor.LogUpdateProcessor.processCommit(LogUpdateProcessorFactory.java:157)\n\tat org.apache.solr.handler.loader.XMLLoader.processUpdate(XMLLoader.java:267)\n\tat org.apache.solr.handler.loader.XMLLoader.load(XMLLoader.java:174)\n\tat org.apache.solr.handler.UpdateRequestHandler$1.load(UpdateRequestHandler.java:99)\n\tat org.apache.solr.handler.ContentStreamHandlerBase.handleRequestBody(ContentStreamHandlerBase.java:74)\n\tat org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:135)\n\tat org.apache.solr.core.SolrCore.execute(SolrCore.java:1967)\n\tat org.apache.solr.servlet.SolrDispatchFilter.execute(SolrDispatchFilter.java:777)\n\tat org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:418)\n\tat org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:207)\n\tat org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1419)\n\tat org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:455)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)\n\tat org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:557)\n\tat org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)\n\tat org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1075)\n\tat org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:384)\n\tat org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)\n\tat org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1009)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)\n\tat org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:255)\n\tat org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154)\n\tat org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)\n\tat org.eclipse.jetty.server.Server.handle(Server.java:368)\n\tat org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:489)\n\tat org.eclipse.jetty.server.BlockingHttpConnection.handleRequest(BlockingHttpConnection.java:53)\n\tat org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:953)\n\tat org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:1014)\n\tat org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:861)\n\tat org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)\n\tat org.eclipse.jetty.server.BlockingHttpConnection.handle(BlockingHttpConnection.java:72)\n\tat org.eclipse.jetty.server.bio.SocketConnector$ConnectorEndPoint.run(SocketConnector.java:264)\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)\n\tat java.lang.Thread.run(Thread.java:748)\n",
+    "code":500}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json&indent=true' -H "Content-Type: text/xml" --data-binary '<commit waitSearcher="false"/>'
+--------------
+HTTP/1.1 200 OK
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":3}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json&indent=true' -H "Content-Type: text/xml" --data-binary '<commit waitSearcher="false" expungeDeletes="true"/>'
+--------------
+HTTP/1.1 200 OK
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":4}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json&indent=true' -H "Content-Type: text/xml" --data-binary '<optimize waitSearcher="false"/>'
+--------------
+HTTP/1.1 200 OK
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":13729}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json&indent=true' -H "Content-Type: text/xml" --data-binary '<?xml version="1.0" encoding="UTF-8"?>
+            <add>
+              <doc>
+                <field name="id">DELETEME</field>
+              </doc>
+            </add>'
+--------------
+HTTP/1.1 200 OK
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":1}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json&indent=true' -H "Content-Type: text/xml" --data-binary '<commit/>'
+--------------
+HTTP/1.1 200 OK
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":134}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json&indent=true' -H "Content-Type: text/xml" --data-binary '<delete>
+              <id>DELETEME</id>
+            </delete>'
+--------------
+HTTP/1.1 200 OK
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":1}}
+==============
+
+==============
+curl --include --silent 'http://localhost:8983/solr/findingaids/update?wt=json&indent=true' -H "Content-Type: text/xml" --data-binary '<commit/>'
+--------------
+HTTP/1.1 200 OK
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":5}}
+==============
+
