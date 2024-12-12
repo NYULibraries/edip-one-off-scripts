@@ -1,0 +1,2 @@
+This script performs write operations on a Solr instance running on http://localhost:8983.
+Read this script first, if you have Solr or anything running on that port.  Use this script at your own risk!
