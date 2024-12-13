@@ -111,9 +111,18 @@ function deletes() {
     BODY+=('<delete>
                <non-existent></non-existent>
             </delete>')
+
+    # This causes an HTTP 500 error that seems to mess up subsequent adds, so
+    # so we rollback immediately afterward.  A `<commit waitSearcher="false"/>`
+    # also seems to prevent errors with subsequent adds, judging from the
+    # previous results, but it's unclear whether the commit itself would be
+    # saving something undesirable to the index.  It seems likely that rollback
+    # is the safer option.
     BODY+=('<delete>
                <query></query>
             </delete>')
+    BODY+=('<rollback/>')
+
     BODY+=('<delete>
                <query>nonexistent:value</query>
             </delete>')
