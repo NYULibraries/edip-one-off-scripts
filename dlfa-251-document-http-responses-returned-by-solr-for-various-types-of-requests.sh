@@ -1,4 +1,4 @@
-#!/usr/local/bin/bash
+#!/usr/bin/env bash
 
 UPDATE_URL='http://localhost:8983/solr/findingaids/update?wt=json&indent=true'
 
