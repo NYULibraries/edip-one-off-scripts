@@ -24,18 +24,19 @@ URL+=('http://localhost:8983/solr/findingaids/update?wt=json')
 function gets() {
     for url in "${URL[@]}"; do
         cmd="curl --include --silent '$url'"
-        echo -e "==============\n$cmd\n--------------"
-        eval $cmd
-        echo -e "==============\n"
+        results=$( eval $cmd )
+
+        echo -e "-----\n{code:bash}\n$cmd\n{code}\n"
+        echo -e "{code:javascript}\n$results\n{code}\n"
     done
 }
 
 function postWithEmptyBodies() {
     for url in "${URL[@]}"; do
         cmd="curl --include --silent '$url' -H \"Content-Type: text/xml\" --data-binary ''"
-        echo -e "==============\n$cmd\n--------------"
-        eval $cmd
-        echo -e "==============\n"
+        results=$( eval $cmd )
+        echo -e "-----\n{code:bash}\n$cmd\n{code}\n"
+        echo -e "{code:javascript}\n$results\n{code}\n"
     done
 }
 
@@ -95,9 +96,10 @@ function adds() {
             </add>')
     for body in "${BODY[@]}"; do
         cmd="curl --include --silent '$UPDATE_URL' -H \"Content-Type: text/xml\" --data-binary '$body'"
-        echo -e "==============\n$cmd\n--------------"
-        eval $cmd
-        echo -e "==============\n"
+        results=$( eval $cmd )
+
+        echo -e "-----\n{code:bash}\n$cmd\n{code}\n"
+        echo -e "{code:javascript}\n$results\n{code}\n"
     done
 }
 
@@ -151,9 +153,10 @@ function deletes() {
 
     for body in "${BODY[@]}"; do
         cmd="curl --include --silent '$UPDATE_URL' -H \"Content-Type: text/xml\" --data-binary '$body'"
-        echo -e "==============\n$cmd\n--------------"
-        eval $cmd
-        echo -e "==============\n"
+        results=$( eval $cmd )
+
+        echo -e "-----\n{code:bash}\n$cmd\n{code}\n"
+        echo -e "{code:javascript}\n$results\n{code}\n"
     done
 }
 
@@ -181,9 +184,10 @@ function commits() {
 
     for body in "${BODY[@]}"; do
         cmd="curl --include --silent '$UPDATE_URL' -H \"Content-Type: text/xml\" --data-binary '$body'"
-        echo -e "==============\n$cmd\n--------------"
-        eval $cmd
-        echo -e "==============\n"
+        results=$( eval $cmd )
+
+        echo -e "-----\n{code:bash}\n$cmd\n{code}\n"
+        echo -e "{code:javascript}\n$results\n{code}\n"
     done
 }
 
