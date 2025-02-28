@@ -61,6 +61,17 @@ eadFiles.forEach( eadFile => {
     writeLbTagPathsCsvFile( lbTagPaths );
 } );
 
+function getParentArrayForElement( element, parentArray ) {
+    const parent = element.parentElement;
+    if ( ! parent ) {
+        return parentArray;
+    }
+
+    parentArray.unshift( parent.nodeName );
+
+    return getParentArrayForElement( parent, parentArray );
+}
+
 function writeLbTagCountsCsvFile( lbTagCounts ) {
     let csvData = '';
 
@@ -83,15 +94,4 @@ function writeLbTagPathsCsvFile( lbTagPaths ) {
     } );
 
     fs.writeFileSync( LB_TAG_PATHS_CSV_FILE, csvData, { encoding : 'utf8' } );
-}
-
-function getParentArrayForElement( element, parentArray ) {
-    const parent = element.parentElement;
-    if ( ! parent ) {
-        return parentArray;
-    }
-
-    parentArray.unshift( parent.nodeName );
-
-    return getParentArrayForElement( parent, parentArray );
 }
